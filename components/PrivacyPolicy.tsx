@@ -1,7 +1,20 @@
 import React, { useEffect } from 'react';
 import { Header } from './Header';
+import { EmailModal } from './EmailModal';
 
-export const PrivacyPolicy: React.FC = () => {
+interface PrivacyPolicyProps {
+  onOpenModal?: (title?: string) => void;
+  isModalOpen?: boolean;
+  modalTitle?: string;
+  onCloseModal?: () => void;
+}
+
+export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ 
+  onOpenModal = () => {}, 
+  isModalOpen = false, 
+  modalTitle = 'Get Started',
+  onCloseModal = () => {}
+}) => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -9,7 +22,7 @@ export const PrivacyPolicy: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header onOpenModal={() => {}} />
+      <Header onOpenModal={onOpenModal} />
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
@@ -380,6 +393,7 @@ export const PrivacyPolicy: React.FC = () => {
           </div>
         </div>
       </main>
+      <EmailModal isOpen={isModalOpen} onClose={onCloseModal} title={modalTitle} />
     </div>
   );
 };

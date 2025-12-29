@@ -50,11 +50,25 @@ const App: React.FC = () => {
                       currentPath.endsWith('/terms');
 
   if (isPrivacyPage) {
-    return <PrivacyPolicy />;
+    return (
+      <PrivacyPolicy 
+        onOpenModal={openModal}
+        isModalOpen={isModalOpen}
+        modalTitle={modalTitle}
+        onCloseModal={closeModal}
+      />
+    );
   }
 
   if (isTermsPage) {
-    return <TermsAndConditions />;
+    return (
+      <TermsAndConditions 
+        onOpenModal={openModal}
+        isModalOpen={isModalOpen}
+        modalTitle={modalTitle}
+        onCloseModal={closeModal}
+      />
+    );
   }
 
   return (

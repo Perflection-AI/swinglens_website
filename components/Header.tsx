@@ -17,6 +17,41 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Helper function to check if we're on a different page
+  const isOnOtherPage = () => {
+    const currentPath = window.location.pathname;
+    return currentPath === '/privacy' || 
+           currentPath === '/swinglens_website/privacy' || 
+           currentPath.endsWith('/privacy') ||
+           currentPath === '/terms' || 
+           currentPath === '/swinglens_website/terms' || 
+           currentPath.endsWith('/terms');
+  };
+
+  // Helper function to navigate to homepage section
+  const navigateToSection = (sectionId: string) => {
+    if (isOnOtherPage()) {
+      // Navigate to homepage first
+      window.history.pushState({}, '', '/swinglens_website/');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      // Wait for page change, then scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      // Already on homepage, just scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   // Using a cleaner moon shape for the SVG to match the request
   const cleanLogoUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect width='24' height='24' rx='6' fill='url(%23g)'/%3E%3Cpath fill='%23FBF8EE' d='M19 12.8A7.5 7.5 0 1 1 10.8 4.7 5.8 5.8 0 0 0 19 12.8z'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='24' y2='24' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2395B560'/%3E%3Cstop offset='1' stop-color='%235A7833'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E";
 
@@ -32,16 +67,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         <div 
           className="flex items-center gap-2.5 cursor-pointer group"
           onClick={() => {
-            // Check if we're on a different page (privacy or terms)
-            const currentPath = window.location.pathname;
-            const isOnOtherPage = currentPath === '/privacy' || 
-                                  currentPath === '/swinglens_website/privacy' || 
-                                  currentPath.endsWith('/privacy') ||
-                                  currentPath === '/terms' || 
-                                  currentPath === '/swinglens_website/terms' || 
-                                  currentPath.endsWith('/terms');
-            
-            if (isOnOtherPage) {
+            if (isOnOtherPage()) {
               // Navigate to homepage first
               window.history.pushState({}, '', '/swinglens_website/');
               window.dispatchEvent(new PopStateEvent('popstate'));
@@ -70,7 +96,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           {['Features', 'Solutions', 'Testimonials'].map((item) => (
             <a 
               key={item}
-              href={`#${item.toLowerCase()}`} 
+              href={`#${item.toLowerCase()}`}
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToSection(item.toLowerCase());
+              }}
               className="text-subtle font-medium text-sm px-4 py-2 rounded-full hover:bg-golf-100 hover:text-golf-700 transition-all"
             >
               {item}
@@ -101,8 +131,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           {['Features', 'Solutions', 'Testimonials'].map((item) => (
             <a 
               key={item}
-              href={`#${item.toLowerCase()}`} 
-              onClick={() => setIsMobileMenuOpen(false)} 
+              href={`#${item.toLowerCase()}`}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                navigateToSection(item.toLowerCase());
+              }}
               className="text-ink font-medium p-3 rounded-lg hover:bg-golf-100 transition-colors"
             >
               {item}
