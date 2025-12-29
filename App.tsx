@@ -8,6 +8,7 @@ import { Footer } from './components/Footer';
 import { EmailModal } from './components/EmailModal';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
+import { getBasePath, getPath } from './utils/paths';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,12 +42,12 @@ const App: React.FC = () => {
 
   // Check if we're on the privacy policy page
   const isPrivacyPage = currentPath === '/privacy' || 
-                        currentPath === '/swinglens_website/privacy' || 
+                        currentPath === getPath('privacy') ||
                         currentPath.endsWith('/privacy');
 
   // Check if we're on the terms page
   const isTermsPage = currentPath === '/terms' || 
-                      currentPath === '/swinglens_website/terms' || 
+                      currentPath === getPath('terms') ||
                       currentPath.endsWith('/terms');
 
   if (isPrivacyPage) {

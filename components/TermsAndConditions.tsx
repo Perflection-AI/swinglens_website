@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Header } from './Header';
 import { EmailModal } from './EmailModal';
+import { getBasePath } from '../utils/paths';
 
 interface TermsAndConditionsProps {
   onOpenModal?: (title?: string) => void;
@@ -27,10 +28,11 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
             <a 
-              href="/swinglens_website/" 
+              href={getBasePath() === '/' ? '/' : getBasePath()} 
               onClick={(e) => {
                 e.preventDefault();
-                window.history.pushState({}, '', '/swinglens_website/');
+                const base = getBasePath();
+                window.history.pushState({}, '', base === '/' ? '/' : base);
                 window.dispatchEvent(new PopStateEvent('popstate'));
               }}
               className="text-golf-600 hover:text-golf-700 text-sm font-medium inline-flex items-center gap-2"

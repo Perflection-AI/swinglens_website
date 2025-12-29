@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
+import { getPath } from '../utils/paths';
 
 // TikTok Icon Component
 const TikTokIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -81,10 +82,10 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm font-medium text-subtle">
               <li>
                 <a 
-                  href="/swinglens_website/privacy" 
+                  href={getPath('privacy')} 
                   onClick={(e) => {
                     e.preventDefault();
-                    window.history.pushState({}, '', '/swinglens_website/privacy');
+                    window.history.pushState({}, '', getPath('privacy'));
                     window.dispatchEvent(new PopStateEvent('popstate'));
                   }}
                   className="hover:text-golf-600 transition-colors"
@@ -94,10 +95,10 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a 
-                  href="/swinglens_website/terms" 
+                  href={getPath('terms')} 
                   onClick={(e) => {
                     e.preventDefault();
-                    window.history.pushState({}, '', '/swinglens_website/terms');
+                    window.history.pushState({}, '', getPath('terms'));
                     window.dispatchEvent(new PopStateEvent('popstate'));
                   }}
                   className="hover:text-golf-600 transition-colors"

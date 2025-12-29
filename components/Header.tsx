@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { getBasePath, getPath } from '../utils/paths';
 
 interface HeaderProps {
   onOpenModal: (title?: string) => void;
@@ -20,19 +21,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
   // Helper function to check if we're on a different page
   const isOnOtherPage = () => {
     const currentPath = window.location.pathname;
+    const base = getBasePath();
     return currentPath === '/privacy' || 
-           currentPath === '/swinglens_website/privacy' || 
+           currentPath === getPath('privacy') ||
            currentPath.endsWith('/privacy') ||
            currentPath === '/terms' || 
-           currentPath === '/swinglens_website/terms' || 
+           currentPath === getPath('terms') ||
            currentPath.endsWith('/terms');
   };
 
   // Helper function to navigate to homepage section
   const navigateToSection = (sectionId: string) => {
+    const base = getBasePath();
     if (isOnOtherPage()) {
       // Navigate to homepage first
-      window.history.pushState({}, '', '/swinglens_website/');
+      window.history.pushState({}, '', base === '/' ? '/' : base);
       window.dispatchEvent(new PopStateEvent('popstate'));
       // Wait for page change, then scroll to section
       setTimeout(() => {
@@ -67,9 +70,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         <div 
           className="flex items-center gap-2.5 cursor-pointer group"
           onClick={() => {
+            const base = getBasePath();
             if (isOnOtherPage()) {
               // Navigate to homepage first
-              window.history.pushState({}, '', '/swinglens_website/');
+              window.history.pushState({}, '', base === '/' ? '/' : base);
               window.dispatchEvent(new PopStateEvent('popstate'));
               // Small delay to ensure page change, then scroll
               setTimeout(() => {
