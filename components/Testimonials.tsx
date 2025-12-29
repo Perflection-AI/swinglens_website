@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "David Miller",
     role: "Beginner",
-    content: "I'm just getting into golf, and the doodle me and roast me rap song features are hilairous! I'm sticking with this app!",
+    content: "I'm just getting into golf, and the doodle me and roast me rap song features are hilarious! I'm sticking with this app!",
     image: "https://picsum.photos/64/64?random=6"
   }
 ];
