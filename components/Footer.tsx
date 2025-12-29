@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-subtle font-medium leading-relaxed">
-              The world's most advanced AI golf coach. Analyze, improve, and dominate the course.
+              The world's most advanced AI golf coach. Analyze, improve, and dominate your swing.
             </p>
           </div>
           
