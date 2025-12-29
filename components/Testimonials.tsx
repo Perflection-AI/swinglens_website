@@ -14,7 +14,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: "Sarah Jenkins",
     role: "Scratch Golfer",
-    content: "Even as an advanced player, auto swing recording and analysis is so helpful. My coach is on the app too, so it's like having two coaches in my pocket!",
+    content: "Even as an advanced player, the app's auto swing recording and analysis tools are so helpful. My coach is on the app too, so it's like having two coaches in my pocket!",
     image: "https://picsum.photos/64/64?random=5"
   },
   {
