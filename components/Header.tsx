@@ -31,7 +31,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div 
           className="flex items-center gap-2.5 cursor-pointer group"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            // Check if we're on a different page (privacy or terms)
+            const currentPath = window.location.pathname;
+            const isOnOtherPage = currentPath === '/privacy' || 
+                                  currentPath === '/swinglens_website/privacy' || 
+                                  currentPath.endsWith('/privacy') ||
+                                  currentPath === '/terms' || 
+                                  currentPath === '/swinglens_website/terms' || 
+                                  currentPath.endsWith('/terms');
+            
+            if (isOnOtherPage) {
+              // Navigate to homepage first
+              window.history.pushState({}, '', '/swinglens_website/');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+              // Small delay to ensure page change, then scroll
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }, 100);
+            } else {
+              // Just scroll to top on homepage
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
         >
           <img 
             src={cleanLogoUrl} 

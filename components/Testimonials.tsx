@@ -7,21 +7,21 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Michael Chen",
     role: "15 Handicap",
-    content: "I dropped 5 strokes in my first month. The instant feedback on my swing plane changed everything.",
+    content: "This app told me exactly what my coach had told me, it is incredible!",
     image: "https://picsum.photos/64/64?random=4"
   },
   {
     id: 2,
     name: "Sarah Jenkins",
     role: "Scratch Golfer",
-    content: "Even as an advanced player, the data granularity SwingLens provides is impressive. It's like having a Trackman in your pocket.",
+    content: "Even as an advanced player, auto swing recording and analysis is so helpful. My coach is on the app too, so it's like having two coaches in my pocket!",
     image: "https://picsum.photos/64/64?random=5"
   },
   {
     id: 3,
     name: "David Miller",
     role: "Beginner",
-    content: "Golf was intimidating until I found this app. The AI coach explains things simply and the drills are actually fun.",
+    content: "I'm just getting into golf, and the doodle me and roast me rap song features are hilairous! I'm sticking with this app!",
     image: "https://picsum.photos/64/64?random=6"
   }
 ];
