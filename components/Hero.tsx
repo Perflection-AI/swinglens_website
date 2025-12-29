@@ -18,7 +18,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-golf-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-golf-500"></span>
               </span>
-              Powered by Gemini 2.5
+              Powered by AI
             </div>
             
             <h1 className="text-5xl lg:text-7xl tracking-tight text-ink leading-[1.1] mb-6 font-display font-extrabold">

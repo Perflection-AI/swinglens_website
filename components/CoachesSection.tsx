@@ -55,10 +55,10 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
 
             <div className="pt-6 border-t border-ink/5">
                <button 
-                 disabled
-                 className="flex items-center gap-2 text-ink/50 font-bold text-sm cursor-not-allowed opacity-60"
+                 onClick={() => onOpenModal('View Dashboard')}
+                 className="flex items-center gap-2 text-gold font-bold text-sm hover:text-gold-600 transition-colors group"
                >
-                  View Dashboard <ArrowRight className="w-4 h-4" />
+                  View Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                </button>
             </div>
           </div>
@@ -96,10 +96,10 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
 
             <div className="pt-6 border-t border-ink/5">
                <button 
-                 disabled
-                 className="flex items-center gap-2 text-ink/50 font-bold text-sm cursor-not-allowed opacity-60"
+                 onClick={() => onOpenModal('Start Training')}
+                 className="flex items-center gap-2 text-golf-600 font-bold text-sm hover:text-golf-700 transition-colors group"
                >
-                  Start Training <ArrowRight className="w-4 h-4" />
+                  Start Training <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                </button>
             </div>
           </div>
