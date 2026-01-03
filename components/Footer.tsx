@@ -111,7 +111,7 @@ export const Footer: React.FC = () => {
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-golf-100">
-          <p className="text-sm text-subtle">© 2025 SwingLens Inc. All rights reserved.</p>
+          <p className="text-sm text-subtle">© 2025 Perflection.AI Inc. All rights reserved.</p>
           <div className="flex gap-6 mt-6 md:mt-0">
             <a 
               href="https://www.instagram.com/perflection.ai" 
