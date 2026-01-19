@@ -1,11 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PlayCircle, ArrowRight, Zap } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: (title?: string) => void;
 }
 
+// Configuration for which overlays to show for each image
+interface SwingScoreData {
+  score: number;
+  percentage: string;
+  progressBarWidth: number; // 0-100
+  message: string;
+}
+
+interface OverlayConfig {
+  recordingButton: boolean;
+  swingScore: boolean | SwingScoreData;
+  carryDistance: boolean;
+  analysisLines: boolean;
+}
+
+const imageOverlayConfig: Record<string, OverlayConfig> = {
+  '/assets/IMG_8680.jpg': {
+    recordingButton: false,
+    swingScore: false,
+    carryDistance: false,
+    analysisLines: false,
+  },
+  '/assets/IMG_8683.jpg': {
+    recordingButton: true,
+    swingScore: {
+      score: 82,
+      percentage: '+4.2%',
+      progressBarWidth: 60,
+      message: 'Excellent tempo control'
+    },
+    carryDistance: true,
+    analysisLines: false,
+  },
+  '/assets/IMG_8686.jpg': {
+    recordingButton: false,
+    swingScore: false,
+    carryDistance: false,
+    analysisLines: false,
+  },
+  '/assets/IMG_8687.jpg': {
+    recordingButton: true,
+    swingScore: {
+      score: 67,
+      percentage: '+1.2%',
+      progressBarWidth: 60,
+      message: 'Powerful guy, keep grinding!'
+    },
+    carryDistance: true,
+    analysisLines: false,
+  },
+};
+
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
+  // Array of all images
+  const images = [
+    '/assets/IMG_8680.jpg',
+    '/assets/IMG_8683.jpg',
+    '/assets/IMG_8686.jpg',
+    '/assets/IMG_8687.jpg'
+  ];
+  
+  // Randomly select one image index on component mount
+  const [currentImageIndex, setCurrentImageIndex] = useState(() => {
+    return Math.floor(Math.random() * images.length);
+  });
+  
+  // Get the current selected image
+  const currentImage = images[currentImageIndex];
+  
+  // Get overlay configuration for current image
+  const overlayConfig: OverlayConfig = imageOverlayConfig[currentImage] || {
+    recordingButton: false,
+    swingScore: false,
+    carryDistance: false,
+    analysisLines: false,
+  };
+  
+  // Handle image click to cycle to next image
+  const handleImageClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
   return (
     <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-20 overflow-hidden bg-paper bg-grid-paper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -72,78 +152,84 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
              <div className="relative w-[300px] h-[600px] bg-ink rounded-[2.5rem] shadow-soft-xl border-[8px] border-ink overflow-hidden transform rotate-[-3deg] hover:rotate-0 transition-all duration-700 ease-out z-10 ring-1 ring-white/20">
                 
                 {/* Screen Content */}
-                <div className="absolute inset-0 bg-ink">
+                <div className="absolute inset-0 bg-ink cursor-pointer" onClick={handleImageClick}>
                   <img 
-                    src="https://picsum.photos/600/1066?grayscale" 
+                    src={currentImage} 
                     alt="App Interface" 
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-80 transition-opacity duration-300 hover:opacity-90 pointer-events-none"
                   />
                   
-                  {/* Modern Overlay UI - Updated black to ink */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink/90"></div>
-
                   {/* Analysis Lines - Fresher Green */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                     <defs>
-                        <filter id="glow">
-                           <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-                           <feMerge>
-                              <feMergeNode in="coloredBlur"/>
-                              <feMergeNode in="SourceGraphic"/>
-                           </feMerge>
-                        </filter>
-                     </defs>
-                    <path d="M 30 80 L 50 20 L 70 80" stroke="#B8D085" strokeWidth="2" fill="none" strokeDasharray="4,4" filter="url(#glow)" opacity="0.9" />
-                    <circle cx="50" cy="20" r="3" fill="#E8F3D8" filter="url(#glow)" />
-                    <circle cx="30" cy="80" r="3" fill="#E8F3D8" filter="url(#glow)" />
-                  </svg>
+                  {overlayConfig.analysisLines && (
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                       <defs>
+                          <filter id="glow">
+                             <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                             <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                             </feMerge>
+                          </filter>
+                       </defs>
+                      <path d="M 30 80 L 50 20 L 70 80" stroke="#B8D085" strokeWidth="2" fill="none" strokeDasharray="4,4" filter="url(#glow)" opacity="0.9" />
+                      <circle cx="50" cy="20" r="3" fill="#E8F3D8" filter="url(#glow)" />
+                      <circle cx="30" cy="80" r="3" fill="#E8F3D8" filter="url(#glow)" />
+                    </svg>
+                  )}
 
-                  {/* Floating UI Cards */}
-                  <div className="absolute top-12 left-6 right-6 flex justify-between">
-                     <div className="bg-ink/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg text-white/90 font-medium text-xs flex items-center gap-2 font-mono">
-                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        REC
-                     </div>
-                  </div>
+                  {/* Floating UI Cards - Recording Button */}
+                  {overlayConfig.recordingButton && (
+                    <div className="absolute top-12 left-6 right-6 flex justify-between pointer-events-none">
+                       <div className="bg-ink/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg text-white/90 font-medium text-xs flex items-center gap-2 font-mono">
+                          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                          REC
+                       </div>
+                    </div>
+                  )}
 
-                  <div className="absolute bottom-8 left-6 right-6">
-                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl shadow-lg">
-                      <div className="flex justify-between items-end mb-3">
-                         <div>
-                            <span className="block text-white/60 text-xs font-medium uppercase tracking-wider mb-1 font-mono">Swing Score</span>
-                            <span className="text-3xl font-bold text-white font-mono">92</span>
-                         </div>
-                         <div className="text-right">
-                           <div className="bg-golf-500/20 text-golf-300 px-2 py-1 rounded text-xs font-bold mb-1 font-mono">+4.2%</div>
-                         </div>
-                      </div>
-                      
-                      <div className="space-y-2">
-                         <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                           <div className="bg-gradient-to-r from-golf-300 to-golf-500 h-full w-[92%] rounded-full shadow-[0_0_10px_rgba(184,208,133,0.5)]"></div>
-                         </div>
-                         <p className="text-white/80 text-xs font-medium flex items-center gap-2">
-                           <Zap className="w-3 h-3 text-gold fill-current" />
-                           Excellent tempo control
-                         </p>
+                  {/* Swing Score Card */}
+                  {overlayConfig.swingScore && typeof overlayConfig.swingScore === 'object' && (
+                    <div className="absolute bottom-8 left-6 right-6 pointer-events-none">
+                      <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-5 rounded-2xl shadow-lg">
+                        <div className="flex justify-between items-end mb-3">
+                           <div>
+                              <span className="block text-white/60 text-xs font-medium uppercase tracking-wider mb-1 font-mono">Swing Score</span>
+                              <span className="text-3xl font-bold text-white font-mono">{overlayConfig.swingScore.score}</span>
+                           </div>
+                           <div className="text-right">
+                             <div className="bg-golf-500/20 text-golf-300 px-2 py-1 rounded text-xs font-bold mb-1 font-mono">{overlayConfig.swingScore.percentage}</div>
+                           </div>
+                        </div>
+                        
+                        <div className="space-y-2">
+                           <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                             <div className="bg-gradient-to-r from-golf-300 to-golf-500 h-full rounded-full shadow-[0_0_10px_rgba(184,208,133,0.5)]" style={{ width: `${overlayConfig.swingScore.progressBarWidth}%` }}></div>
+                           </div>
+                           <p className="text-white/80 text-xs font-medium flex items-center gap-2">
+                             <Zap className="w-3 h-3 text-gold fill-current" />
+                             {overlayConfig.swingScore.message}
+                           </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
              </div>
              
-             {/* Floating Badge */}
-             <div className="absolute top-1/3 -right-4 bg-white p-4 rounded-xl shadow-card border border-ink/10 transform rotate-3 animate-float z-20">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-golf-50 flex items-center justify-center text-golf-600 border border-golf-100">
-                     <ArrowRight className="w-5 h-5 -rotate-45" />
-                  </div>
-                  <div>
-                     <div className="text-xs text-subtle font-medium font-mono uppercase">Carry Distance</div>
-                     <div className="text-lg font-bold text-ink font-mono">274 yds</div>
-                  </div>
+             {/* Floating Badge - Carry Distance */}
+             {overlayConfig.carryDistance && (
+               <div className="absolute top-1/3 -right-4 bg-white p-4 rounded-xl shadow-card border border-ink/10 transform rotate-3 animate-float z-20">
+                 <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-golf-50 flex items-center justify-center text-golf-600 border border-golf-100">
+                       <ArrowRight className="w-5 h-5 -rotate-45" />
+                    </div>
+                    <div>
+                       <div className="text-xs text-subtle font-medium font-mono uppercase">Carry Distance</div>
+                       <div className="text-lg font-bold text-ink font-mono">274 yds</div>
+                    </div>
+                 </div>
                </div>
-             </div>
+             )}
           </div>
 
         </div>
