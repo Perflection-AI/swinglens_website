@@ -36,7 +36,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
       // Send email using EmailJS
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
         to_email: email,
-        from_name: 'SwingLens',
+        from_name: 'Perflection AI',
         message: `New signup request from: ${email}`,
         user_email: email,
       });

@@ -51,7 +51,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                   We are <strong>Perflection.AI, Inc.</strong> ("<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>," "<strong>our</strong>"), a company registered in <strong>Delaware</strong>, <strong>United States</strong> at <strong>251 Little Falls Drive</strong>, <strong>Wilmington</strong>, <strong>DE</strong> <strong>19808</strong>.
                 </p>
                 <p className="text-subtle mb-4">
-                  We operate the website <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> (the "<strong>Site</strong>"), the mobile application <strong>SwingLens</strong> (the "<strong>App</strong>"), as well as any other related products and services that refer or link to these legal terms (the "<strong>Legal Terms</strong>") (collectively, the "<strong>Services</strong>").
+                  We operate the website <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> (the "<strong>Site</strong>"), the mobile application <strong>Perflection AI</strong> (the "<strong>App</strong>"), as well as any other related products and services that refer or link to these legal terms (the "<strong>Legal Terms</strong>") (collectively, the "<strong>Services</strong>").
                 </p>
                 <p className="text-subtle mb-4">
                   <strong>A Coach-Led AI training platform that empowers coaches and recreational golfers to teach and train anytime, anywhere.</strong>
@@ -507,7 +507,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">29. SMS TEXT MESSAGING</h2>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Program Description</h3>
                 <p className="text-subtle mb-4">
-                  By opting into any <strong>SwingLens</strong> text messaging program, you expressly consent to receive text messages (SMS) to your mobile number. <strong>SwingLens</strong> text messages may include: <strong>account alerts</strong>, <strong>marketing communications</strong>, <strong>appointment reminders</strong>, <strong>order updates</strong>, <strong>responses to inquiries</strong> and <strong>special offers</strong>.
+                  By opting into any <strong>Perflection AI</strong> text messaging program, you expressly consent to receive text messages (SMS) to your mobile number. <strong>Perflection AI</strong> text messages may include: <strong>account alerts</strong>, <strong>marketing communications</strong>, <strong>appointment reminders</strong>, <strong>order updates</strong>, <strong>responses to inquiries</strong> and <strong>special offers</strong>.
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Opting Out</h3>
                 <p className="text-subtle mb-4">

@@ -51,7 +51,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
 
               <ul className="list-disc pl-6 mb-6 text-subtle space-y-2">
                 <li>Visit our website at <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> or any website of ours that links to this Privacy Notice</li>
-                <li>Use <strong>SwingLens</strong>. A Coach-Led AI training platform that empowers coaches and recreational golfers to teach and train anytime, anywhere.</li>
+                <li>Use <strong>Perflection AI</strong>. A Coach-Led AI training platform that empowers coaches and recreational golfers to teach and train anytime, anywhere.</li>
                 <li>Engage with us in other related ways, including any sales, marketing, or events</li>
               </ul>
 

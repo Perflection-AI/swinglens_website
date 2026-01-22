@@ -69,7 +69,7 @@ export const CoachDemo: React.FC = () => {
                     <Bot className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-ink text-lg">SwingLens Coach</h4>
+                    <h4 className="font-display font-bold text-ink text-lg">Perflection AI Coach</h4>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-golf-400 animate-pulse"></span>
                       <span className="text-xs text-subtle font-bold font-mono uppercase tracking-wide">Online</span>

@@ -35,8 +35,8 @@ const DiscordIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 export const Footer: React.FC = () => {
-  // Same logo data URI as Header
-  const cleanLogoUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect width='24' height='24' rx='6' fill='url(%23g)'/%3E%3Cpath fill='%23FBF8EE' d='M19 12.8A7.5 7.5 0 1 1 10.8 4.7 5.8 5.8 0 0 0 19 12.8z'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='24' y2='24' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2395B560'/%3E%3Cstop offset='1' stop-color='%235A7833'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E";
+  // Logo path using getPath for production compatibility
+  const logoUrl = getPath('assets/perflection_logo.png');
 
   return (
     <footer className="bg-white text-ink py-16 border-t border-ink/5">
@@ -45,12 +45,12 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1">
              <div className="flex items-center gap-2 mb-6">
               <img 
-                src={cleanLogoUrl} 
-                alt="SwingLens Logo" 
-                className="w-8 h-8 rounded-lg shadow-sm"
+                src={logoUrl} 
+                alt="Perflection AI Logo" 
+                className="w-[50px] h-[50px] rounded-lg shadow-sm"
               />
               <span className="text-xl font-display font-bold text-ink">
-                SwingLens
+                Perflection AI
               </span>
             </div>
             <p className="text-sm text-subtle font-medium leading-relaxed">
