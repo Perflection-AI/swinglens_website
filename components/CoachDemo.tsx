@@ -26,7 +26,7 @@ export const CoachDemo: React.FC = () => {
   };
 
   return (
-    <section id="demo" className="py-24 bg-golf-50/40 relative overflow-hidden border-t border-ink/5">
+    <section id="demo" className="py-24 bg-golf-50 relative overflow-hidden border-t border-ink/5">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">

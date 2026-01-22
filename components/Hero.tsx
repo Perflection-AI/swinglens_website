@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
   return (
-    <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-20 overflow-hidden bg-paper bg-grid-paper">
+    <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-20 overflow-hidden bg-golf-50 bg-grid-paper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

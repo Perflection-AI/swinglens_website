@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
 
 export const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-24 bg-paper border-t border-ink/5">
+    <section id="testimonials" className="py-24 bg-golf-50 border-t border-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-display font-bold text-center text-ink mb-16">
           Loved by golfers of all skill levels

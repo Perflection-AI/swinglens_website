@@ -7,7 +7,7 @@ interface CoachesSectionProps {
 
 export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) => {
   return (
-    <section id="solutions" className="py-24 bg-paper relative overflow-hidden border-t border-ink/5">
+    <section id="solutions" className="py-24 bg-golf-50 relative overflow-hidden border-t border-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16">

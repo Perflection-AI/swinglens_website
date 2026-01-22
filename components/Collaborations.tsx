@@ -50,7 +50,7 @@ export const Collaborations: React.FC = () => {
   );
 
   return (
-    <section id="collaborations" className="py-24 bg-paper relative border-t border-ink/5">
+    <section id="collaborations" className="py-24 bg-golf-50 relative border-t border-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h3 className="text-xs font-bold text-golf-500 mb-3 uppercase tracking-widest font-mono">Partnerships</h3>
