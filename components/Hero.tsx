@@ -189,9 +189,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                              </feMerge>
                           </filter>
                        </defs>
-                      <path d="M 30 80 L 50 20 L 70 80" stroke="#B8D085" strokeWidth="2" fill="none" strokeDasharray="4,4" filter="url(#glow)" opacity="0.9" />
-                      <circle cx="50" cy="20" r="3" fill="#E8F3D8" filter="url(#glow)" />
-                      <circle cx="30" cy="80" r="3" fill="#E8F3D8" filter="url(#glow)" />
+                      <path d="M 30 80 L 50 20 L 70 80" stroke="#75D8BA" strokeWidth="2" fill="none" strokeDasharray="4,4" filter="url(#glow)" opacity="0.9" />
+                      <circle cx="50" cy="20" r="3" fill="#D1F2E8" filter="url(#glow)" />
+                      <circle cx="30" cy="80" r="3" fill="#D1F2E8" filter="url(#glow)" />
                     </svg>
                   )}
 
@@ -221,7 +221,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                         
                         <div className="space-y-2">
                            <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                             <div className="bg-gradient-to-r from-golf-300 to-golf-500 h-full rounded-full shadow-[0_0_10px_rgba(184,208,133,0.5)]" style={{ width: `${overlayConfig.swingScore.progressBarWidth}%` }}></div>
+                             <div className="bg-gradient-to-r from-golf-300 to-golf-500 h-full rounded-full shadow-[0_0_10px_rgba(117,216,186,0.5)]" style={{ width: `${overlayConfig.swingScore.progressBarWidth}%` }}></div>
                            </div>
                            <p className="text-white/80 text-xs font-medium flex items-center gap-2">
                              <Zap className="w-3 h-3 text-gold fill-current" />
@@ -232,6 +232,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                     </div>
                   )}
                 </div>
+             </div>
+             
+             {/* Click Prompt - Curly Arrow */}
+             <div className="hidden min-[1200px]:flex absolute bottom-[100px] -left-10 z-30 pointer-events-none flex-col items-center">
+               <img 
+                 src={getPath('assets/Vector 12.svg')} 
+                 alt="Arrow" 
+                 className="w-40 h-40 mb-2 transform -rotate-12"
+               />
+               <div className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-card border border-ink/10 transform -rotate-12 -ml-[200px] -mt-[30px]">
+                 <span className="text-base font-semibold text-ink font-mono whitespace-nowrap">Click to explore</span>
+               </div>
              </div>
              
              {/* Floating Badge - Carry Distance */}
