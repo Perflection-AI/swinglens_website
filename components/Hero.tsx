@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PlayCircle, ArrowRight, Zap } from 'lucide-react';
+import { getPath } from '../utils/paths';
 
 interface HeroProps {
   onOpenModal: (title?: string) => void;
@@ -20,14 +21,22 @@ interface OverlayConfig {
   analysisLines: boolean;
 }
 
+// Base image paths (without leading slash for getPath utility)
+const imagePaths = {
+  IMG_8680: 'assets/IMG_8680.jpg',
+  IMG_8683: 'assets/IMG_8683.jpg',
+  IMG_8686: 'assets/IMG_8686.jpg',
+  IMG_8687: 'assets/IMG_8687.jpg',
+};
+
 const imageOverlayConfig: Record<string, OverlayConfig> = {
-  '/assets/IMG_8680.jpg': {
+  [imagePaths.IMG_8680]: {
     recordingButton: false,
     swingScore: false,
     carryDistance: false,
     analysisLines: false,
   },
-  '/assets/IMG_8683.jpg': {
+  [imagePaths.IMG_8683]: {
     recordingButton: true,
     swingScore: {
       score: 82,
@@ -38,13 +47,13 @@ const imageOverlayConfig: Record<string, OverlayConfig> = {
     carryDistance: true,
     analysisLines: false,
   },
-  '/assets/IMG_8686.jpg': {
+  [imagePaths.IMG_8686]: {
     recordingButton: false,
     swingScore: false,
     carryDistance: false,
     analysisLines: false,
   },
-  '/assets/IMG_8687.jpg': {
+  [imagePaths.IMG_8687]: {
     recordingButton: true,
     swingScore: {
       score: 67,
@@ -58,12 +67,12 @@ const imageOverlayConfig: Record<string, OverlayConfig> = {
 };
 
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
-  // Array of all images
+  // Array of all image paths (using getPath for production compatibility)
   const images = [
-    '/assets/IMG_8680.jpg',
-    '/assets/IMG_8683.jpg',
-    '/assets/IMG_8686.jpg',
-    '/assets/IMG_8687.jpg'
+    getPath(imagePaths.IMG_8680),
+    getPath(imagePaths.IMG_8683),
+    getPath(imagePaths.IMG_8686),
+    getPath(imagePaths.IMG_8687)
   ];
   
   // Randomly select one image index on component mount
@@ -74,8 +83,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   // Get the current selected image
   const currentImage = images[currentImageIndex];
   
+  // Get the image key for config lookup (use the base path without getPath)
+  const imageKeys = [
+    imagePaths.IMG_8680,
+    imagePaths.IMG_8683,
+    imagePaths.IMG_8686,
+    imagePaths.IMG_8687
+  ];
+  const currentImageKey = imageKeys[currentImageIndex];
+  
   // Get overlay configuration for current image
-  const overlayConfig: OverlayConfig = imageOverlayConfig[currentImage] || {
+  const overlayConfig: OverlayConfig = imageOverlayConfig[currentImageKey] || {
     recordingButton: false,
     swingScore: false,
     carryDistance: false,
