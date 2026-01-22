@@ -35,7 +35,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                 window.history.pushState({}, '', base === '/' ? '/' : base);
                 window.dispatchEvent(new PopStateEvent('popstate'));
               }}
-              className="text-golf-600 hover:text-golf-700 text-sm font-medium inline-flex items-center gap-2"
+              className="text-golf-600 hover:text-golf-700 text-sm font-bold inline-flex items-center gap-2"
             >
               ← Back to Home
             </a>
@@ -50,13 +50,13 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
               </p>
 
               <ul className="list-disc pl-6 mb-6 text-subtle space-y-2">
-                <li>Visit our website at <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> or any website of ours that links to this Privacy Notice</li>
+                <li>Visit our website at <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> or any website of ours that links to this Privacy Notice</li>
                 <li>Use <strong>Perflection AI</strong>. A Coach-Led AI training platform that empowers coaches and recreational golfers to teach and train anytime, anywhere.</li>
                 <li>Engage with us in other related ways, including any sales, marketing, or events</li>
               </ul>
 
               <p className="text-subtle mb-8">
-                <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>.
+                <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>.
               </p>
 
               <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">SUMMARY OF KEY POINTS</h2>
@@ -66,11 +66,11 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
 
               <div className="space-y-4 mb-8">
                 <p className="text-subtle">
-                  <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about <a href="#personalinfo" className="text-golf-600 hover:text-golf-700">personal information you disclose to us</a>.
+                  <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about <a href="#personalinfo" className="text-golf-600 hover:text-golf-700 font-bold">personal information you disclose to us</a>.
                 </p>
 
                 <p className="text-subtle">
-                  <strong>Do we process any sensitive personal information?</strong> Some of the information may be considered "special" or "sensitive" in certain jurisdictions, for example your racial or ethnic origins, sexual orientation, and religious beliefs. We may process sensitive personal information when necessary with your consent or as otherwise permitted by applicable law. Learn more about <a href="#sensitiveinfo" className="text-golf-600 hover:text-golf-700">sensitive information we process</a>.
+                  <strong>Do we process any sensitive personal information?</strong> Some of the information may be considered "special" or "sensitive" in certain jurisdictions, for example your racial or ethnic origins, sexual orientation, and religious beliefs. We may process sensitive personal information when necessary with your consent or as otherwise permitted by applicable law. Learn more about <a href="#sensitiveinfo" className="text-golf-600 hover:text-golf-700 font-bold">sensitive information we process</a>.
                 </p>
 
                 <p className="text-subtle">
@@ -78,45 +78,45 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                 </p>
 
                 <p className="text-subtle">
-                  <strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about <a href="#infouse" className="text-golf-600 hover:text-golf-700">how we process your information</a>.
+                  <strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about <a href="#infouse" className="text-golf-600 hover:text-golf-700 font-bold">how we process your information</a>.
                 </p>
 
                 <p className="text-subtle">
-                  <strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties. Learn more about <a href="#whoshare" className="text-golf-600 hover:text-golf-700">when and with whom we share your personal information</a>.
+                  <strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties. Learn more about <a href="#whoshare" className="text-golf-600 hover:text-golf-700 font-bold">when and with whom we share your personal information</a>.
                 </p>
 
                 <p className="text-subtle">
-                  <strong>How do we keep your information safe?</strong> We have adequate organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Learn more about <a href="#infosafe" className="text-golf-600 hover:text-golf-700">how we keep your information safe</a>.
+                  <strong>How do we keep your information safe?</strong> We have adequate organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Learn more about <a href="#infosafe" className="text-golf-600 hover:text-golf-700 font-bold">how we keep your information safe</a>.
                 </p>
 
                 <p className="text-subtle">
-                  <strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about <a href="#privacyrights" className="text-golf-600 hover:text-golf-700">your privacy rights</a>.
+                  <strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about <a href="#privacyrights" className="text-golf-600 hover:text-golf-700 font-bold">your privacy rights</a>.
                 </p>
 
                 <p className="text-subtle">
-                  <strong>How do you exercise your rights?</strong> The easiest way to exercise your rights is by visiting <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
+                  <strong>How do you exercise your rights?</strong> The easiest way to exercise your rights is by visiting <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
                 </p>
               </div>
 
               <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">TABLE OF CONTENTS</h2>
               <ul className="list-disc pl-6 mb-8 text-subtle space-y-2">
-                <li><a href="#infocollect" className="text-golf-600 hover:text-golf-700">1. WHAT INFORMATION DO WE COLLECT?</a></li>
-                <li><a href="#infouse" className="text-golf-600 hover:text-golf-700">2. HOW DO WE PROCESS YOUR INFORMATION?</a></li>
-                <li><a href="#legalbases" className="text-golf-600 hover:text-golf-700">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a></li>
-                <li><a href="#whoshare" className="text-golf-600 hover:text-golf-700">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></li>
-                <li><a href="#3pwebsites" className="text-golf-600 hover:text-golf-700">5. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</a></li>
-                <li><a href="#cookies" className="text-golf-600 hover:text-golf-700">6. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</a></li>
-                <li><a href="#ai" className="text-golf-600 hover:text-golf-700">7. DO WE OFFER ARTIFICIAL INTELLIGENCE-BASED PRODUCTS?</a></li>
-                <li><a href="#sociallogins" className="text-golf-600 hover:text-golf-700">8. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</a></li>
-                <li><a href="#inforetain" className="text-golf-600 hover:text-golf-700">9. HOW LONG DO WE KEEP YOUR INFORMATION?</a></li>
-                <li><a href="#infosafe" className="text-golf-600 hover:text-golf-700">10. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></li>
-                <li><a href="#privacyrights" className="text-golf-600 hover:text-golf-700">11. WHAT ARE YOUR PRIVACY RIGHTS?</a></li>
-                <li><a href="#DNT" className="text-golf-600 hover:text-golf-700">12. CONTROLS FOR DO-NOT-TRACK FEATURES</a></li>
-                <li><a href="#uslaws" className="text-golf-600 hover:text-golf-700">13. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
-                <li><a href="#otherlaws" className="text-golf-600 hover:text-golf-700">14. DO OTHER REGIONS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
-                <li><a href="#policyupdates" className="text-golf-600 hover:text-golf-700">15. DO WE MAKE UPDATES TO THIS NOTICE?</a></li>
-                <li><a href="#contact" className="text-golf-600 hover:text-golf-700">16. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></li>
-                <li><a href="#request" className="text-golf-600 hover:text-golf-700">17. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></li>
+                <li><a href="#infocollect" className="text-golf-600 hover:text-golf-700 font-bold">1. WHAT INFORMATION DO WE COLLECT?</a></li>
+                <li><a href="#infouse" className="text-golf-600 hover:text-golf-700 font-bold">2. HOW DO WE PROCESS YOUR INFORMATION?</a></li>
+                <li><a href="#legalbases" className="text-golf-600 hover:text-golf-700 font-bold">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a></li>
+                <li><a href="#whoshare" className="text-golf-600 hover:text-golf-700 font-bold">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></li>
+                <li><a href="#3pwebsites" className="text-golf-600 hover:text-golf-700 font-bold">5. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</a></li>
+                <li><a href="#cookies" className="text-golf-600 hover:text-golf-700 font-bold">6. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</a></li>
+                <li><a href="#ai" className="text-golf-600 hover:text-golf-700 font-bold">7. DO WE OFFER ARTIFICIAL INTELLIGENCE-BASED PRODUCTS?</a></li>
+                <li><a href="#sociallogins" className="text-golf-600 hover:text-golf-700 font-bold">8. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</a></li>
+                <li><a href="#inforetain" className="text-golf-600 hover:text-golf-700 font-bold">9. HOW LONG DO WE KEEP YOUR INFORMATION?</a></li>
+                <li><a href="#infosafe" className="text-golf-600 hover:text-golf-700 font-bold">10. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></li>
+                <li><a href="#privacyrights" className="text-golf-600 hover:text-golf-700 font-bold">11. WHAT ARE YOUR PRIVACY RIGHTS?</a></li>
+                <li><a href="#DNT" className="text-golf-600 hover:text-golf-700 font-bold">12. CONTROLS FOR DO-NOT-TRACK FEATURES</a></li>
+                <li><a href="#uslaws" className="text-golf-600 hover:text-golf-700 font-bold">13. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
+                <li><a href="#otherlaws" className="text-golf-600 hover:text-golf-700 font-bold">14. DO OTHER REGIONS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
+                <li><a href="#policyupdates" className="text-golf-600 hover:text-golf-700 font-bold">15. DO WE MAKE UPDATES TO THIS NOTICE?</a></li>
+                <li><a href="#contact" className="text-golf-600 hover:text-golf-700 font-bold">16. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></li>
+                <li><a href="#request" className="text-golf-600 hover:text-golf-700 font-bold">17. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></li>
               </ul>
 
               <section id="infocollect" className="mb-8">
@@ -155,7 +155,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                 </ul>
 
                 <p className="text-subtle mb-4">
-                  <strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is handled and stored by <strong>Stripe</strong>. You may find their privacy notice link(s) here: <a href="https://stripe.com/zh-us/privacy" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://stripe.com/zh-us/privacy</a>.
+                  <strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is handled and stored by <strong>Stripe</strong>. You may find their privacy notice link(s) here: <a href="https://stripe.com/zh-us/privacy" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">https://stripe.com/zh-us/privacy</a>.
                 </p>
 
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Information automatically collected</h3>
@@ -195,7 +195,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                   <strong><u>If you are located in Canada, this section applies to you.</u></strong>
                 </p>
                 <p className="text-subtle mb-4">
-                  We may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (i.e., implied consent). You can <a href="#withdrawconsent" className="text-golf-600 hover:text-golf-700">withdraw your consent</a> at any time.
+                  We may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (i.e., implied consent). You can <a href="#withdrawconsent" className="text-golf-600 hover:text-golf-700 font-bold">withdraw your consent</a> at any time.
                 </p>
               </section>
 
@@ -314,7 +314,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                   In some regions (like Canada), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; (iv) if applicable, to data portability; and (v) not to be subject to automated decision-making.
                 </p>
                 <p className="text-subtle mb-4">
-                  <strong><u>Withdrawing your consent:</u></strong> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section <a href="#contact" className="text-golf-600 hover:text-golf-700">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a> below.
+                  <strong><u>Withdrawing your consent:</u></strong> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section <a href="#contact" className="text-golf-600 hover:text-golf-700 font-bold">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a> below.
                 </p>
               </section>
 
@@ -347,7 +347,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                   <strong>How to Exercise Your Rights</strong>
                 </p>
                 <p className="text-subtle mb-4">
-                  To exercise these rights, you can contact us by emailing us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>, or by referring to the contact details at the bottom of this document.
+                  To exercise these rights, you can contact us by emailing us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>, or by referring to the contact details at the bottom of this document.
                 </p>
               </section>
 
@@ -358,7 +358,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                   We collect and process your personal information under the obligations and conditions set by Australia's Privacy Act 1988 and New Zealand's Privacy Act 2020 (Privacy Act).
                 </p>
                 <p className="text-subtle mb-4">
-                  If you believe we are unlawfully processing your personal information, you have the right to submit a complaint about a breach of the Australian Privacy Principles to the <a href="https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">Office of the Australian Information Commissioner</a> and a breach of New Zealand's Privacy Principles to the <a href="https://www.privacy.org.nz/your-rights/making-a-complaint/" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">Office of New Zealand Privacy Commissioner</a>.
+                  If you believe we are unlawfully processing your personal information, you have the right to submit a complaint about a breach of the Australian Privacy Principles to the <a href="https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">Office of the Australian Information Commissioner</a> and a breach of New Zealand's Privacy Principles to the <a href="https://www.privacy.org.nz/your-rights/making-a-complaint/" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">Office of New Zealand Privacy Commissioner</a>.
                 </p>
               </section>
 
@@ -375,7 +375,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
               <section id="contact" className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">16. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
                 <p className="text-subtle mb-4">
-                  If you have questions or comments about this notice, you may email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a> or contact us by post at:
+                  If you have questions or comments about this notice, you may email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a> or contact us by post at:
                 </p>
                 <p className="text-subtle mb-4">
                   <strong>Perflection.AI, Inc.</strong><br />
@@ -388,7 +388,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
               <section id="request" className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">17. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</h2>
                 <p className="text-subtle mb-4">
-                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. To request to review, update, or delete your personal information, please visit: <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>.
+                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. To request to review, update, or delete your personal information, please visit: <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>.
                 </p>
               </section>
             </div>

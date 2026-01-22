@@ -35,7 +35,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 window.history.pushState({}, '', base === '/' ? '/' : base);
                 window.dispatchEvent(new PopStateEvent('popstate'));
               }}
-              className="text-golf-600 hover:text-golf-700 text-sm font-medium inline-flex items-center gap-2"
+              className="text-golf-600 hover:text-golf-700 text-sm font-bold inline-flex items-center gap-2"
             >
               ← Back to Home
             </a>
@@ -51,19 +51,19 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                   We are <strong>Perflection.AI, Inc.</strong> ("<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>," "<strong>our</strong>"), a company registered in <strong>Delaware</strong>, <strong>United States</strong> at <strong>251 Little Falls Drive</strong>, <strong>Wilmington</strong>, <strong>DE</strong> <strong>19808</strong>.
                 </p>
                 <p className="text-subtle mb-4">
-                  We operate the website <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> (the "<strong>Site</strong>"), the mobile application <strong>Perflection AI</strong> (the "<strong>App</strong>"), as well as any other related products and services that refer or link to these legal terms (the "<strong>Legal Terms</strong>") (collectively, the "<strong>Services</strong>").
+                  We operate the website <a href="https://perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">https://perflection.ai</a> (the "<strong>Site</strong>"), the mobile application <strong>Perflection AI</strong> (the "<strong>App</strong>"), as well as any other related products and services that refer or link to these legal terms (the "<strong>Legal Terms</strong>") (collectively, the "<strong>Services</strong>").
                 </p>
                 <p className="text-subtle mb-4">
                   <strong>A Coach-Led AI training platform that empowers coaches and recreational golfers to teach and train anytime, anywhere.</strong>
                 </p>
                 <p className="text-subtle mb-4">
-                  You can contact us by phone at <strong>1-(908)-842-4885</strong>, email at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>, or by mail to <strong>4620 Henry Street</strong>, <strong>Pittsburgh</strong>, <strong>PA</strong> <strong>15213</strong>, <strong>United States</strong>.
+                  You can contact us by phone at <strong>1-(908)-842-4885</strong>, email at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>, or by mail to <strong>4620 Henry Street</strong>, <strong>Pittsburgh</strong>, <strong>PA</strong> <strong>15213</strong>, <strong>United States</strong>.
                 </p>
                 <p className="text-subtle mb-4">
                   These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("<strong>you</strong>"), and <strong>Perflection.AI, Inc.</strong>, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
                 </p>
                 <p className="text-subtle mb-4">
-                  We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.
+                  We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.
                 </p>
                 <p className="text-subtle mb-4">
                   The Services are intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Services. If you are a minor, you must have your parent or guardian read and agree to these Legal Terms prior to you using the Services.
@@ -76,38 +76,38 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
               <section className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">TABLE OF CONTENTS</h2>
                 <ul className="list-disc pl-6 mb-8 text-subtle space-y-2">
-                  <li><a href="#services" className="text-golf-600 hover:text-golf-700">1. OUR SERVICES</a></li>
-                  <li><a href="#ip" className="text-golf-600 hover:text-golf-700">2. INTELLECTUAL PROPERTY RIGHTS</a></li>
-                  <li><a href="#userreps" className="text-golf-600 hover:text-golf-700">3. USER REPRESENTATIONS</a></li>
-                  <li><a href="#userreg" className="text-golf-600 hover:text-golf-700">4. USER REGISTRATION</a></li>
-                  <li><a href="#purchases" className="text-golf-600 hover:text-golf-700">5. PURCHASES AND PAYMENT</a></li>
-                  <li><a href="#subscriptions" className="text-golf-600 hover:text-golf-700">6. SUBSCRIPTIONS</a></li>
-                  <li><a href="#software" className="text-golf-600 hover:text-golf-700">7. SOFTWARE</a></li>
-                  <li><a href="#prohibited" className="text-golf-600 hover:text-golf-700">8. PROHIBITED ACTIVITIES</a></li>
-                  <li><a href="#ugc" className="text-golf-600 hover:text-golf-700">9. USER GENERATED CONTRIBUTIONS</a></li>
-                  <li><a href="#license" className="text-golf-600 hover:text-golf-700">10. CONTRIBUTION LICENSE</a></li>
-                  <li><a href="#reviews" className="text-golf-600 hover:text-golf-700">11. GUIDELINES FOR REVIEWS</a></li>
-                  <li><a href="#mobile" className="text-golf-600 hover:text-golf-700">12. MOBILE APPLICATION LICENSE</a></li>
-                  <li><a href="#socialmedia" className="text-golf-600 hover:text-golf-700">13. SOCIAL MEDIA</a></li>
-                  <li><a href="#thirdparty" className="text-golf-600 hover:text-golf-700">14. THIRD-PARTY WEBSITES AND CONTENT</a></li>
-                  <li><a href="#advertisers" className="text-golf-600 hover:text-golf-700">15. ADVERTISERS</a></li>
-                  <li><a href="#sitemanage" className="text-golf-600 hover:text-golf-700">16. SERVICES MANAGEMENT</a></li>
-                  <li><a href="#ppyes" className="text-golf-600 hover:text-golf-700">17. PRIVACY POLICY</a></li>
-                  <li><a href="#copyrightyes" className="text-golf-600 hover:text-golf-700">18. COPYRIGHT INFRINGEMENTS</a></li>
-                  <li><a href="#terms" className="text-golf-600 hover:text-golf-700">19. TERM AND TERMINATION</a></li>
-                  <li><a href="#modifications" className="text-golf-600 hover:text-golf-700">20. MODIFICATIONS AND INTERRUPTIONS</a></li>
-                  <li><a href="#law" className="text-golf-600 hover:text-golf-700">21. GOVERNING LAW</a></li>
-                  <li><a href="#disputes" className="text-golf-600 hover:text-golf-700">22. DISPUTE RESOLUTION</a></li>
-                  <li><a href="#corrections" className="text-golf-600 hover:text-golf-700">23. CORRECTIONS</a></li>
-                  <li><a href="#disclaimer" className="text-golf-600 hover:text-golf-700">24. DISCLAIMER</a></li>
-                  <li><a href="#liability" className="text-golf-600 hover:text-golf-700">25. LIMITATIONS OF LIABILITY</a></li>
-                  <li><a href="#indemnification" className="text-golf-600 hover:text-golf-700">26. INDEMNIFICATION</a></li>
-                  <li><a href="#userdata" className="text-golf-600 hover:text-golf-700">27. USER DATA</a></li>
-                  <li><a href="#electronic" className="text-golf-600 hover:text-golf-700">28. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</a></li>
-                  <li><a href="#sms" className="text-golf-600 hover:text-golf-700">29. SMS TEXT MESSAGING</a></li>
-                  <li><a href="#california" className="text-golf-600 hover:text-golf-700">30. CALIFORNIA USERS AND RESIDENTS</a></li>
-                  <li><a href="#misc" className="text-golf-600 hover:text-golf-700">31. MISCELLANEOUS</a></li>
-                  <li><a href="#contact" className="text-golf-600 hover:text-golf-700">32. CONTACT US</a></li>
+                  <li><a href="#services" className="text-golf-600 hover:text-golf-700 font-bold">1. OUR SERVICES</a></li>
+                  <li><a href="#ip" className="text-golf-600 hover:text-golf-700 font-bold">2. INTELLECTUAL PROPERTY RIGHTS</a></li>
+                  <li><a href="#userreps" className="text-golf-600 hover:text-golf-700 font-bold">3. USER REPRESENTATIONS</a></li>
+                  <li><a href="#userreg" className="text-golf-600 hover:text-golf-700 font-bold">4. USER REGISTRATION</a></li>
+                  <li><a href="#purchases" className="text-golf-600 hover:text-golf-700 font-bold">5. PURCHASES AND PAYMENT</a></li>
+                  <li><a href="#subscriptions" className="text-golf-600 hover:text-golf-700 font-bold">6. SUBSCRIPTIONS</a></li>
+                  <li><a href="#software" className="text-golf-600 hover:text-golf-700 font-bold">7. SOFTWARE</a></li>
+                  <li><a href="#prohibited" className="text-golf-600 hover:text-golf-700 font-bold">8. PROHIBITED ACTIVITIES</a></li>
+                  <li><a href="#ugc" className="text-golf-600 hover:text-golf-700 font-bold">9. USER GENERATED CONTRIBUTIONS</a></li>
+                  <li><a href="#license" className="text-golf-600 hover:text-golf-700 font-bold">10. CONTRIBUTION LICENSE</a></li>
+                  <li><a href="#reviews" className="text-golf-600 hover:text-golf-700 font-bold">11. GUIDELINES FOR REVIEWS</a></li>
+                  <li><a href="#mobile" className="text-golf-600 hover:text-golf-700 font-bold">12. MOBILE APPLICATION LICENSE</a></li>
+                  <li><a href="#socialmedia" className="text-golf-600 hover:text-golf-700 font-bold">13. SOCIAL MEDIA</a></li>
+                  <li><a href="#thirdparty" className="text-golf-600 hover:text-golf-700 font-bold">14. THIRD-PARTY WEBSITES AND CONTENT</a></li>
+                  <li><a href="#advertisers" className="text-golf-600 hover:text-golf-700 font-bold">15. ADVERTISERS</a></li>
+                  <li><a href="#sitemanage" className="text-golf-600 hover:text-golf-700 font-bold">16. SERVICES MANAGEMENT</a></li>
+                  <li><a href="#ppyes" className="text-golf-600 hover:text-golf-700 font-bold">17. PRIVACY POLICY</a></li>
+                  <li><a href="#copyrightyes" className="text-golf-600 hover:text-golf-700 font-bold">18. COPYRIGHT INFRINGEMENTS</a></li>
+                  <li><a href="#terms" className="text-golf-600 hover:text-golf-700 font-bold">19. TERM AND TERMINATION</a></li>
+                  <li><a href="#modifications" className="text-golf-600 hover:text-golf-700 font-bold">20. MODIFICATIONS AND INTERRUPTIONS</a></li>
+                  <li><a href="#law" className="text-golf-600 hover:text-golf-700 font-bold">21. GOVERNING LAW</a></li>
+                  <li><a href="#disputes" className="text-golf-600 hover:text-golf-700 font-bold">22. DISPUTE RESOLUTION</a></li>
+                  <li><a href="#corrections" className="text-golf-600 hover:text-golf-700 font-bold">23. CORRECTIONS</a></li>
+                  <li><a href="#disclaimer" className="text-golf-600 hover:text-golf-700 font-bold">24. DISCLAIMER</a></li>
+                  <li><a href="#liability" className="text-golf-600 hover:text-golf-700 font-bold">25. LIMITATIONS OF LIABILITY</a></li>
+                  <li><a href="#indemnification" className="text-golf-600 hover:text-golf-700 font-bold">26. INDEMNIFICATION</a></li>
+                  <li><a href="#userdata" className="text-golf-600 hover:text-golf-700 font-bold">27. USER DATA</a></li>
+                  <li><a href="#electronic" className="text-golf-600 hover:text-golf-700 font-bold">28. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</a></li>
+                  <li><a href="#sms" className="text-golf-600 hover:text-golf-700 font-bold">29. SMS TEXT MESSAGING</a></li>
+                  <li><a href="#california" className="text-golf-600 hover:text-golf-700 font-bold">30. CALIFORNIA USERS AND RESIDENTS</a></li>
+                  <li><a href="#misc" className="text-golf-600 hover:text-golf-700 font-bold">31. MISCELLANEOUS</a></li>
+                  <li><a href="#contact" className="text-golf-600 hover:text-golf-700 font-bold">32. CONTACT US</a></li>
                 </ul>
               </section>
 
@@ -135,7 +135,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Your use of our Services</h3>
                 <p className="text-subtle mb-4">
-                  Subject to your compliance with these Legal Terms, including the "<a href="#prohibited" className="text-golf-600 hover:text-golf-700">PROHIBITED ACTIVITIES</a>" section below, we grant you a non-exclusive, non-transferable, revocable license to:
+                  Subject to your compliance with these Legal Terms, including the "<a href="#prohibited" className="text-golf-600 hover:text-golf-700 font-bold">PROHIBITED ACTIVITIES</a>" section below, we grant you a non-exclusive, non-transferable, revocable license to:
                 </p>
                 <ul className="list-disc pl-6 mb-4 text-subtle space-y-2">
                   <li>access the Services; and</li>
@@ -148,7 +148,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                   Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
                 </p>
                 <p className="text-subtle mb-4">
-                  If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
+                  If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
                 </p>
                 <p className="text-subtle mb-4">
                   We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.
@@ -158,7 +158,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Your submissions and contributions</h3>
                 <p className="text-subtle mb-4">
-                  Please review this section and the "<a href="#prohibited" className="text-golf-600 hover:text-golf-700">PROHIBITED ACTIVITIES</a>" section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.
+                  Please review this section and the "<a href="#prohibited" className="text-golf-600 hover:text-golf-700 font-bold">PROHIBITED ACTIVITIES</a>" section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.
                 </p>
                 <p className="text-subtle mb-4">
                   <strong>Submissions:</strong> By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("<strong>Submissions</strong>"), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
@@ -179,7 +179,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                   <strong>You are responsible for what you post or upload:</strong> By sending us Submissions and/or posting Contributions through any part of the Services or making Contributions accessible through the Services by linking your account through the Services to any of your social networking accounts, you:
                 </p>
                 <ul className="list-disc pl-6 mb-4 text-subtle space-y-2">
-                  <li>confirm that you have read and agree with our "<a href="#prohibited" className="text-golf-600 hover:text-golf-700">PROHIBITED ACTIVITIES</a>" and will not post, send, publish, upload, or transmit through the Services any Submission nor post any Contribution that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;</li>
+                  <li>confirm that you have read and agree with our "<a href="#prohibited" className="text-golf-600 hover:text-golf-700 font-bold">PROHIBITED ACTIVITIES</a>" and will not post, send, publish, upload, or transmit through the Services any Submission nor post any Contribution that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;</li>
                   <li>to the extent permissible by applicable law, waive any and all moral rights to any such Submission and/or Contribution;</li>
                   <li>warrant that any such Submission and/or Contributions are original to you or that you have the necessary rights and licenses to submit such Submissions and/or Contributions and that you have full authority to grant us the above-mentioned rights in relation to your Submissions and/or Contributions; and</li>
                   <li>warrant and represent that your Submissions and/or Contributions do not constitute confidential information.</li>
@@ -192,7 +192,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Copyright infringement</h3>
                 <p className="text-subtle mb-4">
-                  We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately refer to the "<a href="#copyrightyes" className="text-golf-600 hover:text-golf-700">COPYRIGHT INFRINGEMENTS</a>" section below.
+                  We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately refer to the "<a href="#copyrightyes" className="text-golf-600 hover:text-golf-700 font-bold">COPYRIGHT INFRINGEMENTS</a>" section below.
                 </p>
               </section>
 
@@ -249,7 +249,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Cancellation</h3>
                 <p className="text-subtle mb-4">
-                  You can cancel your subscription at any time by logging into your account. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>.
+                  You can cancel your subscription at any time by logging into your account. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>.
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Fee Changes</h3>
                 <p className="text-subtle mb-4">
@@ -394,7 +394,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
               <section id="ppyes" className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">17. PRIVACY POLICY</h2>
                 <p className="text-subtle mb-4">
-                  We care about data privacy and security. Please review our Privacy Policy: <strong><a href="/swinglens_website/privacy" className="text-golf-600 hover:text-golf-700">https://perflection.ai/privacy.html</a></strong>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in <strong>the United States</strong>. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in <strong>the United States</strong>, then through your continued use of the Services, you are transferring your data to <strong>the United States</strong>, and you expressly consent to have your data transferred to and processed in <strong>the United States</strong>.
+                  We care about data privacy and security. Please review our Privacy Policy: <strong><a href="/swinglens_website/privacy" className="text-golf-600 hover:text-golf-700 font-bold">https://perflection.ai/privacy.html</a></strong>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in <strong>the United States</strong>. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in <strong>the United States</strong>, then through your continued use of the Services, you are transferring your data to <strong>the United States</strong>, and you expressly consent to have your data transferred to and processed in <strong>the United States</strong>.
                 </p>
                 <p className="text-subtle mb-4">
                   Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children's Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Services as quickly as is reasonably practical.
@@ -443,7 +443,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Binding Arbitration</h3>
                 <p className="text-subtle mb-4">
-                  If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute (except those Disputes expressly excluded below) will be finally and exclusively resolved by binding arbitration. YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ("<strong>AAA</strong>") and, where appropriate, the AAA's Supplementary Procedures for Consumer Related Disputes ("<strong>AAA Consumer Rules</strong>"), both of which are available at the <a href="http://www.adr.org" className="text-golf-600 hover:text-golf-700" target="_blank" rel="noopener noreferrer">American Arbitration Association (AAA) website</a>. Your arbitration fees and your share of arbitrator compensation shall be governed by the AAA Consumer Rules and, where appropriate, limited by the AAA Consumer Rules. The arbitration may be conducted in person, through the submission of documents, by phone, or online. The arbitrator will make a decision in writing, but need not provide a statement of reasons unless requested by either Party. The arbitrator must follow applicable law, and any award may be challenged if the arbitrator fails to do so. Except where otherwise required by the applicable AAA rules or applicable law, the arbitration will take place in <strong>Allegheny</strong>, <strong>Pennsylvania</strong>. Except as otherwise provided herein, the Parties may litigate in court to compel arbitration, stay proceedings pending arbitration, or to confirm, modify, vacate, or enter judgment on the award entered by the arbitrator.
+                  If the Parties are unable to resolve a Dispute through informal negotiations, the Dispute (except those Disputes expressly excluded below) will be finally and exclusively resolved by binding arbitration. YOU UNDERSTAND THAT WITHOUT THIS PROVISION, YOU WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The arbitration shall be commenced and conducted under the Commercial Arbitration Rules of the American Arbitration Association ("<strong>AAA</strong>") and, where appropriate, the AAA's Supplementary Procedures for Consumer Related Disputes ("<strong>AAA Consumer Rules</strong>"), both of which are available at the <a href="http://www.adr.org" className="text-golf-600 hover:text-golf-700 font-bold" target="_blank" rel="noopener noreferrer">American Arbitration Association (AAA) website</a>. Your arbitration fees and your share of arbitrator compensation shall be governed by the AAA Consumer Rules and, where appropriate, limited by the AAA Consumer Rules. The arbitration may be conducted in person, through the submission of documents, by phone, or online. The arbitrator will make a decision in writing, but need not provide a statement of reasons unless requested by either Party. The arbitrator must follow applicable law, and any award may be challenged if the arbitrator fails to do so. Except where otherwise required by the applicable AAA rules or applicable law, the arbitration will take place in <strong>Allegheny</strong>, <strong>Pennsylvania</strong>. Except as otherwise provided herein, the Parties may litigate in court to compel arbitration, stay proceedings pending arbitration, or to confirm, modify, vacate, or enter judgment on the award entered by the arbitrator.
                 </p>
                 <p className="text-subtle mb-4">
                   If for any reason, a Dispute proceeds in court rather than arbitration, the Dispute shall be commenced or prosecuted in the state and federal courts located in <strong>Allegheny</strong>, <strong>Pennsylvania</strong>, and the Parties hereby consent to, and waive all defenses of lack of personal jurisdiction, and forum non conveniens with respect to venue and jurisdiction in such state and federal courts. Application of the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transaction Act (UCITA) are excluded from these Legal Terms.
@@ -519,7 +519,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                 </p>
                 <h3 className="text-xl font-display font-bold text-ink mt-6 mb-3">Support</h3>
                 <p className="text-subtle mb-4">
-                  If you have any questions or need assistance regarding our SMS communications, please email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a> or call at <strong>1-(908)-842-4885</strong>.
+                  If you have any questions or need assistance regarding our SMS communications, please email us at <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a> or call at <strong>1-(908)-842-4885</strong>.
                 </p>
               </section>
 
@@ -552,7 +552,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
                   <strong>Phone:</strong> <strong>1-(908)-842-4885</strong>
                 </p>
                 <p className="text-subtle mb-4">
-                  <strong>Email:</strong> <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700">contact@perflection.ai</a>
+                  <strong>Email:</strong> <a href="mailto:contact@perflection.ai" className="text-golf-600 hover:text-golf-700 font-bold">contact@perflection.ai</a>
                 </p>
               </section>
             </div>
