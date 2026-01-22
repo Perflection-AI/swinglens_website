@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SwingLens - The Future of Golf Coaching</title>
+    <title>Perflection AI - The Future of Golf Coaching</title>
+    <link rel="icon" type="image/png" href="/assets/perflection_logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,22 +19,22 @@
               mono: ['Space Grotesk', 'sans-serif'], // Mapped to Space Grotesk
             },
             colors: {
-              paper: '#FBF8EE', // Main background
+              paper: '#F6FAF5', // Main background - very mild green (more green, less blue)
               ink: '#2c2c2c', // User provided: Soft Charcoal Black
               subtle: '#5C6B55', // Muted olive for secondary text
               gold: '#A88D37', // Accent Yellow
               golf: {
-                50: '#F4F9ED', // Lightest
-                100: '#E8F3D8', // User provided: Accent Light (Minty)
-                200: '#D2E6BC',
-                300: '#B8D085', // User provided: Accent Medium (Lime)
-                400: '#95B560',
-                500: '#719342', // User provided: Accent Dark (Primary)
-                600: '#5A7833',
-                700: '#455C26',
-                800: '#32421D',
-                900: '#212B15',
-                950: '#11160B',
+                50: '#F0F9F5', // Lightest - shifted to teal
+                100: '#D1F2E8', // Accent Light - minty teal
+                200: '#A3E5D1',
+                300: '#75D8BA', // Accent Medium - teal green
+                400: '#5CB89A',
+                500: '#4A9B7F', // Accent Dark - primary teal
+                600: '#3D7C66',
+                700: '#2F5D4D',
+                800: '#213E33',
+                900: '#141F1A',
+                950: '#0A100E',
               }
             },
             boxShadow: {
@@ -53,7 +54,7 @@
     <style>
       body {
         font-family: 'Space Grotesk', sans-serif;
-        background-color: #FBF8EE;
+        background-color: #F6FAF5;
         color: #2c2c2c;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
@@ -76,20 +77,20 @@
       /* 2. Graph Paper Pattern for Hero */
       .bg-grid-paper {
         background-size: 40px 40px;
-        background-image: linear-gradient(to right, rgba(184, 208, 133, 0.15) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(184, 208, 133, 0.15) 1px, transparent 1px);
+        background-image: linear-gradient(to right, rgba(117, 216, 186, 0.15) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(117, 216, 186, 0.15) 1px, transparent 1px);
       }
 
       /* 3. Ruled Paper Pattern for Chat */
       .bg-ruled-paper {
-        background-color: #FBF8EE;
-        background-image: linear-gradient(rgba(184, 208, 133, 0.3) 1px, transparent 1px);
+        background-color: #F6FAF5;
+        background-image: linear-gradient(rgba(117, 216, 186, 0.3) 1px, transparent 1px);
         background-size: 100% 2rem; /* Line height spacing */
       }
 
       /* Updated to be fresher: Golf 500 -> Golf 300 (Lime) */
       .text-gradient {
-        background: linear-gradient(135deg, #719342 0%, #B8D085 100%);
+        background: linear-gradient(135deg, #4A9B7F 0%, #75D8BA 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -102,7 +103,7 @@
         background: transparent;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #B8D085; /* Light Green thumb */
+        background-color: #75D8BA; /* Teal Green thumb */
         border-radius: 20px;
         border: 1px solid #FBF8EE;
       }
@@ -119,7 +120,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-iS7X_58r.js"></script>
+  <script type="module" crossorigin src="/assets/index-vWCBth05.js"></script>
 </head>
   <body>
     <div id="root"></div>
