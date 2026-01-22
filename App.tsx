@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { CoachesSection } from './components/CoachesSection';
 import { Testimonials } from './components/Testimonials';
+import { Collaborations } from './components/Collaborations';
 import { Footer } from './components/Footer';
 import { EmailModal } from './components/EmailModal';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
@@ -80,6 +81,7 @@ const App: React.FC = () => {
         <Features />
         <CoachesSection onOpenModal={openModal} />
         <Testimonials />
+        <Collaborations />
       </main>
       <Footer />
       <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
