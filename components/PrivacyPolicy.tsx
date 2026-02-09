@@ -42,7 +42,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
           </div>
           <div className="bg-white rounded-2xl shadow-soft-xl border border-ink/10 p-8 md:p-12">
             <h1 className="text-4xl md:text-5xl font-display font-bold text-ink mb-4">PRIVACY POLICY</h1>
-            <p className="text-subtle mb-8">Last updated September 18, 2025</p>
+            <p className="text-subtle mb-8">Last updated January 26, 2026</p>
 
             <div className="prose prose-lg max-w-none text-ink">
               <p className="text-subtle mb-6">
@@ -82,7 +82,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                 </p>
 
                 <p className="text-subtle">
-                  <strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties. Learn more about <a href="#whoshare" className="text-golf-600 hover:text-golf-700 font-bold">when and with whom we share your personal information</a>.
+                  <strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties, including with third-party AI service providers. We clearly disclose where your data is shared and we obtain your explicit permission before sharing your personal data with any third party, including third-party AI. Learn more about <a href="#whoshare" className="text-golf-600 hover:text-golf-700 font-bold">when and with whom we share your personal information</a>.
                 </p>
 
                 <p className="text-subtle">
@@ -212,6 +212,7 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
                   <li><strong>Affiliates.</strong> We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Notice. Affiliates include our parent company and any subsidiaries, joint venture partners, or other companies that we control or that are under common control with us.</li>
                   <li><strong>Business Partners.</strong> We may share your information with our business partners to offer you certain products, services, or promotions.</li>
                   <li><strong>Other Users.</strong> When you share personal information (for example, by posting comments, contributions, or other content to the Services) or otherwise interact with public areas of the Services, such personal information may be viewed by all users and may be publicly made available outside the Services in perpetuity.</li>
+                  <li><strong>Third-Party AI and AI Service Providers.</strong> We use artificial intelligence features powered by third-party AI service providers (including Google Cloud AI). We clearly disclose that your personal information, including inputs, outputs, and data you provide when using AI-powered features, may be shared with and processed by these AI service providers to deliver those features. We do not share your personal data with third-party AI or any other third party for such purposes without first obtaining your explicit consent (for example, when you accept this Privacy Notice and our Terms, or when you choose to use AI-powered features after being informed of such sharing). You may withdraw consent or discontinue use of AI features at any time; withdrawal may limit availability of those features.</li>
                 </ul>
               </section>
 
@@ -238,16 +239,16 @@ export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({
               <section id="ai" className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">7. DO WE OFFER ARTIFICIAL INTELLIGENCE-BASED PRODUCTS?</h2>
                 <p className="text-subtle mb-4">
-                  <em><strong>In Short:</strong> We offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies.</em>
+                  <em><strong>In Short:</strong> We offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies. We clearly disclose when personal data is shared with third-party AI and we obtain your explicit permission before doing so.</em>
                 </p>
                 <p className="text-subtle mb-4">
                   As part of our Services, we offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies (collectively, "AI Products"). These tools are designed to enhance your experience and provide you with innovative solutions.
                 </p>
                 <p className="text-subtle mb-4">
-                  <strong>Use of AI Technologies</strong>
+                  <strong>Use of AI Technologies and Third-Party AI Disclosure</strong>
                 </p>
                 <p className="text-subtle mb-4">
-                  We provide the AI Products through third-party service providers ("AI Service Providers"), including <strong>Google Cloud AI</strong>. As outlined in this Privacy Notice, your input, output, and personal information will be shared with and processed by these AI Service Providers to enable your use of our AI Products.
+                  We provide the AI Products through third-party service providers ("AI Service Providers"), including <strong>Google Cloud AI</strong>. We clearly disclose that your personal information—including your inputs, outputs, and other data you provide when using AI-powered features—may be shared with and processed by these AI Service Providers to enable your use of our AI Products. <strong>We do not share your personal data with third-party AI or other third parties for these purposes without first obtaining your explicit consent.</strong> By accepting this Privacy Notice and our Terms and Conditions, or by choosing to use AI-powered features after being informed of such sharing, you give your explicit permission for this sharing. Perflection.AI, Inc. relies on this consent as the legal basis for such processing where required by law. You may withdraw consent at any time by discontinuing use of AI features or contacting us; withdrawal may limit the availability of certain AI features.
                 </p>
                 <p className="text-subtle mb-4">
                   <strong>Our AI Products</strong>
