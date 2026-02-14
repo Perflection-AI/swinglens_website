@@ -13,7 +13,7 @@ import { getBasePath, getPath } from './utils/paths';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState('Get Started');
+  const [modalTitle, setModalTitle] = useState('Join Waitlist');
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {

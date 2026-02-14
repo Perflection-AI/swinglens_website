@@ -120,21 +120,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             </div>
             
             <h1 className="text-5xl lg:text-7xl tracking-tight text-ink leading-[1.1] mb-6 font-display font-extrabold">
-              Your Personal <br />
-              <span className="text-gradient">AI Golf Coach</span>
+              Your Virtual <br />
+              <span className="text-gradient">Golf Studio</span>
             </h1>
             
-            <p className="text-lg text-subtle mb-10 leading-relaxed max-w-lg font-normal">
-              Master your swing with professional-grade biomechanics analysis. Real-time feedback in your pocket, powered by computer vision.
+            <div className="text-lg text-subtle mb-5 leading-relaxed max-w-lg font-normal space-y-1">
+              <p><span className="text-gradient">Coaches,</span> wanna attract new students while better serving current ones?</p>
+              <p><span className="text-gradient">Golfers,</span> wanna practice more efficiently and break your PB this year?</p>
+            </div>
+            
+            <p className="text-base text-golf-700 font-medium mb-6 leading-relaxed max-w-lg bg-golf-100 border border-golf-200 rounded-xl px-5 py-4">
+              <span className="text-golf-600 font-semibold">We launch in 1 month.</span> Join 1000+ golfers and coaches on our waitlist looking to get ahead.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Removed Lit Shadow */}
               <button 
-                onClick={() => onOpenModal('Start Free Trial')}
+                onClick={() => onOpenModal('Join Waitlist')}
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-golf-600 rounded-xl shadow-card hover:bg-golf-500 hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-200 border border-golf-500"
               >
-                Start Free Trial
+                Join Waitlist
                 <ArrowRight className="ml-2 w-5 h-5" />
               </button>
               
@@ -142,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 href="https://youtu.be/SZ-Vyme7HMM" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-ink bg-white border border-ink/10 rounded-xl shadow-card hover:bg-golf-50 transition-all duration-200"
+                className="hidden inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-ink bg-white border border-ink/10 rounded-xl shadow-card hover:bg-golf-50 transition-all duration-200"
               >
                 <PlayCircle className="mr-2 w-5 h-5 text-golf-400" />
                 Watch Demo
@@ -232,18 +237,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                     </div>
                   )}
                 </div>
-             </div>
-             
-             {/* Click Prompt - Curly Arrow */}
-             <div className="hidden min-[1200px]:flex absolute bottom-[100px] -left-10 z-30 pointer-events-none flex-col items-center">
-               <img 
-                 src={getPath('assets/Vector 12.svg')} 
-                 alt="Arrow" 
-                 className="w-40 h-40 mb-2 transform -rotate-12"
-               />
-               <div className="bg-white/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-card border border-ink/10 transform -rotate-12 -ml-[200px] -mt-[30px]">
-                 <span className="text-base font-semibold text-ink font-mono whitespace-nowrap">Click to explore</span>
-               </div>
              </div>
              
              {/* Floating Badge - Carry Distance */}

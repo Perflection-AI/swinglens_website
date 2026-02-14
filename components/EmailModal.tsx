@@ -8,7 +8,7 @@ interface EmailModalProps {
   title?: string;
 }
 
-export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title = "Get Started" }) => {
+export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title = "Join Waitlist" }) => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -92,7 +92,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
               <CheckCircle className="w-8 h-8 text-golf-600" />
             </div>
             <h3 className="text-2xl font-display font-bold text-ink mb-2">Success!</h3>
-            <p className="text-subtle">We'll be in touch soon.</p>
+            <p className="text-subtle">You're on the list. We'll be in touch at launch.</p>
           </div>
         ) : (
           <>
@@ -101,7 +101,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
                 <Mail className="w-6 h-6 text-golf-600" />
               </div>
               <h3 className="text-2xl font-display font-bold text-ink mb-2">{title}</h3>
-              <p className="text-subtle text-sm">Enter your email to get started</p>
+              <p className="text-subtle text-sm">Enter your email to join the waitlist.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -138,7 +138,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
                     Sending...
                   </>
                 ) : (
-                  'Submit'
+                  'Join Waitlist'
                 )}
               </button>
             </form>
