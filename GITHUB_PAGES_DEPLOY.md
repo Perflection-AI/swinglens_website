@@ -99,6 +99,7 @@ The `npm run deploy` command will automatically rebuild and update the GitHub Pa
 ### 404 Errors on Routes
 - GitHub Pages is configured correctly with the base path
 - All routes should work with the `/swinglens_website/` prefix
+- **Direct links (e.g. /privacy, /terms):** The build copies `index.html` to `404.html` so that when someone opens a direct URL (e.g. from the iOS app), GitHub Pages serves the app and client-side routing shows the correct page.
 
 ### Assets Not Loading
 - Make sure the base path in `vite.config.ts` is `/swinglens_website/`

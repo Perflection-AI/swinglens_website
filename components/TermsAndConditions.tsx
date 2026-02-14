@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Header } from './Header';
 import { EmailModal } from './EmailModal';
-import { getBasePath } from '../utils/paths';
+import { getBasePath, getPath } from '../utils/paths';
 
 interface TermsAndConditionsProps {
   onOpenModal?: (title?: string) => void;
@@ -394,7 +394,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({
               <section id="ppyes" className="mb-8">
                 <h2 className="text-2xl font-display font-bold text-ink mt-8 mb-4">17. PRIVACY POLICY</h2>
                 <p className="text-subtle mb-4">
-                  We care about data privacy and security. Please review our Privacy Policy: <strong><a href="/swinglens_website/privacy" className="text-golf-600 hover:text-golf-700 font-bold">https://perflection.ai/privacy.html</a></strong>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in <strong>the United States</strong>. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in <strong>the United States</strong>, then through your continued use of the Services, you are transferring your data to <strong>the United States</strong>, and you expressly consent to have your data transferred to and processed in <strong>the United States</strong>.
+                  We care about data privacy and security. Please review our <strong><a href={getPath('privacy')} className="text-golf-600 hover:text-golf-700 font-bold" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', getPath('privacy')); window.dispatchEvent(new PopStateEvent('popstate')); }}>Privacy Policy</a></strong>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in <strong>the United States</strong>. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in <strong>the United States</strong>, then through your continued use of the Services, you are transferring your data to <strong>the United States</strong>, and you expressly consent to have your data transferred to and processed in <strong>the United States</strong>.
                 </p>
                 <p className="text-subtle mb-4">
                   Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children's Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Services as quickly as is reasonably practical.
