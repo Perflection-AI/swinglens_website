@@ -55,7 +55,7 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
 
             <div className="pt-6 border-t border-ink/5">
                <button 
-                 onClick={() => onOpenModal('View Dashboard')}
+                 onClick={() => onOpenModal('Join Waitlist')}
                  className="flex items-center gap-2 text-gold font-bold text-sm hover:text-gold-600 transition-colors group"
                >
                   View Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +96,7 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
 
             <div className="pt-6 border-t border-ink/5">
                <button 
-                 onClick={() => onOpenModal('Start Training')}
+                 onClick={() => onOpenModal('Join Waitlist')}
                  className="flex items-center gap-2 text-golf-600 font-bold text-sm hover:text-golf-700 transition-colors group"
                >
                   Start Training <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

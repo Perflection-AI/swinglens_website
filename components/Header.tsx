@@ -113,10 +113,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           <div className="w-4"></div>
           {/* Button: Added shadow-glow and hover effects */}
           <button 
-            onClick={() => onOpenModal('Download App')}
+            onClick={() => onOpenModal('Join Waitlist')}
             className="bg-golf-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-glow hover:shadow-lg hover:shadow-golf-500/40 hover:bg-golf-500 transition-all duration-300 transform hover:-translate-y-0.5"
           >
-            Download App
+            Join Waitlist
           </button>
         </nav>
 
@@ -149,12 +149,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           <div className="h-px bg-ink/10 my-2"></div>
           <button 
             onClick={() => {
-              onOpenModal('Download App');
+              onOpenModal('Join Waitlist');
               setIsMobileMenuOpen(false);
             }}
             className="bg-golf-600 text-white px-4 py-3 rounded-xl font-bold w-full shadow-glow"
           >
-            Download App
+            Join Waitlist
           </button>
         </div>
       )}
