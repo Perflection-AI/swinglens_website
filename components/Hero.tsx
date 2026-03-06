@@ -23,19 +23,24 @@ interface OverlayConfig {
 
 // Base image paths (without leading slash for getPath utility)
 const imagePaths = {
-  IMG_8680: 'assets/IMG_8680.jpg',
   IMG_8683: 'assets/IMG_8683.jpg',
   IMG_8686: 'assets/IMG_8686.jpg',
   IMG_8687: 'assets/IMG_8687.jpg',
+  drills: 'assets/drills.jpg',
+  dynamics: 'assets/dynamics.jpg',
+  home: 'assets/home.jpg',
+  fixes: 'assets/fixes.jpg',
+  nutshell: 'assets/nutshell.jpg',
+};
+
+const noOverlays: OverlayConfig = {
+  recordingButton: false,
+  swingScore: false,
+  carryDistance: false,
+  analysisLines: false,
 };
 
 const imageOverlayConfig: Record<string, OverlayConfig> = {
-  [imagePaths.IMG_8680]: {
-    recordingButton: false,
-    swingScore: false,
-    carryDistance: false,
-    analysisLines: false,
-  },
   [imagePaths.IMG_8683]: {
     recordingButton: true,
     swingScore: {
@@ -47,12 +52,7 @@ const imageOverlayConfig: Record<string, OverlayConfig> = {
     carryDistance: true,
     analysisLines: false,
   },
-  [imagePaths.IMG_8686]: {
-    recordingButton: false,
-    swingScore: false,
-    carryDistance: false,
-    analysisLines: false,
-  },
+  [imagePaths.IMG_8686]: noOverlays,
   [imagePaths.IMG_8687]: {
     recordingButton: true,
     swingScore: {
@@ -64,15 +64,24 @@ const imageOverlayConfig: Record<string, OverlayConfig> = {
     carryDistance: true,
     analysisLines: false,
   },
+  [imagePaths.drills]: noOverlays,
+  [imagePaths.dynamics]: noOverlays,
+  [imagePaths.home]: noOverlays,
+  [imagePaths.fixes]: noOverlays,
+  [imagePaths.nutshell]: noOverlays,
 };
 
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   // Array of all image paths (using getPath for production compatibility)
   const images = [
-    getPath(imagePaths.IMG_8680),
     getPath(imagePaths.IMG_8683),
     getPath(imagePaths.IMG_8686),
-    getPath(imagePaths.IMG_8687)
+    getPath(imagePaths.IMG_8687),
+    getPath(imagePaths.drills),
+    getPath(imagePaths.dynamics),
+    getPath(imagePaths.home),
+    getPath(imagePaths.fixes),
+    getPath(imagePaths.nutshell),
   ];
   
   // Randomly select one image index on component mount
@@ -85,10 +94,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   
   // Get the image key for config lookup (use the base path without getPath)
   const imageKeys = [
-    imagePaths.IMG_8680,
     imagePaths.IMG_8683,
     imagePaths.IMG_8686,
-    imagePaths.IMG_8687
+    imagePaths.IMG_8687,
+    imagePaths.drills,
+    imagePaths.dynamics,
+    imagePaths.home,
+    imagePaths.fixes,
+    imagePaths.nutshell,
   ];
   const currentImageKey = imageKeys[currentImageIndex];
   
@@ -120,13 +133,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
             </div>
             
             <h1 className="text-5xl lg:text-7xl tracking-tight text-ink leading-[1.1] mb-6 font-display font-extrabold">
-              Your Virtual <br />
-              <span className="text-gradient">Golf Studio</span>
+              Your AI <br />
+              <span className="text-gradient">Golf Copilot</span>
             </h1>
             
             <div className="text-lg text-subtle mb-5 leading-relaxed max-w-lg font-normal space-y-1">
-              <p><span className="text-gradient">Coaches,</span> wanna attract new students while better serving current ones?</p>
-              <p><span className="text-gradient">Golfers,</span> wanna practice more efficiently and break your PB this year?</p>
+              <p>Our flagship app, <span className="text-gradient">SneakySwing, </span> helps golfers improve their swings through AI feedback and personalized drills, with coaches in-the-loop.</p>
             </div>
             
             <p className="text-base text-golf-700 font-medium mb-6 leading-relaxed max-w-lg bg-golf-100 border border-golf-200 rounded-xl px-5 py-4">
