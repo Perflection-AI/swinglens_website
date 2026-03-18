@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx vite",
     "build": "npx vite build",
-    "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
+    "postbuild": "node -e \"const fs=require('fs');fs.copyFileSync('dist/index.html','dist/404.html');if(fs.existsSync('public/CNAME'))fs.copyFileSync('public/CNAME','dist/CNAME');\"",
     "preview": "npx vite preview",
     "predeploy": "npm run build",
     "deploy": "npx gh-pages -d dist"
