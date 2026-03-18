@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YQG87KR21"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function () {
+        const path = window.location.pathname || '/';
+        const normalizedPath = path.replace(/\/+$/, '') || '/';
+        const isLegalPage =
+          normalizedPath === '/privacy' ||
+          normalizedPath === '/terms' ||
+          normalizedPath === '/swinglens_website/privacy' ||
+          normalizedPath === '/swinglens_website/terms';
 
-      gtag('config', 'G-8YQG87KR21');
+        if (isLegalPage) {
+          window.__DISABLE_SITE_ANALYTICS__ = true;
+          return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-8YQG87KR21');
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8YQG87KR21';
+        document.head.appendChild(script);
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -129,7 +148,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-DcLy7Qk6.js"></script>
+  <script type="module" crossorigin src="/assets/index-Csy0gsle.js"></script>
 </head>
   <body>
     <div id="root"></div>
