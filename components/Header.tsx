@@ -21,13 +21,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
   // Helper function to check if we're on a different page
   const isOnOtherPage = () => {
     const currentPath = window.location.pathname;
-    const base = getBasePath();
-    return currentPath === '/privacy' || 
-           currentPath === getPath('privacy') ||
-           currentPath.endsWith('/privacy') ||
-           currentPath === '/terms' || 
-           currentPath === getPath('terms') ||
-           currentPath.endsWith('/terms');
+    const legalPaths = [
+      '/privacy',
+      '/terms',
+      '/legal/privacy',
+      '/legal/terms',
+      getPath('privacy'),
+      getPath('terms'),
+      getPath('legal/privacy'),
+      getPath('legal/terms'),
+    ];
+    return legalPaths.includes(currentPath);
   };
 
   // Helper function to navigate to homepage section

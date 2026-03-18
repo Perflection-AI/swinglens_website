@@ -82,10 +82,10 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm font-medium text-subtle">
               <li>
                 <a 
-                  href={getPath('privacy')} 
+                  href={getPath('legal/privacy')} 
                   onClick={(e) => {
                     e.preventDefault();
-                    window.history.pushState({}, '', getPath('privacy'));
+                    window.history.pushState({}, '', getPath('legal/privacy'));
                     window.dispatchEvent(new PopStateEvent('popstate'));
                   }}
                   className="hover:text-golf-600 transition-colors"
@@ -95,10 +95,10 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a 
-                  href={getPath('terms')} 
+                  href={getPath('legal/terms')} 
                   onClick={(e) => {
                     e.preventDefault();
-                    window.history.pushState({}, '', getPath('terms'));
+                    window.history.pushState({}, '', getPath('legal/terms'));
                     window.dispatchEvent(new PopStateEvent('popstate'));
                   }}
                   className="hover:text-golf-600 transition-colors"

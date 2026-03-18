@@ -41,35 +41,47 @@ const App: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  // Check if we're on the privacy policy page
-  const isPrivacyPage = currentPath === '/privacy' || 
-                        currentPath === getPath('privacy') ||
-                        currentPath.endsWith('/privacy');
+  const appPrivacyPaths = ['/privacy', getPath('privacy')];
+  const appTermsPaths = ['/terms', getPath('terms')];
+  const websitePrivacyPaths = ['/legal/privacy', getPath('legal/privacy')];
+  const websiteTermsPaths = ['/legal/terms', getPath('legal/terms')];
 
-  // Check if we're on the terms page
-  const isTermsPage = currentPath === '/terms' || 
-                      currentPath === getPath('terms') ||
-                      currentPath.endsWith('/terms');
+  const isPrivacyPage = appPrivacyPaths.includes(currentPath);
+  const isTermsPage = appTermsPaths.includes(currentPath);
+  const isWebsitePrivacyPage = websitePrivacyPaths.includes(currentPath);
+  const isWebsiteTermsPage = websiteTermsPaths.includes(currentPath);
 
   if (isPrivacyPage) {
-    return (
-      <PrivacyPolicy 
-        onOpenModal={openModal}
-        isModalOpen={isModalOpen}
-        modalTitle={modalTitle}
-        onCloseModal={closeModal}
-      />
-    );
+    return <PrivacyPolicy />;
   }
 
   if (isTermsPage) {
+    return <TermsAndConditions />;
+  }
+
+  if (isWebsitePrivacyPage) {
     return (
-      <TermsAndConditions 
-        onOpenModal={openModal}
-        isModalOpen={isModalOpen}
-        modalTitle={modalTitle}
-        onCloseModal={closeModal}
-      />
+      <div className="min-h-screen bg-paper">
+        <Header onOpenModal={openModal} />
+        <main className="pt-24">
+          <PrivacyPolicy variant="website" />
+        </main>
+        <Footer />
+        <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
+      </div>
+    );
+  }
+
+  if (isWebsiteTermsPage) {
+    return (
+      <div className="min-h-screen bg-paper">
+        <Header onOpenModal={openModal} />
+        <main className="pt-24">
+          <TermsAndConditions variant="website" />
+        </main>
+        <Footer />
+        <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
+      </div>
     );
   }
 
