@@ -24,12 +24,12 @@ const features: Feature[] = [
     icon: <TrendingUp className="w-5 h-5" />,
   },
   {
-    title: "Virtual Competitions",
+    title: "Virtual Competitions (coming soon)",
     description: "Challenge friends and the global community in virtual driving range games.",
     icon: <Trophy className="w-5 h-5" />,
   },
   {
-    title: "Pro Comparisons",
+    title: "Pro Comparisons (coming soon)",
     description: "Overlay your swing with top tour pros to identify key differences.",
     icon: <Users className="w-5 h-5" />,
   },

@@ -5,7 +5,10 @@ export interface Testimonial {
   name: string;
   role: string;
   content: string;
-  image: string;
+  /** Optional headline (e.g. App Store review title) */
+  title?: string;
+  /** Optional avatar URL; if omitted, initials are shown */
+  image?: string;
 }
 
 export interface Feature {

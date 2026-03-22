@@ -1,6 +1,8 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
+const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+
 export const Pricing: React.FC = () => {
   return (
     <section id="pricing" className="py-24 bg-golf-50 border-t border-ink/5">
@@ -23,7 +25,7 @@ export const Pricing: React.FC = () => {
               <li className="flex items-center gap-3 text-subtle text-sm font-medium"><Check className="w-5 h-5 text-golf-400 flex-shrink-0" /> 3 AI Tips per day</li>
               <li className="flex items-center gap-3 text-subtle text-sm font-medium"><Check className="w-5 h-5 text-golf-400 flex-shrink-0" /> Score Tracking</li>
             </ul>
-            <button className="w-full py-3 px-4 rounded-xl border border-ink/10 text-ink font-semibold hover:bg-golf-50 transition-colors">Get Started</button>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="w-full py-3 px-4 rounded-xl border border-ink/10 text-ink font-semibold hover:bg-golf-50 transition-colors inline-flex items-center justify-center">Analyze swing now</a>
           </div>
 
           {/* Pro Tier - Highlighted with Lighter Green */}
@@ -44,7 +46,7 @@ export const Pricing: React.FC = () => {
               <li className="flex items-center gap-3 text-ink text-sm font-bold"><div className="bg-golf-100 p-0.5 rounded-full"><Check className="w-4 h-4 text-golf-600" /></div> Custom Drill Plans</li>
               <li className="flex items-center gap-3 text-ink text-sm font-bold"><div className="bg-golf-100 p-0.5 rounded-full"><Check className="w-4 h-4 text-golf-600" /></div> Priority Support</li>
             </ul>
-            <button className="w-full py-3 px-4 rounded-xl bg-golf-500 text-white font-semibold hover:bg-golf-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Start 7-Day Free Trial</button>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="w-full py-3 px-4 rounded-xl bg-golf-500 text-white font-semibold hover:bg-golf-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center justify-center">Analyze swing now</a>
           </div>
 
           {/* Team Tier */}
@@ -59,7 +61,7 @@ export const Pricing: React.FC = () => {
               <li className="flex items-center gap-3 text-subtle text-sm font-medium"><Check className="w-5 h-5 text-golf-400 flex-shrink-0" /> White-label Reports</li>
               <li className="flex items-center gap-3 text-subtle text-sm font-medium"><Check className="w-5 h-5 text-golf-400 flex-shrink-0" /> Team Analytics</li>
             </ul>
-            <button className="w-full py-3 px-4 rounded-xl border border-ink/10 text-ink font-semibold hover:bg-golf-50 transition-colors">Contact Sales</button>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="w-full py-3 px-4 rounded-xl border border-ink/10 text-ink font-semibold hover:bg-golf-50 transition-colors inline-flex items-center justify-center">Analyze swing now</a>
           </div>
         </div>
       </div>

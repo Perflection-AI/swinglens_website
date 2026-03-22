@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { PlayCircle, ArrowRight, Zap } from 'lucide-react';
 import { getPath } from '../utils/paths';
 
-interface HeroProps {
-  onOpenModal: (title?: string) => void;
-}
-
 // Configuration for which overlays to show for each image
 interface SwingScoreData {
   score: number;
@@ -71,7 +67,7 @@ const imageOverlayConfig: Record<string, OverlayConfig> = {
   [imagePaths.nutshell]: noOverlays,
 };
 
-export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
+export const Hero: React.FC = () => {
   // Array of all image paths (using getPath for production compatibility)
   const images = [
     getPath(imagePaths.IMG_8683),
@@ -118,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
   return (
-    <section className="relative pt-24 pb-12 lg:pt-36 lg:pb-20 overflow-hidden bg-golf-50 bg-grid-paper">
+    <section className="relative pt-16 pb-12 lg:pt-24 lg:pb-20 overflow-hidden bg-golf-50 bg-grid-paper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
@@ -141,39 +137,40 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <p>Our flagship app, <span className="text-gradient">SneakySwing, </span> helps golfers improve their swings through AI feedback and personalized drills, with coaches in-the-loop.</p>
             </div>
             
-            <p className="text-base text-golf-700 font-medium mb-6 leading-relaxed max-w-lg bg-golf-100 border border-golf-200 rounded-xl px-5 py-4">
-              <span className="text-golf-600 font-semibold">We launch in 1 month.</span> Join 1000+ golfers and coaches on our waitlist looking to get ahead.
-            </p>
-            
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Removed Lit Shadow */}
-              <button 
-                onClick={() => onOpenModal('Join Waitlist')}
+              <a 
+                href="https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-golf-600 rounded-xl shadow-card hover:bg-golf-500 hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-200 border border-golf-500"
               >
-                Join Waitlist
+                Analyze swing now
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
+              </a>
               
               <a 
-                href="https://youtu.be/SZ-Vyme7HMM" 
+                href="https://youtu.be/EI_GqLSFSv4" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hidden inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-ink bg-white border border-ink/10 rounded-xl shadow-card hover:bg-golf-50 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-ink bg-white border border-ink/10 rounded-xl shadow-card hover:bg-golf-50 transition-all duration-200"
               >
                 <PlayCircle className="mr-2 w-5 h-5 text-golf-400" />
                 Watch Demo
               </a>
             </div>
 
-            <div className="mt-12 flex items-center gap-4 text-sm font-medium text-subtle">
+            <div className="mt-12 flex flex-wrap items-center gap-4 sm:gap-6 text-sm font-medium text-subtle">
                <div className="flex -space-x-3">
                  {[1,2,3,4].map(i => (
                    <img key={i} className="w-10 h-10 rounded-full border-2 border-paper shadow-sm" src={`https://picsum.photos/100/100?random=${i}`} alt="User" />
                  ))}
                </div>
-               <div>
-                 <div className="flex text-gold text-xs mb-0.5">★★★★★</div>
+               <div className="flex flex-wrap items-center gap-2 min-w-0">
+                 <span className="flex text-gold text-base leading-none tracking-tight" aria-hidden>★★★★★</span>
+                 <p className="text-subtle leading-snug m-0">
+                   <span className="text-ink font-semibold">5.0</span> rated on the App Store
+                 </p>
                </div>
             </div>
           </div>

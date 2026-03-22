@@ -6,14 +6,11 @@ import { CoachesSection } from './components/CoachesSection';
 import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
 import { Footer } from './components/Footer';
-import { EmailModal } from './components/EmailModal';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
-import { getBasePath, getPath } from './utils/paths';
+import { getPath } from './utils/paths';
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState('Join Waitlist');
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
@@ -31,15 +28,6 @@ const App: React.FC = () => {
       window.removeEventListener('popstate', handleLocationChange);
     };
   }, []);
-
-  const openModal = (title: string = 'Get Started') => {
-    setModalTitle(title);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const appPrivacyPaths = ['/privacy', getPath('privacy')];
   const appTermsPaths = ['/terms', getPath('terms')];
@@ -62,12 +50,11 @@ const App: React.FC = () => {
   if (isWebsitePrivacyPage) {
     return (
       <div className="min-h-screen bg-paper">
-        <Header onOpenModal={openModal} />
+        <Header />
         <main className="pt-24">
           <PrivacyPolicy variant="website" />
         </main>
         <Footer />
-        <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
       </div>
     );
   }
@@ -75,28 +62,26 @@ const App: React.FC = () => {
   if (isWebsiteTermsPage) {
     return (
       <div className="min-h-screen bg-paper">
-        <Header onOpenModal={openModal} />
+        <Header />
         <main className="pt-24">
           <TermsAndConditions variant="website" />
         </main>
         <Footer />
-        <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-paper">
-      <Header onOpenModal={openModal} />
+      <Header />
       <main>
-        <Hero onOpenModal={openModal} />
+        <Hero />
         <Features />
-        <CoachesSection onOpenModal={openModal} />
+        <CoachesSection />
         <Testimonials />
         <Collaborations />
       </main>
       <Footer />
-      <EmailModal isOpen={isModalOpen} onClose={closeModal} title={modalTitle} />
     </div>
   );
 };

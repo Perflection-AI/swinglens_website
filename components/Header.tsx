@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { getBasePath, getPath } from '../utils/paths';
 
-interface HeaderProps {
-  onOpenModal: (title?: string) => void;
-}
+const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
 
-export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
+export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -116,12 +114,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           ))}
           <div className="w-4"></div>
           {/* Button: Added shadow-glow and hover effects */}
-          <button 
-            onClick={() => onOpenModal('Join Waitlist')}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-golf-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-glow hover:shadow-lg hover:shadow-golf-500/40 hover:bg-golf-500 transition-all duration-300 transform hover:-translate-y-0.5"
           >
-            Join Waitlist
-          </button>
+            Analyze swing now
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -151,15 +151,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
             </a>
           ))}
           <div className="h-px bg-ink/10 my-2"></div>
-          <button 
-            onClick={() => {
-              onOpenModal('Join Waitlist');
-              setIsMobileMenuOpen(false);
-            }}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="bg-golf-600 text-white px-4 py-3 rounded-xl font-bold w-full shadow-glow"
           >
-            Join Waitlist
-          </button>
+            Analyze swing now
+          </a>
         </div>
       )}
     </header>

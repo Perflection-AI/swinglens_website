@@ -1,11 +1,9 @@
 import React from 'react';
 import { ClipboardList, GraduationCap, CheckCircle2, ArrowRight } from 'lucide-react';
 
-interface CoachesSectionProps {
-  onOpenModal: (title?: string) => void;
-}
+const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
 
-export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) => {
+export const CoachesSection: React.FC = () => {
   return (
     <section id="solutions" className="py-24 bg-golf-50 relative overflow-hidden border-t border-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -54,12 +52,14 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
             </ul>
 
             <div className="pt-6 border-t border-ink/5">
-               <button 
-                 onClick={() => onOpenModal('Join Waitlist')}
+               <a
+                 href={APP_STORE_URL}
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="flex items-center gap-2 text-gold font-bold text-sm hover:text-gold-600 transition-colors group"
                >
-                  View Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-               </button>
+                  Analyze swing now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+               </a>
             </div>
           </div>
 
@@ -95,12 +95,14 @@ export const CoachesSection: React.FC<CoachesSectionProps> = ({ onOpenModal }) =
             </ul>
 
             <div className="pt-6 border-t border-ink/5">
-               <button 
-                 onClick={() => onOpenModal('Join Waitlist')}
+               <a
+                 href={APP_STORE_URL}
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="flex items-center gap-2 text-golf-600 font-bold text-sm hover:text-golf-700 transition-colors group"
                >
-                  Start Training <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-               </button>
+                  Analyze swing now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+               </a>
             </div>
           </div>
 

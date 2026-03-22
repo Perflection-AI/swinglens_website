@@ -8,7 +8,7 @@ interface EmailModalProps {
   title?: string;
 }
 
-export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title = "Join Waitlist" }) => {
+export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title = "Open SneakySwing" }) => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -101,7 +101,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
                 <Mail className="w-6 h-6 text-golf-600" />
               </div>
               <h3 className="text-2xl font-display font-bold text-ink mb-2">{title}</h3>
-              <p className="text-subtle text-sm">Enter your email to join the waitlist.</p>
+              <p className="text-subtle text-sm">Enter your email to open SneakySwing.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -138,7 +138,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
                     Sending...
                   </>
                 ) : (
-                  'Join Waitlist'
+                  'Open SneakySwing'
                 )}
               </button>
             </form>
