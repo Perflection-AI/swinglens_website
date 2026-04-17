@@ -7,22 +7,22 @@ export const GOLFTI_TYPE_CODES = ['VOID','GOON','TURF','BOZO','BRUH','COOM','PSS
 export type GolfTIType = typeof GOLFTI_TYPE_CODES[number];
 
 export const GOLFTI_TAGLINES: Record<string, string> = {
-  VOID: 'So mechanically flawless it makes everyone else at the range question their life choices.',
-  GOON: 'Swings at 120% effort and somehow still compresses less than a pillow. The ball is not impressed.',
-  TURF: 'The divots are so deep they could bury a small pet. The grass never stood a chance.',
-  BOZO: 'Swings like they\'re trying to murder the ball — and the ball is winning.',
-  BRUH: 'The backswing writes checks the downswing can\'t cash — and the downswing\'s card gets declined every single time.',
-  COOM: 'The mind thinks it\'s a Tour pro. The body is a hard pass. The gap between them is measurable in light-years.',
-  PSSS: 'Hits a slice so reliable it has its own flight path. Air traffic control has been notified.',
-  DUMB: 'Zero plan, zero structure, zero evidence of brain activity — yet somehow still convinced they\'re one tip away from greatness.',
-  RIZZ: 'The outfit costs more than the golf membership. The contact is non-existent. The excuses? World-class.',
-  CRYK: 'One bad shot triggers an emotional collapse that lasts the entire bucket. The swing isn\'t the fragile part.',
-  SIMP: 'Instagram-perfect form on camera, absolute chaos on contact. The drillfluencer with zero transferable skills.',
-  COPE: 'Every single miss is "actually not that bad" — which is exactly what someone in deep denial would say.',
-  FERL: 'Pure uncontrolled chaos with enough raw power to injure a bystander. Accidentally. On purpose. Both apply.',
-  DEAD: 'The ball travels less distance than their pre-shot routine. The clubface has seen more action this round than the golf ball.',
-  FLAIR: 'The finish pose belongs in a museum. The ball contact belongs in a blooper reel.',
-  TRSH: 'Every fundamental broken at once, yet somehow still convinced today\'s the day. It is not. It never is.',
+  VOID: 'Gives off the energy of someone who has already left this world, yet somehow keeps producing disgustingly clean contact.',
+  GOON: 'Brings relentless energy and zero compression — the engine runs hot but the wheels don\'t turn.',
+  TURF: 'Leaves behind so much turf damage it looks less like golf and more like a hate crime against grass.',
+  BOZO: 'Brings nuclear power to every shot and negotiates exactly zero of it.',
+  BRUH: 'Everything looks fine until the downswing suddenly turns into a medical emergency.',
+  COOM: 'Could write a textbook on swing mechanics. The actual swing suggests the textbook was never opened.',
+  PSSS: 'The ball starts leaking right so fast it feels like the clubface already gave up at impact.',
+  DUMB: 'No setup, no plan, no visible brain activity, just vibes and blunt force trauma.',
+  RIZZ: 'Brings elite swagger, premium confidence, and a surprisingly high ratio of air swings to solid ones.',
+  CRYK: 'One bad shot is enough to send them into a full bucket-long emotional collapse.',
+  SIMP: 'Copies every coach drill with religious devotion and understands exactly none of it.',
+  COPE: 'Calls every horrifying miss "actually not bad" like denial is part of the pre-shot routine.',
+  FERL: 'Moves through the swing with the raw, unlicensed energy of a feral dog chasing a shopping cart.',
+  DEAD: 'No tempo, no rotation, no pulse, just a legally observable golf swing.',
+  FLAIR: 'Came to the range for one clean strike and twelve opportunities to look mysterious in the finish pose.',
+  TRSH: 'Fearless. Will swing at anything with zero survival instinct. The commitment is admirable, the result is not.',
 };
 
 export const LOADING_MESSAGES: Record<string, { title: string; subtitle: string }> = {
