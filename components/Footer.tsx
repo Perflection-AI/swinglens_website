@@ -36,21 +36,21 @@ const DiscordIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 export const Footer: React.FC = () => {
   // Logo path using getPath for production compatibility
-  const logoUrl = getPath('assets/perflection_logo.png');
+  const logoUrl = getPath('assets/sneakyswing.png');
 
   return (
     <footer className="bg-white text-ink py-16 border-t border-ink/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-             <div className="flex items-center gap-2 mb-6">
+             <div className="flex items-center gap-3 mb-6">
               <img 
                 src={logoUrl} 
-                alt="Perflection AI Logo" 
-                className="w-[50px] h-[50px] rounded-lg shadow-sm"
+                alt="SneakySwing Logo"
+                className="w-[38px] h-[38px] rounded-[10px] shadow-sm"
               />
               <span className="text-xl font-display font-bold text-ink">
-                Perflection AI
+                SneakySwing
               </span>
             </div>
             <p className="text-sm text-subtle font-medium leading-relaxed">

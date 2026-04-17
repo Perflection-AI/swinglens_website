@@ -28,3 +28,33 @@ export enum LoadingState {
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR'
 }
+
+export interface GolfTIMatch {
+  type: string;
+  matchScore: number;
+  label: string;
+}
+
+export interface RadarItem {
+  name: string;
+  value: number;
+}
+
+export interface AnalysisResult {
+  matches: GolfTIMatch[];
+  radar: RadarItem[];
+}
+
+export interface PresignResponse {
+  uploadUrl: string;
+  key: string;
+}
+
+export enum GolfTIState {
+  IDLE = 'IDLE',
+  PREPARING = 'PREPARING',
+  UPLOADING = 'UPLOADING',
+  ANALYZING = 'ANALYZING',
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
+}

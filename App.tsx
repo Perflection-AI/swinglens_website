@@ -5,6 +5,8 @@ import { Features } from './components/Features';
 import { CoachesSection } from './components/CoachesSection';
 import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
+import { GolfTISection } from './components/GolfTISection';
+import { GolfTIPage } from './components/GolfTIPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -33,6 +35,13 @@ const App: React.FC = () => {
   const appTermsPaths = ['/terms', getPath('terms')];
   const websitePrivacyPaths = ['/legal/privacy', getPath('legal/privacy')];
   const websiteTermsPaths = ['/legal/terms', getPath('legal/terms')];
+  const golftiPaths = ['/golfti', getPath('golfti')];
+
+  const isGolftiPage = golftiPaths.includes(currentPath);
+
+  if (isGolftiPage) {
+    return <GolfTIPage />;
+  }
 
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
   const isTermsPage = appTermsPaths.includes(currentPath);
@@ -76,6 +85,7 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
+        <GolfTISection />
         <Features />
         <CoachesSection />
         <Testimonials />

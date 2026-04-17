@@ -19,17 +19,13 @@ export const Header: React.FC = () => {
   // Helper function to check if we're on a different page
   const isOnOtherPage = () => {
     const currentPath = window.location.pathname;
-    const legalPaths = [
-      '/privacy',
-      '/terms',
-      '/legal/privacy',
-      '/legal/terms',
-      getPath('privacy'),
-      getPath('terms'),
-      getPath('legal/privacy'),
-      getPath('legal/terms'),
-    ];
-    return legalPaths.includes(currentPath);
+    const basePath = getBasePath();
+    const homePath = basePath === '/' ? '/' : basePath.replace(/\/+$/, '');
+    // If we're not on the home root, we're on another page
+    if (homePath === '/') {
+      return currentPath !== '/';
+    }
+    return !currentPath.startsWith(homePath) || currentPath === homePath + 'golfti' || currentPath === homePath + 'golfti/';
   };
 
   // Helper function to navigate to homepage section
@@ -58,7 +54,7 @@ export const Header: React.FC = () => {
   };
 
   // Logo path using getPath for production compatibility
-  const logoUrl = getPath('assets/perflection_logo.png');
+  const logoUrl = getPath('assets/sneakyswing.png');
 
   return (
     <header 
@@ -70,7 +66,7 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <div 
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center gap-3.5 cursor-pointer group"
           onClick={() => {
             const base = getBasePath();
             if (isOnOtherPage()) {
@@ -89,18 +85,18 @@ export const Header: React.FC = () => {
         >
           <img 
             src={logoUrl} 
-            alt="Perflection AI Logo" 
-            className="w-[62px] h-[62px] group-hover:scale-105 transition-transform rounded-xl"
+            alt="SneakySwing Logo"
+            className="w-[47px] h-[47px] group-hover:scale-105 transition-transform rounded-[10px]"
           />
           <span className="text-xl font-display font-bold tracking-tight text-ink">
-            Perflection AI
+            SneakySwing
           </span>
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
           {['Features', 'Solutions', 'Testimonials'].map((item) => (
-            <a 
+            <a
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={(e) => {
@@ -112,6 +108,18 @@ export const Header: React.FC = () => {
               {item}
             </a>
           ))}
+          <a
+            href={getPath('golfti')}
+            onClick={(e) => {
+              e.preventDefault();
+              const base = getBasePath();
+              const golftiPath = `${base}golfti`.replace(/\/+/g, '/');
+              window.location.href = golftiPath;
+            }}
+            className="text-subtle font-medium text-sm px-4 py-2 rounded-full hover:bg-golf-100 hover:text-golf-700 transition-all"
+          >
+            GolfTI
+          </a>
           <div className="w-4"></div>
           {/* Button: Added shadow-glow and hover effects */}
           <a
@@ -137,7 +145,7 @@ export const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-paper border-b border-ink/10 p-4 flex flex-col gap-2 shadow-xl animate-in slide-in-from-top-2">
           {['Features', 'Solutions', 'Testimonials'].map((item) => (
-            <a 
+            <a
               key={item}
               href={`#${item.toLowerCase()}`}
               onClick={(e) => {
@@ -150,6 +158,19 @@ export const Header: React.FC = () => {
               {item}
             </a>
           ))}
+          <a
+            href={getPath('golfti')}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              const base = getBasePath();
+              const golftiPath = `${base}golfti`.replace(/\/+/g, '/');
+              window.location.href = golftiPath;
+            }}
+            className="text-ink font-medium p-3 rounded-lg hover:bg-golf-100 transition-colors"
+          >
+            GolfTI
+          </a>
           <div className="h-px bg-ink/10 my-2"></div>
           <a
             href={APP_STORE_URL}

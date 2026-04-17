@@ -31,8 +31,8 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perflection AI - The Future of Golf Coaching</title>
-    <link rel="icon" type="image/png" href="/assets/perflection_logo.png" />
+    <title>SneakySwing - The Future of Golf Coaching</title>
+    <link rel="icon" type="image/png" href="/assets/sneakyswing.png?v=2" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +123,38 @@
         -webkit-text-fill-color: transparent;
       }
       
+      /* Fade Slide Up Animation */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-slide-up {
+        animation: fadeSlideUp 0.5s ease-out forwards;
+      }
+
+      /* GolfTI Waterfall Background */
+      @keyframes waterfall-down {
+        0% { transform: translateY(-120%) scale(var(--s, 1)); }
+        100% { transform: translateY(120vh) scale(var(--s, 1)); }
+      }
+      .golfti-bg-item {
+        position: absolute;
+        animation: waterfall-down var(--dur, 20s) var(--delay, 0s) linear infinite;
+        will-change: transform;
+      }
+
+      /* Auto Scroll Strip */
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .scroll-strip {
+        animation: scroll-left 30s linear infinite;
+      }
+      .scroll-strip:hover {
+        animation-play-state: paused;
+      }
+
       /* Custom Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
