@@ -116,9 +116,9 @@ export const Header: React.FC = () => {
               const golftiPath = `${base}golfti`.replace(/\/+/g, '/');
               window.location.href = golftiPath;
             }}
-            className="text-subtle font-medium text-sm px-4 py-2 rounded-full hover:bg-golf-100 hover:text-golf-700 transition-all"
+            className="font-medium text-sm px-4 py-2 rounded-full bg-golf-100 text-golf-700 hover:bg-golf-200 transition-all"
           >
-            GolfTI
+            Golf Personality Test
           </a>
           <div className="w-4"></div>
           {/* Button: Added shadow-glow and hover effects */}
@@ -169,7 +169,7 @@ export const Header: React.FC = () => {
             }}
             className="text-ink font-medium p-3 rounded-lg hover:bg-golf-100 transition-colors"
           >
-            GolfTI
+            Golf Personality Test
           </a>
           <div className="h-px bg-ink/10 my-2"></div>
           <a
