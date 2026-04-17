@@ -5,7 +5,6 @@ import { Features } from './components/Features';
 import { CoachesSection } from './components/CoachesSection';
 import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
-import { GolfTISection } from './components/GolfTISection';
 import { GolfTIPage } from './components/GolfTIPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
@@ -85,7 +84,6 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <GolfTISection />
         <Features />
         <CoachesSection />
         <Testimonials />

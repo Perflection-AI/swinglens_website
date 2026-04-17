@@ -149,15 +149,16 @@ export const Hero: React.FC = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
               
-              <a 
-                href="https://youtu.be/EI_GqLSFSv4" 
-                target="_blank" 
+              <a
+                href="https://youtu.be/EI_GqLSFSv4"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-ink bg-white border border-ink/10 rounded-xl shadow-card hover:bg-golf-50 transition-all duration-200"
               >
                 <PlayCircle className="mr-2 w-5 h-5 text-golf-400" />
                 Watch Demo
               </a>
+
             </div>
 
             <div className="mt-12 flex flex-wrap items-center gap-4 sm:gap-6 text-sm font-medium text-subtle">
