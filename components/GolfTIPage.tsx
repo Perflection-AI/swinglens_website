@@ -96,8 +96,9 @@ const TOTAL_CARDS = 5;
 const SwipeableCardStack: React.FC<{
   matches: GolfTIMatch[];
   radar: RadarItem[];
+  quote: string;
   onIndexChange: (index: number) => void;
-}> = ({ matches, radar, onIndexChange }) => {
+}> = ({ matches, radar, quote, onIndexChange }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
@@ -204,7 +205,7 @@ const SwipeableCardStack: React.FC<{
             <div className="w-full max-w-[250px] flex-1 flex items-center justify-center">
               <RadarChartSVG data={radar} animatePoints={radarAnimated} />
             </div>
-            <p className="text-subtle/60 text-xs text-center italic mt-auto pt-3 pb-2">Your swing dimensions</p>
+            <p className="text-subtle/70 text-xs text-center italic mt-auto pt-3 pb-2 px-2">{quote || "Your swing dimensions"}</p>
           </div>
         </div>
 
@@ -528,7 +529,7 @@ export const GolfTIPage: React.FC = () => {
 
               {isSuccess && result && (
                 <div className="flex flex-col items-center">
-                  <SwipeableCardStack matches={shuffledMatches} radar={result.radar} onIndexChange={handleIndexChange} />
+                  <SwipeableCardStack matches={shuffledMatches} radar={result.radar} quote={result.quote || ""} onIndexChange={handleIndexChange} />
                   <div className="text-center mt-10">
                     <button onClick={handleReset} className="inline-flex items-center gap-2 text-sm font-medium text-subtle hover:text-golf-600 transition-colors">
                       <RotateCcw className="w-4 h-4" /> Try another swing

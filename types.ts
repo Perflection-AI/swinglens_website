@@ -43,6 +43,7 @@ export interface RadarItem {
 export interface AnalysisResult {
   matches: GolfTIMatch[];
   radar: RadarItem[];
+  quote: string;
 }
 
 export interface PresignResponse {
