@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
+import { SwingRecord } from './components/SwingRecord';
 import { CoachesSection } from './components/CoachesSection';
 import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
 import { GolfTIPage } from './components/GolfTIPage';
+import { About } from './components/About';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -35,11 +37,17 @@ const App: React.FC = () => {
   const websitePrivacyPaths = ['/legal/privacy', getPath('legal/privacy')];
   const websiteTermsPaths = ['/legal/terms', getPath('legal/terms')];
   const golftiPaths = ['/golfti', getPath('golfti')];
+  const aboutPaths = ['/about', getPath('about')];
 
   const isGolftiPage = golftiPaths.includes(currentPath);
+  const isAboutPage = aboutPaths.includes(currentPath);
 
   if (isGolftiPage) {
     return <GolfTIPage />;
+  }
+
+  if (isAboutPage) {
+    return <About />;
   }
 
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
@@ -85,6 +93,7 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <Features />
+        <SwingRecord />
         <CoachesSection />
         <Testimonials />
         <Collaborations />

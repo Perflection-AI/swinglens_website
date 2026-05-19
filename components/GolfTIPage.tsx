@@ -54,19 +54,19 @@ const RadarChartSVG: React.FC<{ data: RadarItem[]; animatePoints: boolean }> = (
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-full">
       {gridLevels.map((pts, i) => (
-        <polygon key={`g-${i}`} points={pts} fill="none" stroke="rgba(74,155,127,0.2)" strokeWidth={1} />
+        <polygon key={`g-${i}`} points={pts} fill="none" stroke="rgba(113,146,65,0.2)" strokeWidth={1} />
       ))}
       {axisLines.map((l, i) => (
-        <line key={`a-${i}`} x1={cx} y1={cy} x2={l.x2} y2={l.y2} stroke="rgba(74,155,127,0.15)" strokeWidth={1} />
+        <line key={`a-${i}`} x1={cx} y1={cy} x2={l.x2} y2={l.y2} stroke="rgba(113,146,65,0.15)" strokeWidth={1} />
       ))}
       <polygon
         points={dataPolygonStr}
-        fill={animatePoints ? 'rgba(117,216,186,0.3)' : 'rgba(117,216,186,0)'}
-        stroke="#4A9B7F" strokeWidth={2} strokeLinejoin="round"
+        fill={animatePoints ? 'rgba(184,208,133,0.3)' : 'rgba(184,208,133,0)'}
+        stroke="#719241" strokeWidth={2} strokeLinejoin="round"
         style={{ transition: 'fill 0.5s ease-out 0.3s' }}
       />
       {dataPoints.map((p, i) => (
-        <circle key={`d-${i}`} cx={p.x} cy={p.y} r={animatePoints ? 4 : 0} fill="#4A9B7F" stroke="#fff" strokeWidth={2}
+        <circle key={`d-${i}`} cx={p.x} cy={p.y} r={animatePoints ? 4 : 0} fill="#719241" stroke="#fff" strokeWidth={2}
           style={{ transition: `r 0.25s ease-out ${0.5 + i * 0.06}s, cx 1.2s cubic-bezier(0.16,1,0.3,1) ${i * 0.04}s, cy 1.2s cubic-bezier(0.16,1,0.3,1) ${i * 0.04}s` }}
         />
       ))}
@@ -77,7 +77,7 @@ const RadarChartSVG: React.FC<{ data: RadarItem[]; animatePoints: boolean }> = (
         return (
           <text key={`l-${i}`} x={lp.x} y={lp.y} textAnchor="middle"
             dominantBaseline={isTop ? 'auto' : lp.y > cy ? 'hanging' : 'central'}
-            fill="#5C6B55" fontSize={9} fontFamily="Space Grotesk"
+            fill="#828282" fontSize={9} fontFamily="DM Sans"
             style={{ transition: 'opacity 0.3s ease-out 0.7s', opacity: animatePoints ? 1 : 0.3 }}>
             {words.map((word, wi) => (
               <tspan key={wi} x={lp.x} dy={wi === 0 ? firstDy : 11}>{word}</tspan>
@@ -183,7 +183,7 @@ const SwipeableCardStack: React.FC<{
       {/* Left arrow */}
       {activeIndex > 0 && (
         <button onClick={goPrev}
-          className="absolute -left-6 sm:-left-14 md:-left-20 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-soft-lg border border-golf-100 flex items-center justify-center text-golf-500 hover:bg-golf-50 hover:shadow-soft-xl transition-all">
+          className="absolute -left-6 sm:-left-14 md:-left-20 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-soft-lg border border-green-light flex items-center justify-center text-green hover:bg-paper hover:shadow-soft-xl transition-all">
           <ChevronLeft className="w-5 h-5" />
         </button>
       )}
@@ -198,8 +198,8 @@ const SwipeableCardStack: React.FC<{
         style={{ cursor: isDragging ? 'grabbing' : 'grab', perspective: '1000px' }}
       >
         {/* Card 0: Radar */}
-        <div className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-golf-100 overflow-hidden" style={getCardStyle(0)}>
-          <div className="h-2 bg-gradient-to-r from-golf-300 to-golf-500" />
+        <div className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-green-light overflow-hidden" style={getCardStyle(0)}>
+          <div className="h-2 bg-gradient-to-r from-green-light to-green" />
           <div className="flex flex-col items-center px-6 pt-5 pb-4 h-full">
             <p className="text-subtle text-xs text-center mb-3">Based on your radar — swipe to reveal your possible GolfTI</p>
             <div className="w-full max-w-[250px] flex-1 flex items-center justify-center">
@@ -211,15 +211,15 @@ const SwipeableCardStack: React.FC<{
 
         {/* Cards 1-3: Personality */}
         {matches.map((match, i) => (
-          <div key={match.type} className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-golf-100 overflow-hidden" style={getCardStyle(i + 1)}>
-            <div className="h-2 bg-gradient-to-r from-golf-400 to-golf-300" />
+          <div key={match.type} className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-green-light overflow-hidden" style={getCardStyle(i + 1)}>
+            <div className="h-2 bg-gradient-to-r from-green to-green-light" />
             <div className="flex flex-col items-center justify-center h-full px-6 py-6">
               <p className="text-subtle text-xs text-center mb-3">{CARD_LABELS[i + 1]}</p>
               <div className="w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mb-3">
                 <img src={typeImg(match.type)} alt={match.type} className="w-full h-full object-contain" draggable={false} />
               </div>
               <div className="text-4xl sm:text-5xl font-display font-extrabold text-ink tracking-tight mb-1">{match.type}</div>
-              <p className="font-display font-semibold text-golf-600 text-sm mb-2">{match.label}</p>
+              <p className="font-display font-semibold text-green text-sm mb-2">{match.label}</p>
               <p className="text-subtle text-xs leading-relaxed text-center italic max-w-[240px]">
                 &ldquo;{GOLFTI_TAGLINES[match.type] || match.label}&rdquo;
               </p>
@@ -228,19 +228,19 @@ const SwipeableCardStack: React.FC<{
         ))}
 
         {/* Card 4: Nutshell — flowing cards fill the frame */}
-        <div className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-golf-100 overflow-hidden" style={getCardStyle(4)}>
+        <div className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-green-light overflow-hidden" style={getCardStyle(4)}>
           <div className="h-full w-full relative">
             <div className="absolute inset-0 overflow-hidden rounded-2xl">
-              <div className="bg-golf-50/40 h-full">
+              <div className="bg-paper/40 h-full">
                 <div className="overflow-hidden h-full flex items-stretch">
                   <div className="scroll-strip flex items-stretch gap-3 w-max h-full py-0">
                     {[0, 1, 2].map(set => (
                       <React.Fragment key={set}>
-                        <div className="w-[200px] sm:w-[240px] md:w-[260px] shrink-0 rounded-xl overflow-hidden bg-white shadow-soft-md border border-golf-100 p-4 flex items-center justify-center my-3">
+                        <div className="w-[200px] sm:w-[240px] md:w-[260px] shrink-0 rounded-xl overflow-hidden bg-white shadow-soft-md border border-green-light p-4 flex items-center justify-center my-3">
                           <RadarChartSVG data={radar} animatePoints={true} />
                         </div>
                         {['nutshell', 'fixes', 'drills', 'dynamics', 'home'].map(name => (
-                          <div key={`${set}-${name}`} className="w-[200px] sm:w-[240px] md:w-[260px] shrink-0 rounded-xl overflow-hidden bg-white shadow-soft-md border border-golf-100 p-2 my-3">
+                          <div key={`${set}-${name}`} className="w-[200px] sm:w-[240px] md:w-[260px] shrink-0 rounded-xl overflow-hidden bg-white shadow-soft-md border border-green-light p-2 my-3">
                             <img src={getPath(`assets/${name}.jpg`)} alt={name} className="w-full h-full object-cover rounded-lg" draggable={false} />
                           </div>
                         ))}
@@ -252,14 +252,14 @@ const SwipeableCardStack: React.FC<{
             </div>
             {/* Frosted overlay + CTA */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-paper/40 backdrop-blur-[3px] rounded-2xl px-6">
-              <Lock className="w-7 h-7 text-golf-500 mb-3" />
+              <Lock className="w-7 h-7 text-green mb-3" />
               <p className="text-ink text-lg font-bold mb-1 text-center">Wanna know your type?</p>
               <p className="text-subtle text-[13px] mb-5 text-center max-w-[220px] leading-relaxed">
                 Unlock your 16-type deep dive, more insightful swing analysis, and advanced AI feedback
               </p>
               <a
                 href={APP_STORE_URL} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-golf-600 rounded-xl shadow-card hover:bg-golf-500 hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-200 border border-golf-500"
+                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-green rounded-xl shadow-card hover:bg-green hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-200 border border-green"
                 onClick={(e) => e.stopPropagation()}
               >
                 Download SneakySwing
@@ -273,7 +273,7 @@ const SwipeableCardStack: React.FC<{
       {/* Right arrow */}
       {activeIndex < TOTAL_CARDS - 1 && (
         <button onClick={goNext}
-          className="absolute -right-6 sm:-right-14 md:-right-20 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-soft-lg border border-golf-100 flex items-center justify-center text-golf-500 hover:bg-golf-50 hover:shadow-soft-xl transition-all">
+          className="absolute -right-6 sm:-right-14 md:-right-20 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-soft-lg border border-green-light flex items-center justify-center text-green hover:bg-paper hover:shadow-soft-xl transition-all">
           <ChevronRight className="w-5 h-5" />
         </button>
       )}
@@ -281,7 +281,7 @@ const SwipeableCardStack: React.FC<{
       {/* Dot indicators */}
       <div className="flex items-center gap-2 mt-6">
         {Array.from({ length: TOTAL_CARDS }, (_, i) => (
-          <div key={i} className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-golf-500 w-5' : i < activeIndex ? 'bg-golf-300' : 'bg-golf-200'}`} />
+          <div key={i} className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-green w-5' : i < activeIndex ? 'bg-green-light' : 'bg-green-light'}`} />
         ))}
       </div>
     </div>
@@ -475,21 +475,24 @@ export const GolfTIPage: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Header — dynamic based on state */}
               <div className="text-center mb-10 md:mb-14">
+                <p className="text-green text-xs font-bold uppercase tracking-widest mb-4">
+                  {isSuccess ? 'Your results' : 'Golf Personality Test'}
+                </p>
                 {isSuccess ? (
                   <>
                     <h1 className="text-3xl md:text-5xl font-display font-bold text-ink mb-4">
-                      Here's your <span className="text-gradient">analysis</span>.
+                      Here's your <span className="text-brand">analysis</span>.
                     </h1>
-                    <p className="text-subtle text-lg leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-subtle text-base leading-relaxed max-w-2xl mx-auto">
                       Swipe through the cards to explore your results.
                     </p>
                   </>
                 ) : (
                   <>
                     <h1 className="text-3xl md:text-5xl font-display font-bold text-ink mb-4">
-                      What's your <span className="text-gradient">GolfTI</span>?
+                      What's your <span className="text-brand">GolfTI</span>?
                     </h1>
-                    <p className="text-subtle text-lg leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-subtle text-base leading-relaxed max-w-2xl mx-auto">
                       Upload a swing video and our AI will reveal your true golf personality. It's like MBTI, but for the fairway.
                     </p>
                   </>
@@ -500,10 +503,10 @@ export const GolfTIPage: React.FC = () => {
                 <div
                   onDragOver={(e) => e.preventDefault()} onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
-                  className="relative group cursor-pointer border-2 border-dashed border-ink/20 hover:border-golf-300 bg-white/60 hover:bg-white/80 rounded-2xl p-10 md:p-16 text-center transition-all duration-300"
+                  className="relative group cursor-pointer glass-green rounded-2xl p-10 md:p-16 text-center transition-all duration-300 hover:brightness-105"
                 >
                   <input ref={fileInputRef} type="file" accept="video/mp4,video/quicktime,video/webm" onChange={handleInputChange} className="hidden" />
-                  <div className="w-16 h-16 bg-golf-100 border border-golf-200 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-golf-500 group-hover:border-golf-500 transition-colors duration-300 text-golf-600 group-hover:text-white">
+                  <div className="w-16 h-16 bg-green/10 border border-green/20 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-green/20 transition-colors duration-300 text-green">
                     <Upload className="w-7 h-7" />
                   </div>
                   <h3 className="text-xl font-display font-bold text-ink mb-2">Upload your swing video</h3>
@@ -513,15 +516,15 @@ export const GolfTIPage: React.FC = () => {
               )}
 
               {isLoading && (
-                <div className="bg-white rounded-2xl border border-ink/10 shadow-soft-xl p-10 md:p-16 text-center">
-                  <div className="w-16 h-16 bg-golf-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                    <Loader2 className="w-8 h-8 text-golf-500 animate-spin" />
+                <div className="glass-green rounded-2xl p-10 md:p-16 text-center">
+                  <div className="w-16 h-16 bg-green/10 border border-green/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                    <Loader2 className="w-8 h-8 text-green animate-spin" />
                   </div>
                   <h3 className="text-xl font-display font-bold text-ink mb-2">{loadingMsg.title}</h3>
                   <p className="text-subtle text-sm">{displaySubtitle}</p>
                   <div className="mt-6 max-w-xs mx-auto">
-                    <div className="h-1 bg-golf-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-golf-300 to-golf-500 rounded-full transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
+                    <div className="h-1 bg-green/15 rounded-full overflow-hidden">
+                      <div className="h-full bg-green rounded-full transition-all duration-300 ease-out" style={{ width: `${progress * 100}%` }} />
                     </div>
                   </div>
                 </div>
@@ -531,7 +534,7 @@ export const GolfTIPage: React.FC = () => {
                 <div className="flex flex-col items-center">
                   <SwipeableCardStack matches={shuffledMatches} radar={result.radar} quote={result.quote || ""} onIndexChange={handleIndexChange} />
                   <div className="text-center mt-10">
-                    <button onClick={handleReset} className="inline-flex items-center gap-2 text-sm font-medium text-subtle hover:text-golf-600 transition-colors">
+                    <button onClick={handleReset} className="inline-flex items-center gap-2 text-sm font-medium text-subtle hover:text-green transition-colors">
                       <RotateCcw className="w-4 h-4" /> Try another swing
                     </button>
                   </div>
@@ -545,7 +548,7 @@ export const GolfTIPage: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-display font-bold text-ink mb-2">Oops!</h3>
                   <p className="text-subtle text-sm mb-6">{error}</p>
-                  <button onClick={handleReset} className="inline-flex items-center gap-2 px-6 py-3 bg-golf-600 text-white rounded-xl font-semibold shadow-card hover:bg-golf-500 hover:shadow-soft-lg transition-all duration-200">
+                  <button onClick={handleReset} className="inline-flex items-center gap-2 px-6 py-3 bg-green text-white rounded-xl font-semibold shadow-card hover:bg-green hover:shadow-soft-lg transition-all duration-200">
                     <RotateCcw className="w-4 h-4" /> Try Again
                   </button>
                 </div>

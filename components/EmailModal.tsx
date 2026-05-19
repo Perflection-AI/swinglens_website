@@ -88,8 +88,8 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
 
         {isSuccess ? (
           <div className="text-center py-8">
-            <div className="w-16 h-16 bg-golf-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-8 h-8 text-golf-600" />
+            <div className="w-16 h-16 bg-green-light rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-green" />
             </div>
             <h3 className="text-2xl font-display font-bold text-ink mb-2">Success!</h3>
             <p className="text-subtle">You're on the list. We'll be in touch at launch.</p>
@@ -97,8 +97,8 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
         ) : (
           <>
             <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-golf-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-golf-600" />
+              <div className="w-12 h-12 bg-green-light rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-6 h-6 text-green" />
               </div>
               <h3 className="text-2xl font-display font-bold text-ink mb-2">{title}</h3>
               <p className="text-subtle text-sm">Enter your email to open SneakySwing.</p>
@@ -117,7 +117,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
                   placeholder="your.email@example.com"
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 bg-white border border-ink/10 rounded-xl focus:border-golf-300 focus:ring-4 focus:ring-golf-100 transition-all outline-none text-ink placeholder:text-subtle/50 disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-white border border-ink/10 rounded-xl focus:border-green-light focus:ring-4 focus:ring-green-light transition-all outline-none text-ink placeholder:text-subtle/50 disabled:opacity-50"
                 />
               </div>
 
@@ -130,7 +130,7 @@ export const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose, title =
               <button
                 type="submit"
                 disabled={isLoading || !email}
-                className="w-full bg-golf-600 text-white px-6 py-3 rounded-xl font-semibold shadow-card hover:bg-golf-500 hover:shadow-soft-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-green text-white px-6 py-3 rounded-xl font-semibold shadow-card hover:bg-green hover:shadow-soft-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>

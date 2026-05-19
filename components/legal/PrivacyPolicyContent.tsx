@@ -15,7 +15,7 @@ export const PrivacyPolicyContent: React.FC = () => {
           Questions or privacy requests can be sent to{' '}
           <a
             href="mailto:contact@perflection.ai"
-            className="font-bold text-golf-600 hover:text-golf-700"
+            className="font-bold text-green hover:text-ink"
           >
             contact@perflection.ai
           </a>
@@ -201,7 +201,7 @@ export const PrivacyPolicyContent: React.FC = () => {
             You can request access, correction, or deletion by contacting{' '}
             <a
               href="mailto:contact@perflection.ai"
-              className="font-bold text-golf-600 hover:text-golf-700"
+              className="font-bold text-green hover:text-ink"
             >
               contact@perflection.ai
             </a>

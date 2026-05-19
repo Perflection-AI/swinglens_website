@@ -1,0 +1,441 @@
+/* Outer section — tall enough for scroll-driven (1 vh per feature + 1 landing vh) */
+.features-section {
+  height: 500vh;
+}
+
+/* Sticky wrapper: pins in viewport while section scrolls */
+.features__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .features__sticky {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Width constraint + fill */
+.features__outer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* Dark rounded card */
+.features__card {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Shader fills card */
+.features__shader {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Content layout */
+.features__layout {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 2.5rem 3rem;
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .features__layout {
+    gap: 2.5rem;
+    padding: 3rem 4rem;
+  }
+}
+
+/* Text column (right) */
+.features__text {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Visual column (left) — expands to fill, centers phone */
+.features__visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heading block */
+.features__head {
+  margin-bottom: 2rem;
+}
+
+.features__eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 243, 216, 0.6);
+  margin-bottom: 0.6rem;
+}
+
+.features__display {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(2rem, 2.8vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.features__display em {
+  font-style: italic;
+  color: #E8F3D8;
+}
+
+/* Stat meta line — data-forward credibility */
+.features__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.875rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.04em;
+}
+
+.features__meta-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Track wrap: timeline + cards side by side */
+.features__track-wrap {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+/* Vertical timeline line */
+.features__line {
+  flex-shrink: 0;
+  width: 1.5px;
+  background: rgba(232, 243, 216, 0.1);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Filling segment that advances with active card */
+.features__line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #E8F3D8;
+  border-radius: 999px;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Feature card stack */
+.features__cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Individual feature card */
+.fcard {
+  opacity: 0.32;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.fcard.active {
+  opacity: 1;
+}
+
+.fcard__num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.25rem;
+  transition: color 0.35s ease;
+}
+
+.fcard.active .fcard__num {
+  color: #E8F3D8;
+}
+
+.fcard__title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
+  transition: color 0.35s ease, font-size 0.35s ease;
+}
+
+.fcard.active .fcard__title {
+  color: #ffffff;
+  font-size: clamp(1.1rem, 1.35vw, 1.35rem);
+}
+
+.fcard__title em {
+  font-style: italic;
+  color: #E8F3D8;
+}
+
+.fcard__body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease 0.05s,
+              margin-top 0.4s ease;
+}
+
+.fcard.active .fcard__body {
+  max-height: 8rem;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/* Phone frame */
+.phone {
+  position: relative;
+  width: min(255px, 26vw);
+  aspect-ratio: 9 / 19.5;
+  background: #080808;
+  border-radius: 38px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 0.5px rgba(0,0,0,0.6),
+    0 48px 96px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(113, 146, 65, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+/* Dynamic island */
+.phone__notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 18px;
+  background: #080808;
+  border-radius: 999px;
+  z-index: 20;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Screen area */
+.phone__screen {
+  position: absolute;
+  inset: 0;
+  border-radius: 38px;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Screenshots */
+.phone__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone__img.active {
+  opacity: 1;
+}
+
+/* ── Mobile photo-editorial layout (hidden on tablet+) ── */
+.fm-wrap {
+  display: none;
+}
+
+/* ── Mobile breakpoint ── */
+@media (max-width: 767px) {
+  .features-section {
+    height: auto;
+  }
+
+  /* Hide the desktop sticky layout entirely */
+  .features__sticky {
+    display: none;
+  }
+
+  /* Show mobile layout */
+  .fm-wrap {
+    display: block;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin: 0.75rem;
+  }
+
+  .fm-shader {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .fm-inner {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 1.25rem 2rem;
+  }
+
+  .fm-head {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  /* 2×2 screenshot grid */
+  .fm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+
+  /* Each photo card */
+  .fm-card {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 1.125rem;
+    overflow: hidden;
+    background: #0a1205;
+  }
+
+  .fm-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* Gradient overlay — dark at bottom for text legibility */
+  .fm-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(10, 18, 5, 0.55) 70%,
+      rgba(10, 18, 5, 0.92) 100%
+    );
+  }
+
+  .fm-card__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.875rem 0.75rem;
+  }
+
+  .fm-card__num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(232, 243, 216, 0.6);
+    margin-bottom: 0.2rem;
+  }
+
+  .fm-card__title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .fm-card__title em {
+    font-style: italic;
+    color: #E8F3D8;
+  }
+}
+
+/* ── Tablet: static sticky, phone visible but smaller ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .features-section {
+    height: auto;
+  }
+
+  .features__sticky {
+    position: relative;
+    height: auto;
+  }
+
+  .features__outer,
+  .features__card {
+    height: auto;
+  }
+
+  .features__layout {
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+
+  .features__text {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+
+  .phone {
+    width: min(200px, 28vw);
+  }
+
+  .fcard {
+    opacity: 1;
+  }
+
+  .fcard__title {
+    font-size: 1rem !important;
+  }
+
+  .fcard__body {
+    max-height: none !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+  }
+}
