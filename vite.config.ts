@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     // - For GitHub Pages subdirectory: use '/swinglens_website/'
     // You can override with VITE_BASE_PATH environment variable
     // Example: VITE_BASE_PATH=/swinglens_website/ npm run build
-    const base = env.VITE_BASE_PATH || '/swinglens_website/';
+    const base = env.VITE_BASE_PATH || '/';
 
     return {
       base: base,
