@@ -1,73 +1,175 @@
-import React from 'react';
-import { Camera, Brain, Trophy, Smartphone, TrendingUp, Users } from 'lucide-react';
-import { Feature } from '../types';
+import React, { useEffect, useRef, useState } from 'react';
+import { DotOrbit } from '@paper-design/shaders-react';
+import { getPath } from '../utils/paths';
+import './Features.css';
 
-const features: Feature[] = [
+const features = [
   {
-    title: "AI Swing Analysis",
-    description: "Instant feedback on 20+ key metrics using advanced computer vision models.",
-    icon: <Camera className="w-5 h-5" />,
+    num: '01',
+    title: 'AI Swing',
+    titleEm: 'Analysis.',
+    body: 'Place your phone on a tripod — no sensors, no straps, no markers. The app auto-records, reconstructs your full 3D body position, and breaks down tempo, hip sway, shoulder turn, and shaft path across 20+ metrics.',
+    image: getPath('assets/features/ai_swing_analysis.PNG'),
   },
   {
-    title: "Personalized Drills",
-    description: "Custom practice plans tailored specifically to your unique swing faults.",
-    icon: <Brain className="w-5 h-5" />,
+    num: '02',
+    title: 'Realtime',
+    titleEm: 'Coach Feedback.',
+    body: "Chat with your coach's AI Twin anytime — built on their real methodology, voice, and corrections. You get coaching between lessons, not just during them.",
+    image: getPath('assets/features/coach_feedback.PNG'),
   },
   {
-    title: "Smart Strategy",
-    description: "Data-driven course management advice based on your dispersion patterns.",
-    icon: <Smartphone className="w-5 h-5" />,
+    num: '03',
+    title: 'Cause &',
+    titleEm: 'Fix.',
+    body: 'The AI names the fault — over-the-top, early release, chicken wing — and hands you the one drill that fixes it. Not a score. Not a wall of text. A diagnosis and a next step.',
+    image: getPath('assets/features/cause_and_fix.PNG'),
   },
   {
-    title: "Progress Tracking",
-    description: "Visualize improvement with beautiful, interactive charts and trend lines.",
-    icon: <TrendingUp className="w-5 h-5" />,
-  },
-  {
-    title: "Virtual Competitions (coming soon)",
-    description: "Challenge friends and the global community in virtual driving range games.",
-    icon: <Trophy className="w-5 h-5" />,
-  },
-  {
-    title: "Pro Comparisons (coming soon)",
-    description: "Overlay your swing with top tour pros to identify key differences.",
-    icon: <Users className="w-5 h-5" />,
+    num: '04',
+    title: 'Actionable',
+    titleEm: 'Plan.',
+    body: 'Every swing, every drill, every coach note is logged. Your AI coaching gets sharper the longer you use it — building a history that belongs to you and improves with every session.',
+    image: getPath('assets/features/actionable_plan.PNG'),
   },
 ];
 
-export const Features: React.FC = () => {
-  return (
-    <section id="features" className="py-24 bg-golf-50 relative border-t border-ink/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h3 className="text-xs font-bold text-golf-500 mb-3 uppercase tracking-widest font-mono">Features 2.0</h3>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-6">
-            Everything you need to break 80
-          </h2>
-          <p className="text-subtle text-lg leading-relaxed">
-            We've combined cutting-edge Gemini AI with biomechanics to create the most comprehensive coaching experience on mobile.
-          </p>
-        </div>
+const dotOrbitProps = {
+  colors: ['#3d6b40'] as [string],
+  colorBack: '#2d4a2a',
+  stepsPerColor: 2,
+  size: 0.18,
+  sizeRange: 0,
+  spreading: 0.35,
+  speed: 1.5,
+  scale: 0.55,
+};
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="group p-8 bg-white rounded-2xl border border-ink/5 shadow-card hover:border-golf-300 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-              {/* Fresh green stripe */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-golf-100 opacity-0 group-hover:opacity-100 group-hover:bg-golf-300 transition-all"></div>
-              
-              {/* Lighter Icon Background: bg-golf-100 */}
-              <div className="w-12 h-12 rounded-xl bg-golf-100 border border-golf-200 shadow-sm flex items-center justify-center text-golf-700 mb-6 group-hover:bg-golf-500 group-hover:text-white transition-colors duration-300">
-                {feature.icon}
-              </div>
-              
-              <h4 className="text-xl font-bold text-ink mb-3">{feature.title}</h4>
-              <p className="text-subtle leading-relaxed">
-                {feature.description}
-              </p>
+export const Features: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const sectionHeight = el.offsetHeight;
+      const viewH = window.innerHeight;
+      const scrolled = -rect.top / (sectionHeight - viewH);
+      const clamped = Math.max(0, Math.min(1, scrolled));
+      const idx = Math.min(features.length - 1, Math.floor(clamped * features.length));
+      setActive(idx);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <section id="features" className="features-section bg-paper" ref={sectionRef}>
+
+      {/* ── Desktop / tablet: scroll-driven sticky layout ── */}
+      <div className="features__sticky">
+        <div className="features__outer">
+          <div className="features__card">
+            <div className="features__shader">
+              <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
             </div>
-          ))}
+
+            <div className="features__layout">
+              {/* Left: phone mockup */}
+              <div className="features__visual">
+                <div className="phone">
+                  <div className="phone__notch" />
+                  <div className="phone__screen">
+                    {features.map((f, i) => (
+                      <img
+                        key={f.num}
+                        src={f.image}
+                        alt={`${f.title} ${f.titleEm}`}
+                        className={`phone__img${i === active ? ' active' : ''}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: text */}
+              <div className="features__text">
+                <div className="features__head">
+                  <p className="features__eyebrow">The App</p>
+                  <h2 className="features__display">
+                    A full coaching loop,<br /><em>in your pocket.</em>
+                  </h2>
+                  <p className="features__meta">
+                    <span>20+ metrics</span>
+                    <span className="features__meta-dot" />
+                    <span>0 sensors needed</span>
+                    <span className="features__meta-dot" />
+                    <span>Available 24/7</span>
+                  </p>
+                </div>
+
+                <div className="features__track-wrap">
+                  <div className="features__line">
+                    <div
+                      className="features__line-fill"
+                      style={{ height: `${((active + 1) / features.length) * 100}%` }}
+                    />
+                  </div>
+                  <div className="features__cards">
+                    {features.map((f, i) => (
+                      <div key={f.num} className={`fcard${i === active ? ' active' : ''}`}>
+                        <p className="fcard__num">{f.num}</p>
+                        <p className="fcard__title">{f.title} <em>{f.titleEm}</em></p>
+                        <p className="fcard__body">{f.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* ── Mobile: photo-editorial 2×2 grid ── */}
+      <div className="fm-wrap">
+        <div className="fm-shader">
+          <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
+        </div>
+        <div className="fm-inner">
+          <div className="fm-head">
+            <p className="features__eyebrow">The App</p>
+            <h2 className="features__display">
+              A full coaching loop,<br /><em>in your pocket.</em>
+            </h2>
+            <p className="features__meta" style={{ justifyContent: 'center' }}>
+              <span>20+ metrics</span>
+              <span className="features__meta-dot" />
+              <span>0 sensors needed</span>
+              <span className="features__meta-dot" />
+              <span>Available 24/7</span>
+            </p>
+          </div>
+
+          <div className="fm-grid">
+            {features.map((f) => (
+              <div key={f.num} className="fm-card">
+                <img src={f.image} alt={`${f.title} ${f.titleEm}`} className="fm-card__img" />
+                <div className="fm-card__overlay" />
+                <div className="fm-card__text">
+                  <p className="fm-card__num">{f.num}</p>
+                  <p className="fm-card__title">{f.title} <em>{f.titleEm}</em></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 };

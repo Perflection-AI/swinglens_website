@@ -33,22 +33,25 @@ export const LegalDocumentLayout: React.FC<LegalDocumentLayoutProps> = ({
       <main className="py-10 sm:py-14">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-soft-xl">
-            <div className="border-b border-ink/10 bg-gradient-to-br from-golf-50 via-white to-paper px-8 py-10 md:px-12">
+            {/* Green accent strip */}
+            <div className="h-1 bg-green" />
+
+            <div className="border-b border-ink/8 bg-paper/40 px-8 py-10 md:px-12">
               {backLink ? (
                 <a
                   href={resolveHref(backLink.href)}
-                  className="mb-5 inline-flex items-center text-sm font-semibold text-golf-700 transition-colors hover:text-golf-800"
+                  className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green hover:text-green/80 transition-colors"
                 >
                   ← {backLink.label}
                 </a>
               ) : null}
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-golf-700">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-green">
                 {eyebrow}
               </p>
               <h1 className="mb-4 text-4xl font-display font-bold text-ink md:text-5xl">
                 {title}
               </h1>
-              <p className="mb-4 text-sm font-semibold text-subtle">
+              <p className="mb-4 text-xs font-semibold text-subtle/70 uppercase tracking-widest">
                 Last updated {lastUpdated}
               </p>
               <p className="max-w-3xl text-base leading-7 text-subtle md:text-lg">
