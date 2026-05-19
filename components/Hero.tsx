@@ -69,14 +69,14 @@ export const Hero: React.FC = () => {
             >
               {/* Avatar stack */}
               <div className="flex -space-x-2.5">
-                {['A', 'M', 'S', 'T'].map((initial, i) => (
-                  <div
+                {['bo.png', 'gary.png', 'james.png', 'zack.png'].map((img, i) => (
+                  <img
                     key={i}
-                    className="w-8 h-8 rounded-full bg-green-light border-2 border-paper flex items-center justify-center text-[10px] font-bold text-green"
+                    src={getPath(`assets/team/${img}`)}
+                    alt="User avatar"
+                    className="w-8 h-8 rounded-full border-2 border-paper object-cover"
                     style={{ boxShadow: '0 1px 4px rgba(78,78,78,0.12)' }}
-                  >
-                    {initial}
-                  </div>
+                  />
                 ))}
               </div>
 
