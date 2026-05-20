@@ -201,7 +201,7 @@ const SwipeableCardStack: React.FC<{
         <div className="card-stack-item absolute inset-0 bg-white rounded-2xl shadow-soft-xl border border-green-light overflow-hidden" style={getCardStyle(0)}>
           <div className="h-2 bg-gradient-to-r from-green-light to-green" />
           <div className="flex flex-col items-center px-6 pt-5 pb-4 h-full">
-            <p className="text-subtle text-xs text-center mb-3">Based on your radar — swipe to reveal your possible GolfTI</p>
+            <p className="text-subtle text-xs text-center mb-3">Based on your radar. Swipe to reveal your possible GolfTI</p>
             <div className="w-full max-w-[250px] flex-1 flex items-center justify-center">
               <RadarChartSVG data={radar} animatePoints={radarAnimated} />
             </div>

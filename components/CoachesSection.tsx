@@ -22,13 +22,13 @@ const glassGreen: React.CSSProperties = {
 };
 
 const coachCapabilities = [
-  { n: '01', text: 'Auto-detect swing faults at intake — sway, early extension, over-the-top' },
+  { n: '01', text: 'Auto-detect swing faults at intake: sway, early extension, over-the-top' },
   { n: '02', text: 'Instant skeletal & angular biomechanics, no sensors required' },
   { n: '03', text: 'AI-drafted lesson notes and drill plans, ready to send' },
 ];
 
 const studentOutcomes = [
-  'Know exactly what to work on after every session — not just what went wrong',
+  'Know exactly what to work on after every session, not just what went wrong',
   'Track real progress over weeks, not just today\'s score',
   'Practice drills built around your coach\'s actual plan',
 ];

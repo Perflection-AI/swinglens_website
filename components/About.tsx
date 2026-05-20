@@ -32,6 +32,12 @@ const team = [
     title: 'PGM Head Pro · PhD',
     image: getPath('assets/team/james.png'),
   },
+  {
+    name: 'Benny Zhang',
+    role: 'Coach',
+    title: 'Golf Academy Founder · Influencer',
+    image: getPath('assets/team/benny.png'),
+  },
 ];
 
 export const About: React.FC = () => {
@@ -116,15 +122,15 @@ export const About: React.FC = () => {
                   </h2>
                 </div>
                 <p className="text-subtle text-sm leading-relaxed max-w-[240px] sm:text-right">
-                  Coaches, athletes, and builders — obsessed with making great instruction accessible.
+                  Coaches, athletes, and builders. Obsessed with making great instruction accessible.
                 </p>
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-5">
               {team.map((member, i) => (
                 <Reveal key={member.name} delay={i * 70}>
-                  <div className={`group flex flex-col${i % 2 === 1 ? ' lg:mt-10' : ''}`}>
+                  <div className="group flex flex-col">
 
                     {/* Photo */}
                     <div className="relative rounded-2xl overflow-hidden mb-4 bg-green-light" style={{ aspectRatio: '4/5' }}>

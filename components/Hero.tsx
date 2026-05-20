@@ -1,6 +1,10 @@
 import React from 'react';
 import { getPath } from '../utils/paths';
 
+const handleVideoReady = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+  e.currentTarget.style.opacity = '1';
+};
+
 const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
 
 export const Hero: React.FC = () => {
@@ -15,48 +19,37 @@ export const Hero: React.FC = () => {
           {/* Left: Copy */}
           <div className="relative z-10 pt-28 pb-20 lg:py-0 max-w-xl">
 
-            {/* Pre-headline credential badge */}
-            <div
-              className="hero-enter inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-light border border-green/20 mb-6"
-              style={{ animationDelay: '0ms' }}
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-green shrink-0" />
-              <span className="text-[11px] font-bold text-green uppercase tracking-widest">Built with PGA Pros</span>
-            </div>
-
             <h1
-              className="hero-enter text-4xl lg:text-5xl xl:text-6xl tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
-              style={{ animationDelay: '80ms' }}
+              className="hero-enter tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
+              style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)', animationDelay: '0ms' }}
             >
               A golf coach,<br />
               <span className="text-brand">in your pocket.</span>
             </h1>
 
-            <p className="hero-enter text-base text-ink font-semibold mb-2" style={{ animationDelay: '160ms' }}>
-              Built with PGA pros, not just AI.
-            </p>
-
-            <p className="hero-enter text-base text-subtle mb-8 leading-relaxed max-w-[48ch]" style={{ animationDelay: '240ms' }}>
+            <p className="hero-enter text-base text-subtle mb-8 leading-relaxed max-w-[48ch]" style={{ animationDelay: '80ms' }}>
               Real coaching methodology, AI precision. The only swing app that combines tour-proven instruction with instant video analysis.
             </p>
 
             {/* Buttons — clear hierarchy: primary fill vs ghost */}
-            <div className="hero-enter flex flex-col sm:flex-row gap-3" style={{ animationDelay: '320ms' }}>
+            <div className="hero-enter flex flex-col sm:flex-row gap-3" style={{ animationDelay: '160ms' }}>
               <a
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-full shadow-card hover:brightness-110 transition-all duration-200"
               >
                 Join as a coach
-                <span className="w-[16px] h-[16px] rounded-[3px] bg-white/20 inline-grid place-items-center text-sm leading-none ml-2">›</span>
+                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </a>
 
               <a
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-ink/60 bg-transparent border border-ink/15 rounded-lg hover:text-ink hover:border-ink/25 hover:bg-ink/3 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-ink/60 bg-transparent border border-ink/15 rounded-full hover:text-ink hover:border-ink/25 transition-all duration-200"
               >
                 Try SneakySwing
               </a>
@@ -65,7 +58,7 @@ export const Hero: React.FC = () => {
             {/* Social proof */}
             <div
               className="hero-enter mt-10 flex items-center gap-4"
-              style={{ animationDelay: '400ms' }}
+              style={{ animationDelay: '240ms' }}
             >
               {/* Avatar stack */}
               <div className="flex -space-x-2.5">
@@ -115,32 +108,34 @@ export const Hero: React.FC = () => {
 
           {/* Right: Video */}
           <div className="hero-enter hidden lg:block relative self-stretch" style={{ animationDelay: '120ms' }}>
-            <div className="absolute inset-y-2 left-0 right-[-8vw] rounded-3xl overflow-hidden shadow-soft-xl">
+            <div className="absolute inset-y-2 left-0 right-[-8vw] rounded-3xl overflow-hidden shadow-soft-xl bg-green-dark">
               <video
                 src={videoUrl}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
+                onCanPlay={handleVideoReady}
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: '50% 80%' }}
+                style={{ objectPosition: '50% 80%', opacity: 0, transition: 'opacity 0.7s ease-out' }}
               />
-              {/* Left edge blend — wider to clear the grid texture */}
-              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-paper to-transparent pointer-events-none" />
               <div className="absolute inset-0 bg-ink/10 pointer-events-none" />
             </div>
           </div>
 
           {/* Mobile: video strip */}
-          <div className="lg:hidden relative mt-2 mb-8 rounded-2xl overflow-hidden shadow-soft-xl" style={{ aspectRatio: '8/9' }}>
+          <div className="lg:hidden relative mt-2 mb-8 rounded-2xl overflow-hidden bg-green-dark" style={{ aspectRatio: '8/9' }}>
             <video
               src={videoUrl}
               autoPlay
               muted
               loop
               playsInline
+              preload="auto"
+              onCanPlay={handleVideoReady}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: '50% 80%' }}
+              style={{ objectPosition: '50% 80%', opacity: 0, transition: 'opacity 0.7s ease-out' }}
             />
           </div>
 

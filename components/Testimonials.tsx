@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Testimonial } from '../types';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const FALLBACK_REVIEWS: Testimonial[] = [
@@ -49,7 +49,7 @@ const StarRow: React.FC<{ small?: boolean }> = ({ small }) => (
     {[1, 2, 3, 4, 5].map((s) => (
       <Star
         key={s}
-        className={small ? 'w-3 h-3 text-gold fill-current' : 'w-4 h-4 text-gold fill-current'}
+        className={small ? 'w-3 h-3 text-gold fill-current' : 'w-3.5 h-3.5 text-gold fill-current'}
       />
     ))}
   </div>
@@ -62,15 +62,13 @@ export const Testimonials: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [itemsToShow, setItemsToShow] = useState(3);
 
-  // Responsive items to show
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) setItemsToShow(3); // lg
-      else if (window.innerWidth >= 768) setItemsToShow(2); // md
-      else setItemsToShow(1); // sm
+      if (window.innerWidth >= 1024) setItemsToShow(3);
+      else if (window.innerWidth >= 768) setItemsToShow(2);
+      else setItemsToShow(1);
     };
-    
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -114,24 +112,22 @@ export const Testimonials: React.FC = () => {
 
   useEffect(() => {
     if (reviews.length === 0 || isPaused) return;
-    const timer = setInterval(() => {
-      nextTestimonial();
-    }, 3000); 
+    const timer = setInterval(() => { nextTestimonial(); }, 3000);
     return () => clearInterval(timer);
   }, [maxIndex, isPaused, reviews.length]);
 
   if (isLoading) {
     return (
-      <section id="testimonials" className="py-24 bg-paper relative overflow-hidden">
+      <section id="testimonials" className="py-24 bg-paper">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <div className="h-3 w-16 rounded-full bg-ink/8 animate-pulse mb-4" />
-            <div className="h-9 w-64 rounded-lg bg-ink/8 animate-pulse" />
+            <div className="h-2.5 w-16 rounded-full bg-ink/8 animate-pulse mb-4" />
+            <div className="h-8 w-64 rounded bg-ink/8 animate-pulse" />
           </div>
           <div className="flex gap-4 overflow-hidden">
-            <div className="bg-white rounded-2xl border border-ink/10 h-72 min-w-[300px] flex-1 animate-pulse" />
-            <div className="bg-white rounded-2xl border border-ink/10 h-72 min-w-[300px] flex-1 animate-pulse hidden md:block" />
-            <div className="bg-white rounded-2xl border border-ink/10 h-72 min-w-[300px] flex-1 animate-pulse hidden lg:block" />
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="bg-white border border-ink/[0.07] rounded-2xl h-64 flex-1 animate-pulse hidden lg:first:block lg:block" />
+            ))}
           </div>
         </div>
       </section>
@@ -143,14 +139,18 @@ export const Testimonials: React.FC = () => {
   const cardWidthPercent = 100 / itemsToShow;
 
   return (
-    <section id="testimonials" className="py-24 bg-paper relative overflow-hidden">
+    <section id="testimonials" className="py-20 sm:py-24 bg-paper">
       <Reveal className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-12 max-w-7xl mx-auto">
           <div>
-            <p className="text-xs font-bold text-green mb-3 uppercase tracking-widest font-mono">
+            <p className="text-green text-[10px] font-bold uppercase tracking-[0.22em] mb-3">
               Reviews
             </p>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink">
+            <h2
+              className="font-display font-extrabold text-ink leading-[1.06]"
+              style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}
+            >
               Loved by golfers &amp; coaches
             </h2>
           </div>
@@ -160,60 +160,63 @@ export const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        <div 
-          className="relative w-full mx-auto group"
+        <div
+          className="relative w-full mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          onClick={() => setIsPaused(!isPaused)}
         >
-          {/* Mobile Navigation Arrows */}
-          <button 
-            onClick={(e) => { e.stopPropagation(); prevTestimonial(); }}
-            className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-20 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md text-ink hover:text-green focus:outline-none"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          
-          <button 
-            onClick={(e) => { e.stopPropagation(); nextTestimonial(); }}
-            className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-20 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md text-ink hover:text-green focus:outline-none"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          {/* Navigation dots */}
+          <div className="flex items-center gap-1.5 justify-end mb-5">
+            <button
+              onClick={prevTestimonial}
+              className="w-7 h-7 rounded-full border border-ink/15 flex items-center justify-center text-subtle hover:text-ink hover:border-ink/30 transition-all duration-150"
+              aria-label="Previous"
+            >
+              <svg viewBox="0 0 12 12" fill="none" className="w-2.5 h-2.5">
+                <path d="M7.5 2 3.5 6l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="w-7 h-7 rounded-full border border-ink/15 flex items-center justify-center text-subtle hover:text-ink hover:border-ink/30 transition-all duration-150"
+              aria-label="Next"
+            >
+              <svg viewBox="0 0 12 12" fill="none" className="w-2.5 h-2.5">
+                <path d="M4.5 2 8.5 6l-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
 
-          {/* Carousel Track */}
-          <div className="overflow-hidden px-1 md:px-2">
-            <div 
+          <div className="overflow-hidden">
+            <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * cardWidthPercent}%)` }}
             >
               {reviews.map((t, i) => (
-                <div 
-                  key={`${t.id}-${i}`} 
-                  className="flex-shrink-0 px-2 lg:px-4 flex"
+                <div
+                  key={`${t.id}-${i}`}
+                  className="flex-shrink-0 px-2 lg:px-3 flex"
                   style={{ width: `${cardWidthPercent}%` }}
                 >
-                  <div className="glass-green p-6 md:p-8 rounded-2xl flex flex-col h-full w-full transition-all duration-300">
+                  <div className="glass-green rounded-2xl p-6 md:p-8 flex flex-col h-full w-full">
                     <StarRow />
 
-                    <h3 className="font-bold text-ink text-base mt-5 mb-4 leading-snug line-clamp-2">
+                    <h3 className="font-bold text-ink text-base mt-5 mb-3 leading-snug line-clamp-2">
                       {t.title}
                     </h3>
 
-                    <p className="text-ink text-sm md:text-base leading-relaxed flex-grow mb-8 font-medium line-clamp-5">
-                      &ldquo;{t.content}&rdquo;
+                    <p className="text-subtle text-sm leading-relaxed flex-grow mb-6 line-clamp-5">
+                      {t.content}
                     </p>
 
-                    <div className="flex items-center gap-3 pt-6 border-t border-green/10 mt-auto">
-                      <div className="w-10 h-10 rounded-full bg-white/70 text-green flex items-center justify-center text-sm font-bold shrink-0">
-                        {initialsFromName(t.name)}
-                      </div>
+                    <div className="flex items-center justify-between pt-5 border-t border-ink/[0.06] mt-auto">
                       <div className="min-w-0">
-                        <p className="font-bold text-ink text-sm truncate">{t.name}</p>
-                        <p className="text-green/70 text-xs font-medium">{t.role}</p>
+                        <p className="font-semibold text-ink text-sm truncate">{t.name}</p>
+                        <p className="text-subtle/70 text-xs mt-0.5">{t.role}</p>
                       </div>
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-ink/20 flex-shrink-0 ml-3">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                      </svg>
                     </div>
                   </div>
                 </div>
