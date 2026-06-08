@@ -288,8 +288,23 @@ const SwipeableCardStack: React.FC<{
   );
 };
 
-// ─── Waterfall Background ──────────────────────────────────────────────
+// ─── Even Grid Background ──────────────────────────────────────────────
 
+interface GridItem { type: string; left: string; top: string; size: number; }
+
+function generateGridItems(types: string[]): GridItem[] {
+  const cols = 4;
+  const rows = Math.ceil(types.length / cols);
+  return types.map((type, i) => ({
+    type,
+    left: `${((i % cols) + 0.5) / cols * 100}%`,
+    top: `${(Math.floor(i / cols) + 0.5) / rows * 100}%`,
+    size: 2.2,
+  }));
+}
+
+// ─── Waterfall Background (original — kept for reference) ──────────────
+/*
 interface WaterfallItem { type: string; left: string; size: number; layer: number; duration: number; delay: number; }
 
 function generateWaterfallItems(types: string[]): WaterfallItem[] {
@@ -342,6 +357,7 @@ function generateWaterfallItems(types: string[]): WaterfallItem[] {
     delay: -(Math.random() * 30),
   }));
 }
+*/
 
 // ─── Main Page ─────────────────────────────────────────────────────────
 
@@ -427,6 +443,9 @@ export const GolfTIPage: React.FC = () => {
     return arr;
   }, [result]);
 
+  const gridItems = useMemo(() => generateGridItems([...GOLFTI_TYPE_CODES]), []);
+
+  /* original waterfall state (kept for reference)
   const bgTypes = useMemo(() => result?.matches?.length ? result.matches.map(m => m.type) : [...GOLFTI_TYPE_CODES], [result]);
   const waterfallItems = useMemo(() => generateWaterfallItems(bgTypes), [bgTypes]);
   const itemsByLayer = useMemo(() => {
@@ -434,19 +453,34 @@ export const GolfTIPage: React.FC = () => {
     waterfallItems.forEach(item => layers[item.layer].push(item));
     return layers;
   }, [waterfallItems]);
-
   const layerStyles = [
     { zIndex: 0, blur: 8, opacity: 0.05 },
     { zIndex: 1, blur: 4, opacity: 0.1 },
     { zIndex: 2, blur: 2, opacity: 0.2 },
     { zIndex: 3, blur: 0.5, opacity: 0.35 },
   ];
+  */
 
   const isSuccess = state === GolfTIState.SUCCESS;
 
   return (
     <div className="min-h-screen bg-paper relative">
-      {/* Waterfall */}
+      {/* Even grid background — evenly spaced, static */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" style={{ opacity: 0.22 }}>
+        {gridItems.map((item) => (
+          <div key={item.type} style={{
+            position: 'absolute',
+            left: item.left,
+            top: item.top,
+            transform: 'translate(-50%, -50%)',
+            width: `${80 * item.size}px`,
+            height: `${80 * item.size}px`,
+          }}>
+            <img src={typeImg(item.type)} alt="" className="w-full h-full object-contain" draggable={false} />
+          </div>
+        ))}
+      </div>
+      {/* Original layered waterfall render (kept for reference)
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {itemsByLayer.map((items, layerIdx) => (
           <div key={layerIdx} className="absolute inset-0" style={{
@@ -465,6 +499,7 @@ export const GolfTIPage: React.FC = () => {
           </div>
         ))}
       </div>
+      */}
       <div className="fixed inset-0 z-[1]" style={{ backgroundColor: 'rgba(255, 255, 255, 0.59)' }} />
 
       {/* Content */}

@@ -2,8 +2,15 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { DotOrbit } from '@paper-design/shaders-react';
 import { Reveal } from './Reveal';
+import { getBasePath } from '../utils/paths';
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const navigateTo = (path: string) => {
+  const base = getBasePath();
+  window.history.pushState({}, '', `${base}${path}`.replace(/\/+/g, '/'));
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'auto' });
+};
+
 
 const glassGold: React.CSSProperties = {
   background: 'rgba(168, 141, 55, 0.11)',
@@ -58,7 +65,7 @@ export const CoachesSection: React.FC = () => {
 
               {/* Left-aligned section intro */}
               <div className="mb-9 lg:mb-11 max-w-xl">
-                <p className="text-green-light/50 text-[10px] font-bold uppercase tracking-[0.25em] mb-4">
+                <p className="text-green-light/70 text-[10px] font-bold uppercase tracking-[0.25em] mb-4">
                   Who it's built for
                 </p>
                 <h2
@@ -88,7 +95,7 @@ export const CoachesSection: React.FC = () => {
                   >
                     Save the analysis.<br />Focus on coaching.
                   </h3>
-                  <p className="text-white/50 text-sm leading-[1.7] mb-7 max-w-[42ch]">
+                  <p className="text-white/70 text-sm leading-[1.7] mb-7 max-w-[42ch]">
                     Your AI handles the first pass on every swing. You walk in with the data already done.
                   </p>
 
@@ -105,15 +112,13 @@ export const CoachesSection: React.FC = () => {
                   </div>
 
                   <div style={{ borderTop: '1px solid rgba(168,141,55,0.15)', paddingTop: '1.5rem' }}>
-                    <a
-                      href={APP_STORE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => navigateTo('coaches')}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gold text-white text-sm font-semibold hover:brightness-110 transition-all duration-200"
                       style={{ boxShadow: '0 1px 2px rgba(168,141,55,0.25), 0 2px 8px rgba(168,141,55,0.18)' }}
                     >
-                      Join as a coach <ArrowRight className="w-4 h-4" />
-                    </a>
+                      For Coaches <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
 
@@ -135,7 +140,7 @@ export const CoachesSection: React.FC = () => {
                   >
                     Your game, improving<br />between sessions.
                   </h3>
-                  <p className="text-white/50 text-sm leading-[1.7] mb-7 max-w-[42ch]">
+                  <p className="text-white/70 text-sm leading-[1.7] mb-7 max-w-[42ch]">
                     The gap between lessons is where progress is lost. SneakySwing keeps you on track.
                   </p>
 
@@ -143,22 +148,20 @@ export const CoachesSection: React.FC = () => {
                   <div className="space-y-6 flex-grow mb-7">
                     {studentOutcomes.map((text, i) => (
                       <div key={i} className="flex gap-3 items-start">
-                        <span className="text-green-light/50 text-sm leading-none mt-[3px] flex-shrink-0 font-medium">—</span>
+                        <span className="text-green-light/70 text-sm leading-none mt-[3px] flex-shrink-0 font-medium">—</span>
                         <p className="text-white/75 text-sm leading-[1.7]">{text}</p>
                       </div>
                     ))}
                   </div>
 
                   <div style={{ borderTop: '1px solid rgba(184,217,130,0.14)', paddingTop: '1.5rem' }}>
-                    <a
-                      href={APP_STORE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => navigateTo('students')}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green text-white text-sm font-semibold hover:brightness-110 transition-all duration-200"
                       style={{ boxShadow: '0 1px 2px rgba(113,146,65,0.25), 0 2px 8px rgba(113,146,65,0.18)' }}
                     >
-                      Start for free <ArrowRight className="w-4 h-4" />
-                    </a>
+                      For Golfers <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
 

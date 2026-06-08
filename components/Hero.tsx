@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-full shadow-card hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
               >
                 Join as a coach
                 <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-ink/60 bg-transparent border border-ink/15 rounded-full hover:text-ink hover:border-ink/25 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-ink/60 bg-transparent border border-ink/15 rounded-lg hover:text-ink hover:border-ink/25 transition-all duration-200"
               >
                 Try SneakySwing
               </a>

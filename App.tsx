@@ -8,6 +8,8 @@ import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
 import { GolfTIPage } from './components/GolfTIPage';
 import { About } from './components/About';
+import { CoachesPage } from './components/CoachesPage';
+import { StudentsPage } from './components/StudentsPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -38,9 +40,13 @@ const App: React.FC = () => {
   const websiteTermsPaths = ['/legal/terms', getPath('legal/terms')];
   const golftiPaths = ['/golfti', getPath('golfti')];
   const aboutPaths = ['/about', getPath('about')];
+  const coachesPaths = ['/coaches', getPath('coaches')];
+  const studentsPaths = ['/students', getPath('students')];
 
   const isGolftiPage = golftiPaths.includes(currentPath);
   const isAboutPage = aboutPaths.includes(currentPath);
+  const isCoachesPage = coachesPaths.includes(currentPath);
+  const isStudentsPage = studentsPaths.includes(currentPath);
 
   if (isGolftiPage) {
     return <GolfTIPage />;
@@ -48,6 +54,14 @@ const App: React.FC = () => {
 
   if (isAboutPage) {
     return <About />;
+  }
+
+  if (isCoachesPage) {
+    return <CoachesPage />;
+  }
+
+  if (isStudentsPage) {
+    return <StudentsPage />;
   }
 
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
