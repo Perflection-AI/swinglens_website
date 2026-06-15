@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { DotOrbit } from '@paper-design/shaders-react';
+import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Reveal } from './Reveal';
@@ -38,7 +38,8 @@ const steps = [
 const heroStats = [
   { value: '5.0', label: 'App Store rating' },
   { value: '32%', label: 'Week-1 retention' },
-  { value: '600+', label: 'users, zero marketing' },
+  { value: '10K+', label: 'golfers' },
+  { value: '150K+', label: 'swings analyzed' },
 ];
 
 export const StudentsPage: React.FC = () => {
@@ -94,7 +95,7 @@ export const StudentsPage: React.FC = () => {
             <Reveal>
               <div className="relative rounded-[2rem] overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                  <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
+                  <VisibleDotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
                 </div>
                 <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-12 lg:py-16">
                   <p className="text-green-light/70 text-[10px] font-bold uppercase tracking-[0.22em] mb-12">

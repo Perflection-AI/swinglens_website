@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DotOrbit } from '@paper-design/shaders-react';
+import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { getPath } from '../utils/paths';
 import './Features.css';
 
@@ -85,7 +85,7 @@ export const Features: React.FC = () => {
         <div className="features__outer">
           <div className="features__card">
             <div className="features__shader">
-              <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
+              <VisibleDotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
             </div>
 
             <div className="features__layout">
@@ -150,7 +150,7 @@ export const Features: React.FC = () => {
       {/* ── Mobile: photo-editorial 2×2 grid ── */}
       <div className="fm-wrap">
         <div className="fm-shader">
-          <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
+          <VisibleDotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
         </div>
         <div className="fm-inner">
           <div className="fm-head">

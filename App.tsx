@@ -10,6 +10,7 @@ import { GolfTIPage } from './components/GolfTIPage';
 import { About } from './components/About';
 import { CoachesPage } from './components/CoachesPage';
 import { StudentsPage } from './components/StudentsPage';
+import { CoachApplyPage } from './components/CoachApplyPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -42,9 +43,11 @@ const App: React.FC = () => {
   const aboutPaths = ['/about', getPath('about')];
   const coachesPaths = ['/coaches', getPath('coaches')];
   const studentsPaths = ['/students', getPath('students')];
+  const coachApplyPaths = ['/coaches/apply', getPath('coaches/apply')];
 
   const isGolftiPage = golftiPaths.includes(currentPath);
   const isAboutPage = aboutPaths.includes(currentPath);
+  const isCoachApplyPage = coachApplyPaths.includes(currentPath);
   const isCoachesPage = coachesPaths.includes(currentPath);
   const isStudentsPage = studentsPaths.includes(currentPath);
 
@@ -54,6 +57,10 @@ const App: React.FC = () => {
 
   if (isAboutPage) {
     return <About />;
+  }
+
+  if (isCoachApplyPage) {
+    return <CoachApplyPage />;
   }
 
   if (isCoachesPage) {

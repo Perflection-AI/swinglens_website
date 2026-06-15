@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { DotOrbit } from '@paper-design/shaders-react';
+import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { getPath } from '../utils/paths';
 import { Reveal } from './Reveal';
 import { Header } from './Header';
@@ -63,7 +63,7 @@ export const About: React.FC = () => {
             <div className="relative rounded-[2rem] overflow-hidden">
 
               <div className="absolute inset-0 z-0">
-                <DotOrbit
+                <VisibleDotOrbit
                   style={{ width: '100%', height: '100%', display: 'block' }}
                   colors={['#3d6b40']}
                   colorBack="#2d4a2a"
@@ -174,7 +174,7 @@ export const About: React.FC = () => {
             <Reveal>
               <div className="relative rounded-[2rem] overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                  <DotOrbit
+                  <VisibleDotOrbit
                     style={{ width: '100%', height: '100%', display: 'block' }}
                     colors={['#3d6b40']}
                     colorBack="#2d4a2a"

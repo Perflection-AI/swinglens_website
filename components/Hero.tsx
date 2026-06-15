@@ -1,11 +1,19 @@
 import React from 'react';
-import { getPath } from '../utils/paths';
+import { getPath, getBasePath } from '../utils/paths';
 
 const handleVideoReady = (e: React.SyntheticEvent<HTMLVideoElement>) => {
   e.currentTarget.style.opacity = '1';
 };
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+
+const navigateTo = (path: string) => {
+  const base = getBasePath();
+  const url = `${base}${path}`.replace(/\/+/g, '/');
+  window.history.pushState({}, '', url);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'auto' });
+};
 
 export const Hero: React.FC = () => {
   const videoUrl = getPath('assets/golf_video.mp4');
@@ -39,20 +47,18 @@ export const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
               >
-                Join as a coach
+                Try SneakySwing
                 <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
 
-              <a
-                href={APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => navigateTo('coaches')}
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-ink/60 bg-transparent border border-ink/15 rounded-lg hover:text-ink hover:border-ink/25 transition-all duration-200"
               >
-                Try SneakySwing
-              </a>
+                Join as a coach
+              </button>
             </div>
 
             {/* Social proof */}

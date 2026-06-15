@@ -1,10 +1,18 @@
 import React, { useEffect } from 'react';
-import { DotOrbit } from '@paper-design/shaders-react';
+import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Reveal } from './Reveal';
+import { getBasePath } from '../utils/paths';
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const navigateTo = (path: string) => {
+  const base = getBasePath();
+  const url = `${base}${path}`.replace(/\/+/g, '/');
+  window.history.pushState({}, '', url);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'auto' });
+};
+
 
 const dotOrbitProps = {
   colors: ['#3d6b40'] as [string],
@@ -68,7 +76,7 @@ export const CoachesPage: React.FC = () => {
                   <span className="text-ink/35">We turn it into an asset.</span>
                 </h1>
                 <p className="text-subtle text-sm sm:text-base leading-[1.7] max-w-[50ch]">
-                  Before us, your expertise is capped at 50 students. After us, it compounds — always-on for hundreds, owned by you, getting smarter every session.
+                  Before us, your expertise is capped at 50 students each week. After us, it compounds — always-on for hundreds, owned by you, getting smarter every session.
                 </p>
               </div>
               <div className="lg:flex-[3] flex flex-row lg:flex-col gap-6 lg:gap-7">
@@ -94,7 +102,7 @@ export const CoachesPage: React.FC = () => {
             <Reveal>
               <div className="relative rounded-[2rem] overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                  <DotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
+                  <VisibleDotOrbit style={{ width: '100%', height: '100%', display: 'block' }} {...dotOrbitProps} />
                 </div>
                 <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-12 lg:py-16">
                   <p className="text-green-light/70 text-[10px] font-bold uppercase tracking-[0.22em] mb-12">
@@ -129,15 +137,13 @@ export const CoachesPage: React.FC = () => {
                     The future of coaching is<br className="sm:hidden" /> asset-based, not time-based.
                   </p>
                 </div>
-                <a
-                  href={APP_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => navigateTo('coaches/apply')}
                   className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
                 >
                   Join as a coach
                   <span className="w-[16px] h-[16px] rounded-[3px] bg-white/20 inline-grid place-items-center text-sm leading-none ml-2">›</span>
-                </a>
+                </button>
               </div>
             </div>
           </section>

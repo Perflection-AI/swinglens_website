@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getPath } from '../utils/paths';
-import { DotOrbit } from '@paper-design/shaders-react';
+import { VisibleDotOrbit } from './VisibleDotOrbit';
 
 type Collab = { name: string; logo: string; alt: string };
 
@@ -38,7 +38,7 @@ export const Collaborations: React.FC = () => {
 
           {/* DotOrbit background */}
           <div className="absolute inset-0 z-0">
-            <DotOrbit
+            <VisibleDotOrbit
               style={{ width: '100%', height: '100%', display: 'block' }}
               colors={['#3d6b40']}
               colorBack="#2d4a2a"
