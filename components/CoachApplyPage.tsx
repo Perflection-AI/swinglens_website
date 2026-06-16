@@ -6,8 +6,7 @@ import { Footer } from './Footer';
 
 const SERVICE_ID = 'service_3y7cn3d';
 const PUBLIC_KEY = 'OgBxaFwDtbJUZI0X8';
-// Create this template in EmailJS dashboard — see instructions below
-const COACH_TEMPLATE_ID = 'template_coach_verify';
+const COACH_TEMPLATE_ID = 'template_klipzj1';
 
 const fields = [
   {
