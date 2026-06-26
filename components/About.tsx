@@ -46,6 +46,33 @@ const team = [
   },
 ];
 
+const productTeam = [
+  {
+    name: 'Alice Li',
+    role: 'Founding Designer',
+    title: 'Product & Ops',
+    image: getPath('assets/team/alice.png'),
+  },
+  {
+    name: 'Jolie Chen',
+    role: 'Founding Designer',
+    title: 'User Researcher',
+    image: getPath('assets/team/jolie.png'),
+  },
+  {
+    name: 'Amanda Liu',
+    role: 'Founding Designer',
+    title: 'Fullstack · Student App',
+    image: getPath('assets/team/amanda.png'),
+  },
+  {
+    name: 'Vanessa Chang',
+    role: 'Founding Designer',
+    title: 'Fullstack · Coach App',
+    image: getPath('assets/team/vanessa.png'),
+  },
+];
+
 export const About: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -146,7 +173,41 @@ export const About: React.FC = () => {
                         className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/[0.04] to-transparent" />
-                      {/* Ordinal watermark */}
+                      <span
+                        className="absolute bottom-2 right-3 font-display font-extrabold leading-none text-white/[0.20] pointer-events-none select-none"
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+
+                    {/* Text */}
+                    <p className="text-green text-[9px] font-bold uppercase tracking-[0.22em] mb-1.5">{member.role}</p>
+                    <p className="text-ink font-display font-bold text-lg leading-tight mb-1">{member.name}</p>
+                    <p className="text-subtle text-xs">{member.title}</p>
+
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Founding Product Team */}
+            <Reveal>
+              <p className="text-green text-[10px] font-bold uppercase tracking-[0.22em] mt-14 mb-8">Founding Product Team</p>
+            </Reveal>
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
+              {productTeam.map((member, i) => (
+                <Reveal key={member.name} delay={i * 70}>
+                  <div className="group flex flex-col">
+
+                    {/* Photo */}
+                    <div className="relative rounded-2xl overflow-hidden mb-4 bg-green-light" style={{ aspectRatio: '4/5' }}>
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/[0.04] to-transparent" />
                       <span
                         className="absolute bottom-2 right-3 font-display font-extrabold leading-none text-white/[0.20] pointer-events-none select-none"
                         style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
