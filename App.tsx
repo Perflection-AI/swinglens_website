@@ -11,6 +11,7 @@ import { About } from './components/About';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
+import { InviteLanding } from './components/InviteLanding';
 import { getPath } from './utils/paths';
 
 const App: React.FC = () => {
@@ -41,6 +42,8 @@ const App: React.FC = () => {
 
   const isGolftiPage = golftiPaths.includes(currentPath);
   const isAboutPage = aboutPaths.includes(currentPath);
+  // Invite Universal Link landing — identical for everyone, no per-code logic.
+  const isInvitePage = currentPath === '/invite' || currentPath.startsWith('/invite/');
 
   if (isGolftiPage) {
     return <GolfTIPage />;
@@ -48,6 +51,10 @@ const App: React.FC = () => {
 
   if (isAboutPage) {
     return <About />;
+  }
+
+  if (isInvitePage) {
+    return <InviteLanding />;
   }
 
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
