@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback, useMemo, useEffect } from 'react'
 import { Upload, Loader2, ArrowRight, RotateCcw, XCircle, Lock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { StoreLink } from './StoreLink';
 import { runFullAnalysis } from '../services/golfTiService';
 import { AnalysisResult, GolfTIState, RadarItem, GolfTIMatch } from '../types';
 import { APP_STORE_URL, MAX_FILE_SIZE, ACCEPTED_TYPES, GOLFTI_TAGLINES, GOLFTI_TYPE_CODES, LOADING_MESSAGES, ANALYZING_SUBTITLES, CARD_SUBTITLES } from '../constants/golfTiData';
@@ -257,14 +258,14 @@ const SwipeableCardStack: React.FC<{
               <p className="text-subtle text-[13px] mb-5 text-center max-w-[220px] leading-relaxed">
                 Unlock your 16-type deep dive, more insightful swing analysis, and advanced AI feedback
               </p>
-              <a
-                href={APP_STORE_URL} target="_blank" rel="noopener noreferrer"
+              <StoreLink
+                href={APP_STORE_URL}
                 className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-green rounded-xl shadow-card hover:bg-green hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-200 border border-green"
                 onClick={(e) => e.stopPropagation()}
               >
                 Download SneakySwing
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
+              </StoreLink>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StoreLink } from './StoreLink';
 
 // Invite landing — reached ONLY by users without the app installed.
 // (Installed users are intercepted by iOS Universal Link and never hit this page.)
@@ -37,7 +38,7 @@ export const InviteLanding: React.FC = () => {
         and you&apos;ll be paired up in one tap.
       </p>
 
-      <a
+      <StoreLink
         href={APP_STORE_URL}
         className="inline-flex items-center gap-2 font-semibold text-white rounded-xl transition hover:brightness-110"
         style={{
@@ -49,7 +50,7 @@ export const InviteLanding: React.FC = () => {
         }}
       >
         Download on the App Store
-      </a>
+      </StoreLink>
 
       <p className="mt-10" style={{ fontSize: '12px', color: '#828282' }}>
         Already installed? Open it from your home screen.

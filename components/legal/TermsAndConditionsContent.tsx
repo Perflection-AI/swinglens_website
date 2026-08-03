@@ -167,10 +167,10 @@ export const TermsAndConditionsContent: React.FC = () => {
         <p className="text-subtle">
           Questions about these terms can be sent to{' '}
           <a
-            href="mailto:contact@perflection.ai"
+            href="mailto:operation@perflection.ai"
             className="font-bold text-green hover:text-ink"
           >
-            contact@perflection.ai
+            operation@perflection.ai
           </a>
           .
         </p>

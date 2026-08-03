@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { Features } from './components/Features';
-import { SwingRecord } from './components/SwingRecord';
-import { CoachesSection } from './components/CoachesSection';
+import { AppSection } from './components/AppSection';
+import { CommunitySection } from './components/CommunitySection';
 import { Testimonials } from './components/Testimonials';
 import { Collaborations } from './components/Collaborations';
 import { GolfTIPage } from './components/GolfTIPage';
 import { About } from './components/About';
 import { CoachesPage } from './components/CoachesPage';
 import { StudentsPage } from './components/StudentsPage';
-import { CoachApplyPage } from './components/CoachApplyPage';
+import { ContactPage } from './components/ContactPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -44,13 +43,13 @@ const App: React.FC = () => {
   const aboutPaths = ['/about', getPath('about')];
   const coachesPaths = ['/coaches', getPath('coaches')];
   const studentsPaths = ['/students', getPath('students')];
-  const coachApplyPaths = ['/coaches/apply', getPath('coaches/apply')];
+  const contactPaths = ['/contact', getPath('contact')];
 
   const isGolftiPage = golftiPaths.includes(currentPath);
   const isAboutPage = aboutPaths.includes(currentPath);
-  const isCoachApplyPage = coachApplyPaths.includes(currentPath);
   const isCoachesPage = coachesPaths.includes(currentPath);
   const isStudentsPage = studentsPaths.includes(currentPath);
+  const isContactPage = contactPaths.includes(currentPath);
   // Invite Universal Link landing — identical for everyone, no per-code logic.
   const isInvitePage = currentPath === '/invite' || currentPath.startsWith('/invite/');
 
@@ -62,16 +61,16 @@ const App: React.FC = () => {
     return <About />;
   }
 
-  if (isCoachApplyPage) {
-    return <CoachApplyPage />;
-  }
-
   if (isCoachesPage) {
     return <CoachesPage />;
   }
 
   if (isStudentsPage) {
     return <StudentsPage />;
+  }
+
+  if (isContactPage) {
+    return <ContactPage />;
   }
 
   if (isInvitePage) {
@@ -120,9 +119,8 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <Features />
-        <SwingRecord />
-        <CoachesSection />
+        <AppSection />
+        <CommunitySection />
         <Testimonials />
         <Collaborations />
       </main>

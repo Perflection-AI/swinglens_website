@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getBasePath, getPath } from '../utils/paths';
+import { StoreLink } from './StoreLink';
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
 
@@ -66,6 +67,30 @@ export const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
+  const goToStudents = () => {
+    setMenuOpen(false);
+    const base = getBasePath();
+    window.history.pushState({}, '', `${base}students`.replace(/\/+/g, '/'));
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  const goToCoaches = () => {
+    setMenuOpen(false);
+    const base = getBasePath();
+    window.history.pushState({}, '', `${base}coaches`.replace(/\/+/g, '/'));
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  const goToContact = () => {
+    setMenuOpen(false);
+    const base = getBasePath();
+    window.history.pushState({}, '', `${base}contact`.replace(/\/+/g, '/'));
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
   const goHome = () => {
     setMenuOpen(false);
     const base = getBasePath();
@@ -83,29 +108,33 @@ export const Header: React.FC = () => {
       <a
         className="float-nav__logo-group"
         href="#top"
-        aria-label="SneakySwing home"
+        aria-label="Sneaky Academy home"
         onClick={(e) => { e.preventDefault(); goHome(); }}
       >
         <div className="float-nav__logo">
-          <img src={logoUrl} alt="SneakySwing" width="30" height="30" decoding="async" />
+          <img src={logoUrl} alt="Sneaky Academy" width="30" height="30" decoding="async" />
         </div>
-        <span className="float-nav__brand-name">SneakySwing</span>
+        <span className="float-nav__brand-name">Sneaky Academy</span>
       </a>
 
       {/* Desktop nav links */}
       <nav className="float-nav__links" aria-label="Primary">
+        <a href="/students" onClick={(e) => { e.preventDefault(); goToStudents(); }}>
+          Golfer
+        </a>
+        <a href="/coaches" onClick={(e) => { e.preventDefault(); goToCoaches(); }}>
+          Coach
+        </a>
         <a href="/about" onClick={(e) => { e.preventDefault(); goToAbout(); }}>
           About
         </a>
         <a href="/golfti" onClick={(e) => { e.preventDefault(); goToGolfTI(); }}>
           Golf Personality Test
         </a>
+        <a href="/contact" onClick={(e) => { e.preventDefault(); goToContact(); }}>
+          Contact
+        </a>
       </nav>
-
-      {/* Desktop CTA */}
-      <a className="float-nav__cta" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-        Analyze swing now
-      </a>
 
       {/* Mobile hamburger */}
       <button
@@ -121,21 +150,28 @@ export const Header: React.FC = () => {
 
       {/* Mobile dropdown */}
       <div className={`float-nav__mobile-menu${menuOpen ? ' open' : ''}`} role="menu">
+        <button className="float-nav__mobile-link" onClick={goToStudents}>
+          For Golfers
+        </button>
+        <button className="float-nav__mobile-link" onClick={goToCoaches}>
+          For Coaches
+        </button>
         <button className="float-nav__mobile-link" onClick={goToAbout}>
           About
         </button>
         <button className="float-nav__mobile-link" onClick={goToGolfTI}>
           Golf Personality Test
         </button>
-        <a
+        <button className="float-nav__mobile-link" onClick={goToContact}>
+          Contact
+        </button>
+        <StoreLink
           className="float-nav__mobile-cta"
           href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
           onClick={() => setMenuOpen(false)}
         >
           Analyze swing now
-        </a>
+        </StoreLink>
       </div>
     </header>
   );
