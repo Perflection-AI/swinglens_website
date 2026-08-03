@@ -5,11 +5,8 @@ import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
-const SERVICE_ID = 'service_3y7cn3d';
-// Dedicated EmailJS template for this form — create one in the EmailJS
-// dashboard with variables {{reason}}, {{email}}, {{message}}, and set
-// "Reply To" to {{reply_to}} so replying goes straight to the visitor.
-const TEMPLATE_ID = 'REPLACE_WITH_CONTACT_TEMPLATE_ID';
+const SERVICE_ID = 'service_c592vbk';
+const TEMPLATE_ID = 'template_sk1mr28'; // "Contact Us - Website" / "New contact request"
 const PUBLIC_KEY = 'OgBxaFwDtbJUZI0X8';
 
 const REASONS = [
