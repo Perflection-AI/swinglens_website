@@ -57,7 +57,7 @@ export const StudentsPage: React.FC = () => {
       <main>
 
         {/* ── Hero ── text left, stats right, brand-green accent */}
-        <section className="relative overflow-hidden bg-paper pt-28 pb-16 lg:py-28">
+        <section className="relative overflow-hidden bg-paper pt-36 sm:pt-28 pb-16 lg:py-28">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-16 lg:items-center">
 
@@ -70,8 +70,8 @@ export const StudentsPage: React.FC = () => {
                   className="tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
                   style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
                 >
-                  We improve<br />
-                  <span className="text-brand">your learning</span>
+                  Better practice<br />
+                  <span className="text-brand">Lower handicap</span>
                 </h1>
 
                 <p className="text-base text-subtle mb-8 leading-relaxed max-w-[48ch]">

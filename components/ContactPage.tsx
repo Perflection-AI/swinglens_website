@@ -61,7 +61,7 @@ export const ContactPage: React.FC = () => {
       <main>
 
         {/* ── Hero card ── DotOrbit */}
-        <section className="pt-24 sm:pt-28 pb-20 sm:pb-28 bg-paper">
+        <section className="pt-32 sm:pt-28 pb-20 sm:pb-28 bg-paper">
           <div className="mx-auto px-3 sm:px-4 max-w-[860px]">
             <div className="relative rounded-[2rem] overflow-hidden">
               <div className="absolute inset-0 z-0">

@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
         <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-16 lg:min-h-[100vh] lg:items-center">
 
           {/* Left: Copy */}
-          <div className="relative z-10 pt-28 pb-20 lg:py-0 max-w-xl">
+          <div className="relative z-10 pt-36 sm:pt-28 pb-20 lg:py-0 max-w-xl">
 
             <h1
               className="hero-enter tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"

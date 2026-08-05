@@ -506,7 +506,7 @@ export const GolfTIPage: React.FC = () => {
       {/* Content */}
       <div className="relative z-[2] min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 pt-24">
+        <main className="flex-1 pt-32 sm:pt-24">
           <section className="py-16 md:py-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Header — dynamic based on state */}

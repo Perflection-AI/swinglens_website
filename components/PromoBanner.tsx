@@ -30,7 +30,7 @@ export const PromoBanner: React.FC = () => {
     <div ref={wrapperRef} className="fixed top-0 left-0 right-0 z-[1500]">
       <StoreLink
         href={APP_STORE_URL}
-        className="group flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 px-4 py-2 text-center bg-green text-white text-[11px] sm:text-xs font-semibold hover:brightness-110 transition-all duration-200"
+        className="group flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 px-4 py-3 text-center bg-green text-white text-[11px] sm:text-xs font-semibold hover:brightness-110 transition-all duration-200"
       >
         <span className="underline underline-offset-2 decoration-white/50 group-hover:decoration-white">📲 Download the app</span>
         <span className="opacity-50">→</span>

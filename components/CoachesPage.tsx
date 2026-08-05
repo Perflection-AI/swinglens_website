@@ -70,7 +70,7 @@ export const CoachesPage: React.FC = () => {
       <main>
 
         {/* ── Hero ── text left, stats right, brand-green accent */}
-        <section className="relative overflow-hidden bg-paper pt-28 pb-16 lg:py-28">
+        <section className="relative overflow-hidden bg-paper pt-36 sm:pt-28 pb-16 lg:py-28">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-16 lg:items-center">
 

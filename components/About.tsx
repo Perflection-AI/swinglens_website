@@ -118,7 +118,7 @@ export const About: React.FC = () => {
       <main>
 
         {/* ── Mission ── DotOrbit, asymmetric 2-col */}
-        <section className="py-6 sm:py-8 bg-paper">
+        <section className="pt-16 pb-6 sm:py-8 bg-paper">
           <div className="mx-auto px-3 sm:px-4 max-w-[1400px]">
             <div className="relative rounded-[2rem] overflow-hidden">
 
