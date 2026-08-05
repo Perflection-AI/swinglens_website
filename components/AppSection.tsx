@@ -33,7 +33,7 @@ export const AppSection: React.FC = () => {
               style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
             >
               Our members<br />
-              <span className="text-brand">run on SneakySwing.</span>
+              <span className="text-brand">use SneakySwing.</span>
             </h2>
             <p className="text-base text-subtle mb-8 leading-relaxed max-w-[48ch]">
               Whether you're between lessons or working solo, SneakySwing has your back! Instant AI feedback for golfers without a coach, and a direct line to keep your coach in the loop for those who with a coach.

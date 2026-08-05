@@ -1,5 +1,6 @@
 import React from 'react';
 import { getPath, getBasePath } from '../utils/paths';
+import { DownloadCTA } from './DownloadCTA';
 
 const handleVideoReady = (e: React.SyntheticEvent<HTMLVideoElement>) => {
   e.currentTarget.style.opacity = '1';
@@ -29,29 +30,39 @@ export const Hero: React.FC = () => {
               className="hero-enter tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.75rem)', animationDelay: '0ms' }}
             >
-              Driven by Tech<br />
-              <span className="text-brand">Rooted in Community</span>
+              Empowering modern<br />
+              <span className="text-brand">golfers and coaches</span>
             </h1>
 
             <p className="hero-enter text-base text-subtle mb-8 leading-relaxed max-w-[48ch]" style={{ animationDelay: '80ms' }}>
-              Sneaky Academy brings together golfers striving to improve and coaches ready to help, powered by technology that keeps the coaching going between lessons.
+              Golfers see real improvement. Coaches see real growth. One app built to deliver both.
             </p>
 
-            {/* Buttons — clear hierarchy: primary fill vs ghost */}
-            <div className="hero-enter flex flex-col sm:flex-row gap-3" style={{ animationDelay: '160ms' }}>
+            {/* Primary: Download — official Apple App Store badge */}
+            <div className="hero-enter mb-4" style={{ animationDelay: '160ms' }}>
+              <DownloadCTA className="inline-block">
+                <img
+                  src={getPath('assets/app-store-badge.svg')}
+                  alt="Download on the App Store"
+                  style={{ height: '48px', width: 'auto' }}
+                />
+              </DownloadCTA>
+            </div>
+
+            {/* Secondary: identity routing */}
+            <div className="hero-enter flex flex-col sm:flex-row gap-3" style={{ animationDelay: '220ms' }}>
               <button
                 onClick={() => navigateTo('students')}
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
               >
                 I'm a golfer
                 <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
-
               <button
                 onClick={() => navigateTo('coaches')}
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
               >
                 I'm a coach
                 <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">

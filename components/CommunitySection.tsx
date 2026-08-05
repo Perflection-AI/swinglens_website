@@ -20,10 +20,10 @@ export const CommunitySection: React.FC = () => {
               className="tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
               style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
             >
-              More about <span className="text-brand">our Discord community.</span>
+              Our members <span className="text-brand">shape SneakySwing.</span>
             </h2>
             <p className="text-base text-subtle mb-8 leading-relaxed max-w-[48ch]">
-              This is where your passion for the game is matched by hundreds of fellow golfers and coaches. Receive feedback 24/7 and get alerted of the latest SneakySwing updates!
+              A discord community where your passion for the game is matched by hundreds of fellow golfers and coaches. Receive feedback 24/7 and let us know how we can improve SneakySwing for you!
             </p>
             <a
               href={DISCORD_URL}

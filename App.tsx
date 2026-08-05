@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PromoBanner } from './components/PromoBanner';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { AppSection } from './components/AppSection';
@@ -53,45 +54,31 @@ const App: React.FC = () => {
   // Invite Universal Link landing — identical for everyone, no per-code logic.
   const isInvitePage = currentPath === '/invite' || currentPath.startsWith('/invite/');
 
-  if (isGolftiPage) {
-    return <GolfTIPage />;
-  }
-
-  if (isAboutPage) {
-    return <About />;
-  }
-
-  if (isCoachesPage) {
-    return <CoachesPage />;
-  }
-
-  if (isStudentsPage) {
-    return <StudentsPage />;
-  }
-
-  if (isContactPage) {
-    return <ContactPage />;
-  }
-
-  if (isInvitePage) {
-    return <InviteLanding />;
-  }
-
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
   const isTermsPage = appTermsPaths.includes(currentPath);
   const isWebsitePrivacyPage = websitePrivacyPaths.includes(currentPath);
   const isWebsiteTermsPage = websiteTermsPaths.includes(currentPath);
 
-  if (isPrivacyPage) {
-    return <PrivacyPolicy />;
-  }
+  let pageContent: React.ReactNode;
 
-  if (isTermsPage) {
-    return <TermsAndConditions />;
-  }
-
-  if (isWebsitePrivacyPage) {
-    return (
+  if (isGolftiPage) {
+    pageContent = <GolfTIPage />;
+  } else if (isAboutPage) {
+    pageContent = <About />;
+  } else if (isCoachesPage) {
+    pageContent = <CoachesPage />;
+  } else if (isStudentsPage) {
+    pageContent = <StudentsPage />;
+  } else if (isContactPage) {
+    pageContent = <ContactPage />;
+  } else if (isInvitePage) {
+    pageContent = <InviteLanding />;
+  } else if (isPrivacyPage) {
+    pageContent = <PrivacyPolicy />;
+  } else if (isTermsPage) {
+    pageContent = <TermsAndConditions />;
+  } else if (isWebsitePrivacyPage) {
+    pageContent = (
       <div className="min-h-screen bg-paper">
         <Header />
         <main className="pt-24">
@@ -100,10 +87,8 @@ const App: React.FC = () => {
         <Footer />
       </div>
     );
-  }
-
-  if (isWebsiteTermsPage) {
-    return (
+  } else if (isWebsiteTermsPage) {
+    pageContent = (
       <div className="min-h-screen bg-paper">
         <Header />
         <main className="pt-24">
@@ -112,20 +97,27 @@ const App: React.FC = () => {
         <Footer />
       </div>
     );
+  } else {
+    pageContent = (
+      <div className="min-h-screen bg-paper">
+        <Header />
+        <main>
+          <Hero />
+          <AppSection />
+          <CommunitySection />
+          <Testimonials />
+          <Collaborations />
+        </main>
+        <Footer />
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-paper">
-      <Header />
-      <main>
-        <Hero />
-        <AppSection />
-        <CommunitySection />
-        <Testimonials />
-        <Collaborations />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <PromoBanner />
+      {pageContent}
+    </>
   );
 };
 

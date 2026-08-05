@@ -88,11 +88,11 @@ export const CoachesPage: React.FC = () => {
                 </h1>
 
                 <p className="text-base text-subtle mb-4 leading-relaxed max-w-[48ch]">
-                  Your personally trained virtual teaching assistant extends your coaching beyond the lesson tee. We simplify your business, keep you closer to your athletes, and turn your expertise into more revenue.
+                  Most tech tries to replace the human side of coaching. We amplify it.
                 </p>
 
                 <p className="text-base text-subtle mb-4 leading-relaxed max-w-[48ch]">
-                  We're currently onboarding a limited group of vetted coaches.
+                  We make your relationships with students scalable, consistent, and profitable — so you reach more students and earn more all while enhancing the human connection that keeps them coming back.
                 </p>
 
                 <button
@@ -125,35 +125,6 @@ export const CoachesPage: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Our approach ── Light editorial cards */}
-        <section className="py-16 sm:py-24 bg-paper">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <Reveal>
-              <p className="text-green text-[10px] font-bold uppercase tracking-[0.22em] mb-4">
-                Our approach
-              </p>
-              <h2
-                className="font-display font-extrabold text-ink leading-[1.1] mb-4 max-w-3xl"
-                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}
-              >
-                Technology should make coaching better, not replace it.
-              </h2>
-              <p className="text-subtle text-sm sm:text-base leading-[1.7] max-w-2xl mb-10 lg:mb-12">
-                Your revenue today is capped by the hours you can personally coach. Sneaky Academy turns your methodology into something that reaches further — more students, more consistency, more income — without losing what makes your coaching yours.
-              </p>
-            </Reveal>
-            <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
-              {benefits.map(({ title, body }, i) => (
-                <Reveal key={title} delay={i * 100}>
-                  <div className="h-full flex flex-col rounded-2xl border border-ink/[0.08] bg-white p-8 shadow-soft hover:shadow-soft-lg transition-shadow duration-300">
-                    <p className="font-display font-bold text-ink text-lg leading-tight mb-3">{title}</p>
-                    <p className="text-subtle text-sm leading-[1.7]">{body}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── Command your teaching assistant ── Light editorial cards */}
         <section className="py-16 sm:py-24 bg-paper border-t border-ink/[0.07]">
@@ -169,7 +140,7 @@ export const CoachesPage: React.FC = () => {
                 Command your teaching assistant<br />to guide your students.
               </h2>
               <p className="text-subtle text-sm sm:text-base leading-[1.7] max-w-2xl mb-10 lg:mb-12">
-                It has your teaching style, fits how each student learns, and works 24/7.
+                Your personally trained virtual teaching assistant extends your coaching beyond the lesson tee. We simplify your business, keep you closer to your athletes, and turn your expertise into more revenue.
               </p>
             </Reveal>
             <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">

@@ -6,7 +6,7 @@ import { Features } from './Features';
 import { FunFeatures } from './FunFeatures';
 import { SwingRecord } from './SwingRecord';
 import { DownloadCTA } from './DownloadCTA';
-import { getBasePath } from '../utils/paths';
+import { getBasePath, getPath } from '../utils/paths';
 
 const navigateTo = (path: string) => {
   const base = getBasePath();
@@ -70,21 +70,20 @@ export const StudentsPage: React.FC = () => {
                   className="tracking-tight text-ink leading-[1.08] mb-4 font-display font-extrabold"
                   style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
                 >
-                  You deserve<br />
-                  <span className="text-brand">better coaching</span>
+                  We improve<br />
+                  <span className="text-brand">your learning</span>
                 </h1>
 
                 <p className="text-base text-subtle mb-8 leading-relaxed max-w-[48ch]">
-                  Wherever your starting point, we're going to improve your golf learning experience. We extend the coaching you already have, or connect you with real coaching for the first time. AI-powered feedback with real humans in the loop, any time you need it.
+                  Wherever your starting point, we're going to improve your learning experience. We extend the coaching you already have, or connect you with real coaching for the first time. AI-powered feedback with real humans in the loop, any time you need it.
                 </p>
 
-                <DownloadCTA
-                  className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
-                >
-                  Try SneakySwing free
-                  <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <DownloadCTA className="inline-block">
+                  <img
+                    src={getPath('assets/app-store-badge.svg')}
+                    alt="Download on the App Store"
+                    style={{ height: '48px', width: 'auto' }}
+                  />
                 </DownloadCTA>
               </div>
 
