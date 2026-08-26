@@ -11,6 +11,7 @@ import { About } from './components/About';
 import { CoachesPage } from './components/CoachesPage';
 import { StudentsPage } from './components/StudentsPage';
 import { ContactPage } from './components/ContactPage';
+import { LeaderboardPage } from './components/LeaderboardPage';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
@@ -45,12 +46,14 @@ const App: React.FC = () => {
   const coachesPaths = ['/coaches', getPath('coaches')];
   const studentsPaths = ['/students', getPath('students')];
   const contactPaths = ['/contact', getPath('contact')];
+  const leaderboardPaths = ['/leaderboard', getPath('leaderboard')];
 
   const isGolftiPage = golftiPaths.includes(currentPath);
   const isAboutPage = aboutPaths.includes(currentPath);
   const isCoachesPage = coachesPaths.includes(currentPath);
   const isStudentsPage = studentsPaths.includes(currentPath);
   const isContactPage = contactPaths.includes(currentPath);
+  const isLeaderboardPage = leaderboardPaths.includes(currentPath);
   // Invite Universal Link landing — identical for everyone, no per-code logic.
   const isInvitePage = currentPath === '/invite' || currentPath.startsWith('/invite/');
 
@@ -71,6 +74,8 @@ const App: React.FC = () => {
     pageContent = <StudentsPage />;
   } else if (isContactPage) {
     pageContent = <ContactPage />;
+  } else if (isLeaderboardPage) {
+    pageContent = <LeaderboardPage />;
   } else if (isInvitePage) {
     pageContent = <InviteLanding />;
   } else if (isPrivacyPage) {

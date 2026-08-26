@@ -91,6 +91,14 @@ export const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
+  const goToLeaderboard = () => {
+    setMenuOpen(false);
+    const base = getBasePath();
+    window.history.pushState({}, '', `${base}leaderboard`.replace(/\/+/g, '/'));
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
   const goHome = () => {
     setMenuOpen(false);
     const base = getBasePath();
@@ -134,6 +142,9 @@ export const Header: React.FC = () => {
         <a href="/contact" onClick={(e) => { e.preventDefault(); goToContact(); }}>
           Contact
         </a>
+        <a href="/leaderboard" onClick={(e) => { e.preventDefault(); goToLeaderboard(); }}>
+          Leaderboard
+        </a>
       </nav>
 
       {/* Mobile hamburger */}
@@ -164,6 +175,9 @@ export const Header: React.FC = () => {
         </button>
         <button className="float-nav__mobile-link" onClick={goToContact}>
           Contact
+        </button>
+        <button className="float-nav__mobile-link" onClick={goToLeaderboard}>
+          Leaderboard
         </button>
         <StoreLink
           className="float-nav__mobile-cta"
