@@ -1,5 +1,14 @@
 import React from 'react';
 import { DownloadCTA } from './DownloadCTA';
+import { getBasePath } from '../utils/paths';
+
+const navigateTo = (path: string) => {
+  const base = getBasePath();
+  const url = `${base}${path}`.replace(/\/+/g, '/');
+  window.history.pushState({}, '', url);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'auto' });
+};
 
 export const AppSection: React.FC = () => {
   return (
@@ -40,7 +49,7 @@ export const AppSection: React.FC = () => {
             </p>
 
             {/* Button */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4">
               <DownloadCTA
                 className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200"
               >
@@ -49,6 +58,28 @@ export const AppSection: React.FC = () => {
                   <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </DownloadCTA>
+            </div>
+
+            {/* Secondary: identity routing */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <button
+                onClick={() => navigateTo('students')}
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
+              >
+                I'm a golfer
+                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <button
+                onClick={() => navigateTo('coaches')}
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
+              >
+                I'm a coach
+                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
 
             {/* Social proof */}

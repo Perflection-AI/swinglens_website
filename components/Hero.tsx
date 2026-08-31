@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trophy } from 'lucide-react';
 import { getPath, getBasePath } from '../utils/paths';
 import { DownloadCTA } from './DownloadCTA';
 
@@ -38,36 +39,27 @@ export const Hero: React.FC = () => {
               Golfers see real improvement. Coaches see real growth. One app built to deliver both.
             </p>
 
-            {/* Primary: Download — official Apple App Store badge */}
-            <div className="hero-enter mb-4" style={{ animationDelay: '160ms' }}>
-              <DownloadCTA className="inline-block">
+            {/* Primary CTAs: download + leaderboard, equal weight cards */}
+            <div className="hero-enter grid grid-cols-2 gap-3" style={{ animationDelay: '160ms' }}>
+              <DownloadCTA
+                className="flex flex-col items-center justify-center gap-2 px-4 py-5 text-center bg-white border border-ink/[0.08] rounded-2xl shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
+                showAndroidNotice={false}
+              >
                 <img
-                  src={getPath('assets/app-store-badge.svg')}
-                  alt="Download on the App Store"
-                  style={{ height: '48px', width: 'auto' }}
+                  src={getPath('assets/sneakyswing.png')}
+                  alt=""
+                  className="w-9 h-9 rounded-full flex-shrink-0"
                 />
+                <span className="text-sm font-semibold text-ink leading-tight">Download SneakySwing</span>
               </DownloadCTA>
-            </div>
-
-            {/* Secondary: identity routing */}
-            <div className="hero-enter flex flex-col sm:flex-row gap-3" style={{ animationDelay: '220ms' }}>
               <button
-                onClick={() => navigateTo('students')}
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
+                onClick={() => navigateTo('leaderboard')}
+                className="flex flex-col items-center justify-center gap-2 px-4 py-5 text-center bg-white border border-ink/[0.08] rounded-2xl shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
               >
-                I'm a golfer
-                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <button
-                onClick={() => navigateTo('coaches')}
-                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-ink bg-green-light border border-green/15 rounded-lg hover:border-green/30 hover:brightness-95 transition-all duration-200"
-              >
-                I'm a coach
-                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <span className="w-9 h-9 rounded-full bg-green-light flex items-center justify-center text-green flex-shrink-0">
+                  <Trophy className="w-4 h-4" />
+                </span>
+                <span className="text-sm font-semibold text-ink leading-tight">View Full Leaderboards</span>
               </button>
             </div>
           </div>

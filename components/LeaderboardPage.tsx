@@ -7,28 +7,39 @@ import { DownloadCTA } from './DownloadCTA';
 
 const celebLeaders = [
   { rank: 1, name: 'Sean Walsh', tag: 'pro/celeb', mbti: 'VOID', score: 93 },
+  { rank: 2, name: 'Luke Kwon', tag: 'celeb', mbti: 'FLAIR', score: 92 },
   { rank: 2, name: 'Bryson DeChambeau', tag: 'pro', mbti: 'VOID', score: 92 },
-  { rank: 3, name: 'Sam Burns', tag: 'pro', mbti: 'VOID', score: 90 },
-  { rank: 3, name: 'Grant Horvat', tag: 'celeb', mbti: 'RIZZ', score: 90 },
-  { rank: 5, name: 'Jennie K-pop', tag: 'celeb', mbti: 'VOID', score: 86 },
-  { rank: 6, name: 'Micah Morris', tag: 'celeb', mbti: 'VOID', score: 86 },
-  { rank: 7, name: 'Garrett Clark', tag: 'celeb', mbti: 'VOID', score: 84 },
+  { rank: 4, name: 'Sam Burns', tag: 'pro', mbti: 'VOID', score: 90 },
+  { rank: 4, name: 'Grant Horvat', tag: 'celeb', mbti: 'RIZZ', score: 90 },
+  { rank: 6, name: 'Jennie K-pop', tag: 'celeb', mbti: 'VOID', score: 86 },
+  { rank: 7, name: 'Micah Morris', tag: 'celeb', mbti: 'VOID', score: 86 },
+  { rank: 8, name: 'Brad Dalke', tag: 'pro/celeb', mbti: 'COPE', score: 84 },
+  { rank: 8, name: 'Garrett Clark', tag: 'celeb', mbti: 'VOID', score: 84 },
   { rank: 8, name: 'Roger Federer', tag: 'celeb', mbti: 'VOID', score: 84 },
-  { rank: 9, name: 'Matt Scharff', tag: 'celeb', mbti: 'FERL', score: 82 },
-  { rank: 10, name: 'Lebron James', tag: 'celeb', mbti: 'BRUH', score: 75 },
-  { rank: 11, name: 'Phil Mickelson', tag: 'pro', mbti: 'FLAIR', score: 74 },
-  { rank: 12, name: 'Tom Holland', tag: 'celeb', mbti: 'RIZZ', score: 74 },
-  { rank: 13, name: 'Kevin Hart', tag: 'celeb', mbti: 'RIZZ', score: 68 },
-  { rank: 14, name: 'Bubbie Golf', tag: 'celeb', mbti: 'BRUH', score: 68 },
-  { rank: 15, name: 'Steve Castaneda', tag: 'celeb', mbti: 'BRUH', score: 68 },
-  { rank: 16, name: 'Erling Haaland', tag: 'celeb', mbti: 'BOZO', score: 48 },
+  { rank: 8, name: 'David Raya', tag: 'celeb', mbti: 'BRUH', score: 84 },
+  { rank: 11, name: 'Matt Scharff', tag: 'celeb', mbti: 'FERL', score: 82 },
+  { rank: 12, name: 'Lebron James', tag: 'celeb', mbti: 'BRUH', score: 75 },
+  { rank: 13, name: 'Phil Mickelson', tag: 'pro', mbti: 'FLAIR', score: 74 },
+  { rank: 14, name: 'Tom Holland', tag: 'celeb', mbti: 'RIZZ', score: 74 },
+  { rank: 15, name: 'Kevin Hart', tag: 'celeb', mbti: 'RIZZ', score: 68 },
+  { rank: 16, name: 'Bubbie Golf', tag: 'celeb', mbti: 'BRUH', score: 68 },
+  { rank: 17, name: 'Steve Castaneda', tag: 'celeb', mbti: 'BRUH', score: 68 },
+  { rank: 18, name: 'Erling Haaland', tag: 'celeb', mbti: 'BOZO', score: 48 },
 ];
 
 const goodGoodLeaders = [
   { rank: 1, name: 'Sean Walsh', tag: 'celeb', mbti: 'RIZZ', score: 93 },
-  { rank: 2, name: 'Grant Horvat', tag: 'celeb', mbti: 'RIZZ', score: 90 },
-  { rank: 3, name: 'Bubbie Golf', mbti: 'BRUH', score: '68' },
-  { rank: 3, name: 'Steve Castaneda', mbti: 'BRUH', score: '68' },
+  { rank: 2, name: 'Luke Kwon', tag: 'celeb', mbti: 'FLAIR', score: 92 },
+  { rank: 3, name: 'Grant Horvat', tag: 'celeb', mbti: 'RIZZ', score: 90 },
+  { rank: 4, name: 'Brad Dalke', tag: 'pro/celeb', mbti: 'COPE', score: 84 },
+  { rank: 4, name: 'Garrett Clark', tag: 'celeb', mbti: 'VOID', score: 84 },
+  { rank: 6, name: 'Bubbie Golf', mbti: 'BRUH', score: 68 },
+  { rank: 6, name: 'Steve Castaneda', mbti: 'BRUH', score: 68 },
+];
+
+const soccerLeaderboard = [
+  { rank: 1, name: 'David Raya', tag: 'celeb', mbti: 'BRUH', score: 84 },
+  { rank: 2, name: 'Erling Haaland', tag: 'celeb', mbti: 'BOZO', score: 48 },
 ];
 
 const medalColor: Record<number, string> = {
@@ -53,21 +64,43 @@ export const LeaderboardPage: React.FC = () => {
         {/* ── Hero ── */}
         <section className="pt-36 sm:pt-28 pb-4 sm:pb-6 bg-paper">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-            <p className="text-green text-[10px] font-bold uppercase tracking-[0.25em] mb-5">
-              Leaderboard
-            </p>
             <h1
-              className="font-display font-extrabold text-ink leading-[1.06] mb-5"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
+              className="font-display font-extrabold text-ink leading-[1.06]"
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
             >
-              Ranking every golfer in the world
+              Leaderboards
             </h1>
+          </div>
+        </section>
+
+        {/* ── CTA: get on the board ── */}
+        <section className="pb-12 sm:pb-16 bg-paper">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-2xl border border-ink/[0.08] bg-white shadow-soft px-6 py-6 sm:px-8">
+              <div>
+                <p className="text-green text-[10px] font-bold uppercase tracking-[0.22em] mb-2">Get on the board</p>
+                <p className="font-display font-bold text-ink text-lg leading-tight">
+                  Analyze a swing, earn your Swing Score.
+                </p>
+              </div>
+              <DownloadCTA
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-green rounded-lg shadow-card hover:brightness-110 transition-all duration-200 flex-shrink-0"
+              >
+                Download SneakySwing
+                <svg className="ml-2 w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7h9M8 3.5 11.5 7 8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </DownloadCTA>
+            </div>
           </div>
         </section>
 
         {/* ── Leaderboard list ── */}
         <section className="pb-16 sm:pb-24 bg-paper">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <p className="text-green text-[10px] font-bold uppercase tracking-[0.25em] mb-4 text-center">
+              Celebs & Pros Leaderboard
+            </p>
             <Reveal>
               <div className="rounded-2xl border border-ink/[0.08] bg-white shadow-soft overflow-hidden">
                 {activeLeaders.map(({ rank, name, tag, mbti, score }, i) => (
@@ -121,6 +154,42 @@ export const LeaderboardPage: React.FC = () => {
                   <div
                     key={rank}
                     className={`flex items-center gap-4 px-5 sm:px-7 py-4 ${i !== goodGoodLeaders.length - 1 ? 'border-b border-ink/[0.06]' : ''}`}
+                  >
+                    <div className="w-8 flex-shrink-0 flex items-center justify-center">
+                      <span className="text-subtle text-sm font-bold tabular-nums">{rank}</span>
+                    </div>
+
+                    <div className="w-9 h-9 rounded-full bg-green-light flex items-center justify-center text-[11px] font-bold text-green flex-shrink-0">
+                      {name.split(' ').map((p) => p[0]).join('')}
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <p className="font-display font-bold text-ink text-sm leading-tight">{name}</p>
+                      <p className="text-subtle text-xs mt-0.5">Golf-MBTI: {mbti}</p>
+                    </div>
+
+                    <div className="text-right flex-shrink-0">
+                      <p className="font-display font-extrabold text-ink text-lg leading-none tabular-nums">{score}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── Soccer Leaderboard ── */}
+        <section className="pb-16 sm:pb-24 bg-paper">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+            <p className="text-green text-[10px] font-bold uppercase tracking-[0.25em] mb-4 text-center">
+              Soccer Leaderboard
+            </p>
+            <Reveal>
+              <div className="rounded-2xl border border-ink/[0.08] bg-white shadow-soft overflow-hidden">
+                {soccerLeaderboard.map(({ rank, name, mbti, score }, i) => (
+                  <div
+                    key={rank}
+                    className={`flex items-center gap-4 px-5 sm:px-7 py-4 ${i !== soccerLeaderboard.length - 1 ? 'border-b border-ink/[0.06]' : ''}`}
                   >
                     <div className="w-8 flex-shrink-0 flex items-center justify-center">
                       <span className="text-subtle text-sm font-bold tabular-nums">{rank}</span>
