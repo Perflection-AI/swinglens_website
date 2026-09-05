@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        const path = window.location.pathname || '/';
+        const normalizedPath = path.replace(/\/+$/, '') || '/';
+        const isLegalPage =
+          normalizedPath === '/privacy' ||
+          normalizedPath === '/terms' ||
+          normalizedPath === '/swinglens_website/privacy' ||
+          normalizedPath === '/swinglens_website/terms';
+
+        if (isLegalPage) {
+          window.__DISABLE_SITE_ANALYTICS__ = true;
+          return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-8YQG87KR21');
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8YQG87KR21';
+        document.head.appendChild(script);
+
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', 'xxdpzczu01');
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sneaky Academy - The Future of Golf Instruction</title>
+    <meta name="description" content="Sneaky Academy is a data-driven golf academy built for modern players and coaches worldwide. AI-powered swing analysis and always-on coaching, powered by SneakySwing." />
+    <link rel="icon" type="image/png" href="/assets/sneakyswing.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+              display: ['DM Sans', 'sans-serif'],
+              mono: ['DM Sans', 'sans-serif'],
+            },
+            colors: {
+              paper:  '#F8FAF5', // background.page (app: white)
+              ink:    '#4E4E4E', // content.primary (app: gray700)
+              subtle: '#828282', // content.secondary (app: gray500)
+              gold:   '#A88D37', // brand.secondary (app: yellow700)
+              green: {
+                DEFAULT: '#719241', // brand.primary (app: green700)
+                light:   '#E8F3D8', // positive backgrounds (app: green300)
+                dark:    '#111A05', // dark section backgrounds
+              },
+            },
+            boxShadow: {
+              'soft': '0 2px 4px rgba(78, 78, 78, 0.04), 0 8px 16px rgba(78, 78, 78, 0.04)',
+              'soft-lg': '0 4px 6px rgba(78, 78, 78, 0.04), 0 12px 24px rgba(78, 78, 78, 0.06)',
+              'soft-xl': '0 8px 10px rgba(78, 78, 78, 0.04), 0 20px 40px rgba(78, 78, 78, 0.08)',
+              'card': '0 1px 2px rgba(78, 78, 78, 0.06), 0 1px 3px rgba(78, 78, 78, 0.1)',
+              'glow': '0 0 20px rgba(113, 146, 65, 0.35)',
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #F8FAF5;
+        color: #4E4E4E;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      
+      /* 1. Grain Texture Overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      /* Floating pill nav — wider at top, compact on scroll */
+      .float-nav {
+        position: fixed;
+        top: calc(var(--promo-banner-height, 0px) + 14px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1200;
+        width: min(92vw, 820px);
+        min-height: 48px;
+        padding: 6px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border-radius: 14px;
+        color: #4E4E4E;
+        background: rgba(248,250,245,0.65);
+        border: 1px solid rgba(255,255,255,0.60);
+        backdrop-filter: saturate(160%) blur(18px);
+        -webkit-backdrop-filter: saturate(160%) blur(18px);
+        box-shadow: 0 4px 24px -6px rgba(0,0,0,0.07),
+                    inset 0 1px 0 rgba(255,255,255,0.72);
+        transition: width .40s cubic-bezier(0.4,0,0.2,1),
+                    border-radius .40s cubic-bezier(0.4,0,0.2,1),
+                    background .35s ease, border-color .35s ease,
+                    box-shadow .35s ease, min-height .40s ease;
+      }
+      .float-nav.scrolled {
+        width: min(92vw, 580px);
+        min-height: 43px;
+        border-radius: 12px;
+        background: rgba(248,250,245,0.90);
+        border-color: rgba(113,146,65,0.14);
+        box-shadow: 0 8px 28px -10px rgba(0,0,0,0.10),
+                    inset 0 1px 0 rgba(255,255,255,0.80);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+      }
+
+      /* Logo group (logo icon + brand name) */
+      .float-nav__logo-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        text-decoration: none;
+        color: inherit;
+      }
+      .float-nav__logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+      }
+      .float-nav__logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .float-nav__brand-name {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+        color: #4E4E4E;
+        white-space: nowrap;
+        max-width: 140px;
+        overflow: hidden;
+        opacity: 1;
+        transition: max-width .42s cubic-bezier(0.4,0,0.2,1),
+                    opacity .25s ease;
+      }
+      .float-nav.scrolled .float-nav__brand-name {
+        max-width: 0;
+        opacity: 0;
+      }
+
+      /* Nav links */
+      .float-nav__links {
+        display: flex;
+        flex: 1;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .float-nav__links a {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: .02em;
+        color: #828282;
+        opacity: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color .22s ease;
+      }
+      .float-nav__links a:hover { color: #4E4E4E; }
+
+      /* CTA */
+      .float-nav__cta {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: .035em;
+        background: #719241;
+        color: #FFFFFF;
+        padding: 8px 11px 8px 13px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.14);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: filter .25s ease, transform .25s ease;
+      }
+      .float-nav__cta::after {
+        content: '\203A';
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background: rgba(255,255,255,0.18);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        line-height: 1;
+      }
+      .float-nav__cta:hover {
+        filter: brightness(1.12);
+        transform: translateY(-1px);
+      }
+      .float-nav.scrolled .float-nav__cta {
+        border-color: rgba(113,146,65,0.25);
+      }
+
+      /* Hamburger button — hidden on desktop */
+      .float-nav__hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        color: #4E4E4E;
+        border-radius: 7px;
+        transition: background 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .float-nav__hamburger:hover {
+        background: rgba(113, 146, 65, 0.08);
+      }
+      .float-nav__hamburger-line {
+        display: block;
+        width: 18px;
+        height: 1.5px;
+        background: currentColor;
+        border-radius: 999px;
+        transform-origin: center;
+        transition: transform 0.22s cubic-bezier(0.16,1,0.3,1),
+                    opacity 0.15s ease;
+      }
+      .float-nav__hamburger-line:nth-child(2) { margin: 4px 0; }
+      /* Open state — morph to × */
+      .float-nav__hamburger.open .float-nav__hamburger-line:nth-child(1) {
+        transform: translateY(5.5px) rotate(45deg);
+      }
+      .float-nav__hamburger.open .float-nav__hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .float-nav__hamburger.open .float-nav__hamburger-line:nth-child(3) {
+        transform: translateY(-5.5px) rotate(-45deg);
+      }
+
+      /* Mobile dropdown menu */
+      .float-nav__mobile-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: rgba(248, 250, 245, 0.88);
+        backdrop-filter: saturate(160%) blur(18px);
+        -webkit-backdrop-filter: saturate(160%) blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.60);
+        border-radius: 11px;
+        box-shadow: 0 4px 24px -6px rgba(0,0,0,0.07),
+                    inset 0 1px 0 rgba(255,255,255,0.72);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+        transition: opacity 0.2s cubic-bezier(0.16,1,0.3,1),
+                    transform 0.2s cubic-bezier(0.16,1,0.3,1);
+      }
+      .float-nav__mobile-menu.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+      .float-nav__mobile-link {
+        display: block;
+        padding: 13px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #4E4E4E;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(78, 78, 78, 0.06);
+        transition: background 0.15s ease, color 0.15s ease;
+        cursor: pointer;
+        background: none;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        width: 100%;
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .float-nav__mobile-link:last-child {
+        border-bottom: none;
+      }
+      .float-nav__mobile-link:hover, .float-nav__mobile-link:active {
+        background: rgba(113, 146, 65, 0.06);
+        color: #719241;
+      }
+      .float-nav__mobile-cta {
+        display: block;
+        margin: 10px;
+        padding: 11px 16px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        background: #719241;
+        border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        transition: filter 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .float-nav__mobile-cta:hover {
+        filter: brightness(1.1);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .float-nav {
+          top: calc(var(--promo-banner-height, 0px) + 10px);
+          width: min(92vw, 320px);
+          min-height: 40px;
+          border-radius: 11px;
+        }
+        .float-nav__links { display: none; }
+        .float-nav__cta { display: none; }
+        .float-nav__hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 32px; height: 32px; }
+        .float-nav__logo { width: 26px; height: 26px; border-radius: 7px; }
+        .float-nav__mobile-menu { display: block; }
+      }
+
+      /* 2. Graph Paper Pattern for Hero */
+      .bg-grid-paper {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(113, 146, 65, 0.12) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(113, 146, 65, 0.12) 1px, transparent 1px);
+      }
+
+      /* 3. Ruled Paper Pattern for Chat */
+      .bg-ruled-paper {
+        background-color: #F8FAF5;
+        background-image: linear-gradient(rgba(113, 146, 65, 0.2) 1px, transparent 1px);
+        background-size: 100% 2rem;
+      }
+
+      .text-brand {
+        color: #719241;
+      }
+      
+      /* Fade Slide Up Animation */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-slide-up {
+        animation: fadeSlideUp 0.5s ease-out forwards;
+      }
+
+      /* GolfTI Waterfall Background */
+      @keyframes waterfall-down {
+        0% { transform: translateY(-120%) scale(var(--s, 1)); }
+        100% { transform: translateY(120vh) scale(var(--s, 1)); }
+      }
+      .golfti-bg-item {
+        position: absolute;
+        animation: waterfall-down var(--dur, 20s) var(--delay, 0s) linear infinite;
+        will-change: transform;
+      }
+
+      /* Auto Scroll Strip */
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .scroll-strip {
+        animation: scroll-left 30s linear infinite;
+      }
+      .scroll-strip:hover {
+        animation-play-state: paused;
+      }
+
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #B8D085;
+        border-radius: 20px;
+        border: 1px solid #F8FAF5;
+      }
+
+      /* Collaborations logo animation */
+      @keyframes collabEnter {
+        from { opacity: 0; transform: translateY(20px) scale(0.96); }
+        to   { opacity: 1; transform: translateY(0)    scale(1);    }
+      }
+      .collab-card {
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .collab-card.is-animated {
+        animation: collabEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .collab-card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.18),
+          0 0 0 1px rgba(113, 146, 65, 0.25),
+          0 0 24px 4px rgba(113, 146, 65, 0.18);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .collab-card.is-animated {
+          animation: collabEnter 0.3s ease both;
+        }
+        .collab-card:hover {
+          transform: none;
+        }
+      }
+
+      /* GolfTI Card Reveal Animations */
+      @keyframes radarCardGlow {
+        0% { opacity: 0; transform: scale(0.85); filter: blur(4px); }
+        60% { opacity: 1; transform: scale(1.02); filter: blur(0px); }
+        100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+      }
+      .animate-radar-card-glow {
+        animation: radarCardGlow 0.7s ease-out forwards;
+      }
+
+      @keyframes promptPulse {
+        0%, 100% { opacity: 0.5; transform: translateY(0); }
+        50% { opacity: 1; transform: translateY(-2px); }
+      }
+      .animate-prompt-pulse {
+        animation: promptPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes cardStackReveal {
+        0% { opacity: 0; transform: scale(0.7) rotateY(15deg); }
+        50% { opacity: 1; transform: scale(1.05) rotateY(-3deg); }
+        100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+      }
+      .animate-card-stack-reveal {
+        animation: cardStackReveal 0.6s ease-out forwards;
+      }
+
+      @keyframes flashGlow {
+        0% { box-shadow: 0 0 0 0 rgba(113, 146, 65, 0); }
+        30% { box-shadow: 0 0 40px 12px rgba(113, 146, 65, 0.45); }
+        100% { box-shadow: 0 0 0 0 rgba(113, 146, 65, 0); }
+      }
+      .animate-flash-glow {
+        animation: flashGlow 0.8s ease-out forwards;
+      }
+
+      @keyframes swipeHint {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(-6px); }
+      }
+      .animate-swipe-hint {
+        animation: swipeHint 1.5s ease-in-out 2;
+      }
+
+      /* Nudge-left hint animation for first card */
+      @keyframes nudgeLeft {
+        0%, 100% { transform: translateX(0); }
+        15% { transform: translateX(-8px) rotate(-1.5deg); }
+        30% { transform: translateX(0); }
+        45% { transform: translateX(-5px) rotate(-0.8deg); }
+        60% { transform: translateX(0); }
+        75% { transform: translateX(-3px) rotate(-0.4deg); }
+      }
+      .animate-nudge-left {
+        animation: nudgeLeft 1.2s ease-in-out 2;
+      }
+
+      /* Card stack transition for swiping */
+      .card-stack-item {
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.35s ease;
+      }
+
+      /* Background scroll reveal */
+      .bg-scroll-reveal {
+        transition: opacity 0.7s ease-in-out;
+      }
+
+      /* Hero stagger entrance */
+      @keyframes heroFadeIn {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hero-enter {
+        animation: heroFadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      /* Star entrance + continuous glow */
+      @keyframes starEnter {
+        0%   { opacity: 0; transform: scale(0.25) translateY(3px); }
+        65%  { transform: scale(1.22) translateY(-1px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      @keyframes starGlow {
+        0%, 100% { filter: drop-shadow(0 0 1px rgba(168,141,55,0.55)); }
+        50%       { filter: drop-shadow(0 0 5px rgba(204,172,60,0.9)); }
+      }
+      .star-item {
+        display: inline-block;
+        opacity: 0;
+        animation:
+          starEnter 0.42s cubic-bezier(0.16, 1, 0.3, 1) var(--sd, 0s) forwards,
+          starGlow  3s   ease-in-out calc(var(--sd, 0s) + 0.45s) infinite;
+      }
+
+      /* Green glassmorphism card — used on Testimonials and SwingRecord */
+      .glass-green {
+        background: rgba(185, 224, 135, 0.38);
+        backdrop-filter: blur(26px);
+        -webkit-backdrop-filter: blur(26px);
+        border: 1px solid rgba(145, 190, 80, 0.28);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.55),
+          inset 0 -1px 0 rgba(113, 146, 65, 0.08),
+          inset 0 0 28px 10px rgba(232, 243, 216, 0.22);
+        position: relative;
+        overflow: hidden;
+      }
+      .glass-green::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .glass-green::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), transparent, rgba(255, 255, 255, 0.25));
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal, .hero-enter {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* Radar point transition */
+      .radar-data-point {
+        transition: cx 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                    cy 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .radar-data-polygon {
+        transition: d 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.8s ease-out;
+      }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-ghcIQS57.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-IAVbajGb.css">
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>

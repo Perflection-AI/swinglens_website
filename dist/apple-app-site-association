@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "6V93WQ4QGX.com.PerflectionAI.SwingLens"
+        ],
+        "components": [
+          {
+            "/": "/invite/*",
+            "comment": "Student invite landing \u2014 scanned from coach-shared QR"
+          },
+          {
+            "/": "/f/*",
+            "comment": "Feedback share landing - coach-shared feedback link opens the app when installed"
+          }
+        ]
+      }
+    ]
+  }
+}
