@@ -8,7 +8,11 @@
         "components": [
           {
             "/": "/invite/*",
-            "comment": "Student invite landing — scanned from coach-shared QR"
+            "comment": "Student invite landing \u2014 scanned from coach-shared QR"
+          },
+          {
+            "/": "/f/*",
+            "comment": "Feedback share landing - coach-shared feedback link opens the app when installed"
           }
         ]
       }
