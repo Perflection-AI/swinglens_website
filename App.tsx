@@ -16,6 +16,7 @@ import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
 import { InviteLanding } from './components/InviteLanding';
+import { FeedbackLanding } from './components/FeedbackLanding';
 import { getPath } from './utils/paths';
 
 const App: React.FC = () => {
@@ -56,6 +57,8 @@ const App: React.FC = () => {
   const isLeaderboardPage = leaderboardPaths.includes(currentPath);
   // Invite Universal Link landing — identical for everyone, no per-code logic.
   const isInvitePage = currentPath === '/invite' || currentPath.startsWith('/invite/');
+  // Feedback share landing (0905) — /f/{token}, same Universal-Link pattern as /invite.
+  const isFeedbackSharePage = currentPath === '/f' || currentPath.startsWith('/f/');
 
   const isPrivacyPage = appPrivacyPaths.includes(currentPath);
   const isTermsPage = appTermsPaths.includes(currentPath);
@@ -78,6 +81,8 @@ const App: React.FC = () => {
     pageContent = <LeaderboardPage />;
   } else if (isInvitePage) {
     pageContent = <InviteLanding />;
+  } else if (isFeedbackSharePage) {
+    pageContent = <FeedbackLanding />;
   } else if (isPrivacyPage) {
     pageContent = <PrivacyPolicy />;
   } else if (isTermsPage) {
