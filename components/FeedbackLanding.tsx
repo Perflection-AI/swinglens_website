@@ -11,7 +11,10 @@ import { StoreLink } from './StoreLink';
 //
 // Data comes from the backend public endpoint GET {api}/api/public/feedback/{token}.
 // The token is an unguessable 32-hex credential minted per feedback; the endpoint is
-// unauthenticated by design and returns text + one thumbnail only (no video playback).
+// unauthenticated by design and returns the coach's text plus short-lived presigned
+// URLs for the feedback clip. The clip is two files — screen_recording.mp4 has NO audio
+// track, the coach's voice lives in audio.m4a — so playback drives a muted <video> and a
+// hidden <audio> in lockstep (the browser-side twin of the app's FeedbackPlaybackComposer).
 // Any failure (bad token, revoked, deleted feedback) is a single generic "not found"
 // state — the backend deliberately does not distinguish reasons.
 //
@@ -27,7 +30,72 @@ interface PublicFeedback {
   coachName: string | null;
   createdAt: number | null;
   thumbnailUrl: string | null;
+  videoUrl: string | null;
+  audioUrl: string | null;
 }
+
+/**
+ * Plays the feedback clip: a muted <video> (no audio track of its own) kept in lockstep
+ * with a hidden <audio> carrying the coach's voice.
+ *
+ * The video element owns the UI — its native controls drive play/pause, seeking and
+ * volume, and the audio element only follows. Drift beyond DRIFT_TOLERANCE is corrected
+ * on timeupdate; smaller gaps are left alone so we never stutter the audio.
+ */
+const DRIFT_TOLERANCE = 0.25; // seconds
+
+const FeedbackClipPlayer: React.FC<{
+  videoUrl: string;
+  audioUrl: string | null;
+  poster: string | null;
+}> = ({ videoUrl, audioUrl, poster }) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  const syncTime = () => {
+    const video = videoRef.current;
+    const audio = audioRef.current;
+    if (!video || !audio) return;
+    if (Math.abs(audio.currentTime - video.currentTime) > DRIFT_TOLERANCE) {
+      audio.currentTime = video.currentTime;
+    }
+  };
+
+  return (
+    <div className="w-full max-w-sm mb-8">
+      <video
+        ref={videoRef}
+        src={videoUrl}
+        poster={poster ?? undefined}
+        controls
+        playsInline
+        muted
+        preload="metadata"
+        className="w-full rounded-3xl shadow-lg bg-black"
+        style={{ maxHeight: '520px' }}
+        onPlay={() => {
+          syncTime();
+          // Autoplay policies can still reject this; the video keeps playing silently
+          // rather than the whole player dying on an unhandled rejection.
+          audioRef.current?.play().catch(() => undefined);
+        }}
+        onPause={() => audioRef.current?.pause()}
+        onSeeked={syncTime}
+        onTimeUpdate={syncTime}
+        onRateChange={() => {
+          const video = videoRef.current;
+          if (video && audioRef.current) audioRef.current.playbackRate = video.playbackRate;
+        }}
+        onVolumeChange={() => {
+          // The video carries no sound, so its volume slider has to steer the audio track.
+          const video = videoRef.current;
+          if (video && audioRef.current) audioRef.current.volume = video.muted ? 0 : video.volume;
+        }}
+      />
+      {audioUrl && <audio ref={audioRef} src={audioUrl} preload="metadata" />}
+    </div>
+  );
+};
 
 type LoadState =
   | { phase: 'loading' }
@@ -110,14 +178,22 @@ export const FeedbackLanding: React.FC = () => {
 
         {state.phase === 'ready' && (
           <div className="w-full flex flex-col items-center">
-            {state.feedback.thumbnailUrl && (
-              <img
-                src={state.feedback.thumbnailUrl}
-                alt="Swing"
-                className="w-full max-w-sm rounded-3xl shadow-lg mb-8 object-cover"
-                style={{ maxHeight: '420px' }}
-                onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
+            {state.feedback.videoUrl ? (
+              <FeedbackClipPlayer
+                videoUrl={state.feedback.videoUrl}
+                audioUrl={state.feedback.audioUrl}
+                poster={state.feedback.thumbnailUrl}
               />
+            ) : (
+              state.feedback.thumbnailUrl && (
+                <img
+                  src={state.feedback.thumbnailUrl}
+                  alt="Swing"
+                  className="w-full max-w-sm rounded-3xl shadow-lg mb-8 object-cover"
+                  style={{ maxHeight: '420px' }}
+                  onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
+                />
+              )
             )}
 
             {state.feedback.status === 'processing' ? (
