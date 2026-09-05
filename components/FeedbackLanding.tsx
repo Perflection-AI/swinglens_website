@@ -21,7 +21,16 @@ import { StoreLink } from './StoreLink';
 // Local/dev override: append ?api=http://192.168.1.107:7891 to hit a local backend.
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
-const DEFAULT_API_BASE = 'https://api.perflection.site';
+
+// Which backend minted this link. The share URL says so with `?env=`, a **closed set** —
+// the host mapping lives here, so a hand-crafted link cannot point this page at an arbitrary
+// origin the way the older `?api=` override can. Links with neither parameter are prod:
+// that is what the backend emits for prod, and what every link minted before 0905 looks like.
+const API_HOSTS: Record<string, string> = {
+  prod: 'https://api.perflection.site',
+  test: 'https://test-api.perflection.site',
+};
+const DEFAULT_ENV = 'prod';
 
 interface PublicFeedback {
   title: string | null;
@@ -107,9 +116,23 @@ const extractToken = (): string | null => {
   return match ? match[1] : null;
 };
 
+/** `prod` | `test` | `custom` — what backend this link points at. */
+const linkEnv = (): string => {
+  const params = new URLSearchParams(window.location.search);
+  const env = params.get('env');
+  if (env && API_HOSTS[env]) return env;
+  // `?api=` is the pre-0905 form and the escape hatch for local backends (LAN addresses this
+  // page cannot map). Keep honouring it, but label it as custom rather than pretending it is prod.
+  if (params.get('api')) return 'custom';
+  return DEFAULT_ENV;
+};
+
 const apiBase = (): string => {
-  const override = new URLSearchParams(window.location.search).get('api');
-  return (override || DEFAULT_API_BASE).replace(/\/+$/, '');
+  const params = new URLSearchParams(window.location.search);
+  const env = params.get('env');
+  if (env && API_HOSTS[env]) return API_HOSTS[env];
+  const override = params.get('api');
+  return (override || API_HOSTS[DEFAULT_ENV]).replace(/\/+$/, '');
 };
 
 const isIOS = (): boolean =>
@@ -120,7 +143,13 @@ const isIOS = (): boolean =>
 /** Where "Open in SneakySwing" should point. See the comment at the button. */
 const openInAppHref = (): string => {
   const token = extractToken();
-  return isIOS() && token ? `swinglens://f/${token}` : window.location.href;
+  if (!isIOS() || !token) return window.location.href;
+  // Carry the environment across into the app. Without it the app would look this token up on
+  // whatever backend it happens to be pointed at, and a test link opened by a prod build would
+  // read as "feedback not found" instead of "this is a test link".
+  const env = linkEnv();
+  const suffix = env === 'prod' ? '' : `?env=${encodeURIComponent(env)}`;
+  return `swinglens://f/${token}${suffix}`;
 };
 
 export const FeedbackLanding: React.FC = () => {
@@ -156,9 +185,19 @@ export const FeedbackLanding: React.FC = () => {
           className="w-14 h-14 rounded-2xl mb-3"
           onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
         />
-        <p className="text-sm font-semibold tracking-wide text-emerald-700 uppercase mb-8">
+        <p className="text-sm font-semibold tracking-wide text-emerald-700 uppercase mb-3">
           Coach Feedback · SneakySwing
         </p>
+
+        {/* A non-prod link renders identically to a real one, which is how a test link ends up
+            being sent to a real student. Say so, once, above the fold. */}
+        {linkEnv() !== 'prod' && (
+          <p className="mb-6 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-amber-100 text-amber-800">
+            {linkEnv() === 'test' ? 'Test environment' : 'Non-production link'}
+          </p>
+        )}
+
+        <div className="mb-5" />
 
         {state.phase === 'loading' && (
           <p className="text-gray-500 animate-pulse">Loading your coach's feedback…</p>
