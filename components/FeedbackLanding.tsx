@@ -112,6 +112,17 @@ const apiBase = (): string => {
   return (override || DEFAULT_API_BASE).replace(/\/+$/, '');
 };
 
+const isIOS = (): boolean =>
+  /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  // iPadOS 13+ reports itself as a Mac; the touch points give it away.
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+/** Where "Open in SneakySwing" should point. See the comment at the button. */
+const openInAppHref = (): string => {
+  const token = extractToken();
+  return isIOS() && token ? `swinglens://f/${token}` : window.location.href;
+};
+
 export const FeedbackLanding: React.FC = () => {
   const [state, setState] = useState<LoadState>({ phase: 'loading' });
 
@@ -223,10 +234,14 @@ export const FeedbackLanding: React.FC = () => {
             </p>
 
             <div className="flex flex-col items-center gap-4">
-              {/* Universal Link: same URL — if the app is installed iOS opens it natively.
-                  As an in-page button it re-navigates, which re-triggers the UL check. */}
+              {/* On iOS the custom scheme is what actually opens the app: a Universal Link
+                  does NOT fire when it points at the page the user is already on, so the old
+                  same-URL <a> just reloaded. Everywhere else (desktop, Android) there is no app
+                  to open, so keep the https URL — and keep the query string with it, otherwise
+                  a non-prod ?api= override is dropped and the reload asks prod for a token
+                  that only exists on test. */}
               <a
-                href={window.location.href.split('?')[0]}
+                href={openInAppHref()}
                 className="px-8 py-3 rounded-full bg-emerald-700 text-white font-semibold shadow-md"
               >
                 Open in SneakySwing
