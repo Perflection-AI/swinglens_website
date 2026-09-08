@@ -4,6 +4,7 @@ import { Loader2, CheckCircle } from 'lucide-react';
 import { VisibleDotOrbit } from './VisibleDotOrbit';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { DirectAccessSection } from './DirectAccess';
 
 const SERVICE_ID = 'service_c592vbk';
 const TEMPLATE_ID = 'template_sk1mr28'; // "Contact Us - Website" / "New contact request"
@@ -169,6 +170,8 @@ export const ContactPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <DirectAccessSection compact context="contact" />
 
       </main>
       <Footer />

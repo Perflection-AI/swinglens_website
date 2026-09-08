@@ -262,65 +262,6 @@ export const About: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Coffee Chat ── Dark DotOrbit card */}
-        <section className="py-6 sm:py-8 bg-paper">
-          <div className="mx-auto px-3 sm:px-4 max-w-[1400px]">
-            <Reveal>
-              <div className="relative rounded-[2rem] overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                  <VisibleDotOrbit
-                    style={{ width: '100%', height: '100%', display: 'block' }}
-                    colors={['#3d6b40']}
-                    colorBack="#2d4a2a"
-                    stepsPerColor={2}
-                    size={0.18}
-                    sizeRange={0}
-                    spreading={0.35}
-                    speed={1.5}
-                    scale={0.55}
-                  />
-                </div>
-                <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-12 lg:py-16">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-
-                    {/* Left: text */}
-                    <div>
-                      <p className="text-green-light/70 text-[10px] font-bold uppercase tracking-[0.25em] mb-4">Talk to us</p>
-                      <h2
-                        className="font-display font-extrabold text-white leading-[1.06] mb-4"
-                        style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2.25rem)' }}
-                      >
-                        Grab 20 minutes<br />with the founding team.
-                      </h2>
-                      <p className="text-white/70 text-sm leading-[1.7] max-w-[44ch]">
-                        Curious about the product, the research, or the vision? 20 minutes with a founder. No deck, no pitch.
-                      </p>
-                    </div>
-
-                    {/* Right: CTA */}
-                    <div className="flex-shrink-0">
-                      <a
-                        href="https://calendar.app.google/1A7rzrUC7EMm335t9"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex flex-col items-center gap-3 px-10 py-8 rounded-2xl border border-white/[0.10] hover:border-green-light/25 transition-all duration-300"
-                        style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
-                      >
-                        <span className="text-white/60 text-xs tracking-wide">20 min · virtual · free</span>
-                        <span className="mt-1 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-lg bg-green text-white text-sm font-semibold group-hover:brightness-110 transition-all duration-200">
-                          Book now
-                          <span className="w-[14px] h-[14px] rounded-[3px] bg-white/20 inline-grid place-items-center text-xs leading-none">›</span>
-                        </span>
-                      </a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         {/* ── Socials ── follow along */}
         <section className="border-t border-ink/[0.07] py-16 sm:py-24 bg-paper">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
