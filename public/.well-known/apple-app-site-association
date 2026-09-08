@@ -13,6 +13,10 @@
           {
             "/": "/f/*",
             "comment": "Feedback share landing - coach-shared feedback link opens the app when installed"
+          },
+          {
+            "/": "/login/*",
+            "comment": "One-use coach login link"
           }
         ]
       }
