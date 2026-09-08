@@ -18,3 +18,15 @@ View your app in AI Studio: https://ai.studio/apps/drive/1GVLhXMyu4fyXGyNdYhPcxx
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app 
    `npm run dev`
+
+## Stripe Direct Access Links
+
+The Contact page direct-access section uses one-time Stripe Payment Links. Create one Payment Link per tier in Stripe, enable email collection, then set these build-time env vars. Example values live in `.env.example`.
+
+```bash
+VITE_STRIPE_DIRECT_QUICK_QUESTION_URL=
+VITE_STRIPE_DIRECT_TEAM_COFFEE_URL=
+VITE_STRIPE_DIRECT_STRATEGY_URL=
+```
+
+If a link is missing at build time, that tier renders as unavailable instead of falling back to a hardcoded checkout URL.
