@@ -171,7 +171,7 @@ export const ContactPage: React.FC = () => {
           </div>
         </section>
 
-        <DirectAccessSection />
+        <DirectAccessSection compact context="contact" />
 
       </main>
       <Footer />
