@@ -17,6 +17,7 @@ import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
 import { InviteLanding } from './components/InviteLanding';
 import { FeedbackLanding } from './components/FeedbackLanding';
+import { StudentInviteLanding } from './components/StudentInviteLanding';
 import { CoachLoginLanding } from './components/CoachLoginLanding';
 import { getPath } from './utils/paths';
 
@@ -68,7 +69,9 @@ const App: React.FC = () => {
 
   let pageContent: React.ReactNode;
 
-  if (currentPath === '/login' || currentPath.startsWith('/login/')) {
+  if (currentPath === '/student-invite' || currentPath.startsWith('/student-invite/')) {
+    pageContent = <StudentInviteLanding />;
+  } else if (currentPath === '/login' || currentPath.startsWith('/login/')) {
     pageContent = <CoachLoginLanding />;
   } else if (isGolftiPage) {
     pageContent = <GolfTIPage />;

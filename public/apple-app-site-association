@@ -17,6 +17,10 @@
           {
             "/": "/login/*",
             "comment": "One-use coach login link"
+          },
+          {
+            "/": "/student-invite/*",
+            "comment": "Student login and explicit invitation consent"
           }
         ]
       }
