@@ -33,6 +33,7 @@ const API_HOSTS: Record<string, string> = {
 const DEFAULT_ENV = 'prod';
 
 interface PublicFeedback {
+  coachInviteCode?: string | null;
   title: string | null;
   note4student: string | null;
   status: string | null;
@@ -272,6 +273,11 @@ export const FeedbackLanding: React.FC = () => {
                 : ''}
             </p>
 
+            {state.feedback.coachInviteCode && (
+              <p className="text-sm text-gray-700 mb-6">
+                After installing, enter invite code <strong>{state.feedback.coachInviteCode}</strong> on the Coach page to connect.
+              </p>
+            )}
             <div className="flex flex-col items-center gap-4">
               {/* On iOS the custom scheme is what actually opens the app: a Universal Link
                   does NOT fire when it points at the page the user is already on, so the old
