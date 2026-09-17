@@ -33,6 +33,8 @@ const API_HOSTS: Record<string, string> = {
 const DEFAULT_ENV = 'prod';
 
 interface PublicFeedback {
+  /** Set when the link shares a library video rather than a feedback: videoUrl is that video, sound included. */
+  videoId?: string | null;
   coachInviteCode?: string | null;
   title: string | null;
   note4student: string | null;
@@ -79,7 +81,8 @@ const FeedbackClipPlayer: React.FC<{
         poster={poster ?? undefined}
         controls
         playsInline
-        muted
+        // A feedback clip has no audio track (the voice is the separate file); a shared video has its own.
+        muted={!!audioUrl}
         preload="metadata"
         className="w-full rounded-3xl shadow-lg bg-black"
         style={{ maxHeight: '520px' }}
@@ -187,7 +190,7 @@ export const FeedbackLanding: React.FC = () => {
           onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')}
         />
         <p className="text-sm font-semibold tracking-wide text-emerald-700 uppercase mb-3">
-          Coach Feedback · SneakySwing
+          {state.phase === 'ready' && state.feedback.videoId ? 'Coach Video' : 'Coach Feedback'} · SneakySwing
         </p>
 
         {/* A non-prod link renders identically to a real one, which is how a test link ends up
@@ -305,7 +308,9 @@ export const FeedbackLanding: React.FC = () => {
                 Download on the App Store
               </StoreLink>
               <p className="text-xs text-gray-400 max-w-xs">
-                Watch the full video feedback with your coach's voice-over inside the app.
+                {state.feedback.videoId
+                  ? 'Keep this video and everything else from your coach inside the app.'
+                  : "Watch the full video feedback with your coach's voice-over inside the app."}
               </p>
             </div>
           </div>
