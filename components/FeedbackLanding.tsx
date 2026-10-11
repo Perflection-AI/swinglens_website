@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StoreLink } from './StoreLink';
+import { WeChatOpenInBrowser } from './WeChatOpenInBrowser';
 import { fetchShared, linkEnv, PublicFeedback } from '../utils/shareApi';
 
 // Feedback share landing — /f/{token} (0905 "Feedback Web Share Landing").
@@ -69,6 +70,7 @@ export const FeedbackLanding: React.FC = () => {
       style={{ background: 'linear-gradient(160deg,#F8FAF5 0%,#E8F3D8 100%)' }}
     >
       <div className="w-full max-w-xl flex flex-col items-center text-center">
+      <WeChatOpenInBrowser />
         <img
           src="/assets/sneakyswing.png"
           alt="SneakySwing"
@@ -158,11 +160,24 @@ export const FeedbackLanding: React.FC = () => {
                 : ''}
             </p>
 
-            {state.feedback.coachInviteCode && (
-              <p className="text-sm text-gray-700 mb-6">
-                After installing, enter invite code <strong>{state.feedback.coachInviteCode}</strong> on the Coach page to connect.
+            {/* The app stashes this link while logged out and claims it right after sign-up, but
+                only if the link reaches the app: a fresh App Store install starts without it, so
+                the student has to come back here and tap Open once more. Entering the invite code
+                alone connects the coach without claiming this item. */}
+            <div className="w-full text-left text-sm text-gray-700 bg-white/70 rounded-2xl px-5 py-4 mb-6">
+              <p className="font-semibold text-gray-900 mb-2">No account yet?</p>
+              <ol className="list-decimal pl-5 space-y-1">
+                <li>Download SneakySwing from the App Store.</li>
+                <li>Come back to this page and tap <strong>Open in SneakySwing</strong>.</li>
+                <li>Sign up in the app. This {state.feedback.videoId ? 'video' : 'feedback'} is added to your account right after.</li>
+              </ol>
+              <p className="text-xs text-gray-500 mt-2">
+                Opened in WeChat? Choose "Open in Safari" from the ··· menu first.
+                {state.feedback.coachInviteCode && (
+                  <> Your coach's invite code is <strong>{state.feedback.coachInviteCode}</strong>.</>
+                )}
               </p>
-            )}
+            </div>
             <div className="flex flex-col items-center gap-4">
               {/* On iOS the custom scheme is what actually opens the app: a Universal Link
                   does NOT fire when it points at the page the user is already on, so the old

@@ -40,3 +40,13 @@ export const getInAppBrowserName = (): string => {
   if (isTikTokInApp()) return 'TikTok';
   return 'This app';
 };
+
+/**
+ * WeChat's built-in browser blocks custom schemes (swinglens://) and never fires Universal Links,
+ * so an "Open in app" button there does nothing. Kept out of isInAppBrowser(): none of StoreLink's
+ * escapes work in WeChat either; the landing pages cover it with WeChatOpenInBrowser instead.
+ */
+export const isWeChat = (): boolean => {
+  if (typeof navigator === 'undefined') return false;
+  return /MicroMessenger/i.test(navigator.userAgent);
+};

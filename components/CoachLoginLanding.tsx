@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { WeChatOpenInBrowser } from './WeChatOpenInBrowser';
 
 /** Never exchanges or consumes the token in the browser: the installed app owns login. */
 export const CoachLoginLanding: React.FC = () => {
@@ -12,6 +13,7 @@ export const CoachLoginLanding: React.FC = () => {
   }, [valid, appLink]);
   return (
     <main className="min-h-screen bg-paper flex items-center justify-center p-6">
+      <WeChatOpenInBrowser />
       <section className="max-w-md text-center space-y-6">
         <h1 className="text-3xl font-bold">Your coach account</h1>
         <p>{valid ? 'Open the app to sign in with your one-use login link.' : 'This login link is incomplete. Use the full link from your account email.'}</p>

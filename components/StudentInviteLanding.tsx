@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { envQuery, fetchShared, linkEnv, PublicFeedback } from '../utils/shareApi';
+import { WeChatOpenInBrowser } from './WeChatOpenInBrowser';
 
 /** An email preview never redeems a login token or accepts a coaching relationship. */
 
@@ -71,6 +72,7 @@ export const StudentInviteLanding: React.FC = () => {
   }, []);
 
   return <main className="min-h-screen bg-paper flex items-center justify-center p-6">
+    <WeChatOpenInBrowser />
     <section className="max-w-md text-center space-y-6">
       <h1 className="text-3xl font-bold">{coach ? `Coach ${coach} invited you` : 'Your coach invitation'}</h1>
       {/* A non-prod link looks exactly like a real one — say so before anything else. */}
