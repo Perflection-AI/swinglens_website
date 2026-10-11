@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StoreLink } from './StoreLink';
+import { WeChatOpenInBrowser } from './WeChatOpenInBrowser';
 import { fetchShared, linkEnv, PublicFeedback } from '../utils/shareApi';
 
 // Feedback share landing — /f/{token} (0905 "Feedback Web Share Landing").
@@ -69,6 +70,7 @@ export const FeedbackLanding: React.FC = () => {
       style={{ background: 'linear-gradient(160deg,#F8FAF5 0%,#E8F3D8 100%)' }}
     >
       <div className="w-full max-w-xl flex flex-col items-center text-center">
+      <WeChatOpenInBrowser />
         <img
           src="/assets/sneakyswing.png"
           alt="SneakySwing"
