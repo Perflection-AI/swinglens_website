@@ -112,7 +112,8 @@ export const TermsAndConditionsContent: React.FC = () => {
           </li>
           <li>
             Payments for coach reviews are processed by Stripe and go to the coach&apos;s own Stripe
-            account. Perflection.AI, Inc. keeps a platform fee, currently 10% of the review price.
+            account. Perflection.AI, Inc. keeps a platform fee from each paid review. The fee comes
+            out of the coach&apos;s earnings and does not change the price you pay.
           </li>
           <li>
             Paying a coach does not buy or unlock App memberships, credits, or other digital products
