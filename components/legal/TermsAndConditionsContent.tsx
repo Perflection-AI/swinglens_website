@@ -75,8 +75,9 @@ export const TermsAndConditionsContent: React.FC = () => {
         </p>
         <ul className="list-disc space-y-2 pl-6 text-subtle">
           <li>
-            Payment, billing, refunds, and subscription management are handled by Apple under the
-            App Store terms and your Apple account settings.
+            For memberships and credits bought through Apple In-App Purchase, payment, billing,
+            refunds, and subscription management are handled by Apple under the App Store terms and
+            your Apple account settings.
           </li>
           <li>
             Subscriptions renew automatically unless canceled through your App Store subscription
@@ -98,8 +99,46 @@ export const TermsAndConditionsContent: React.FC = () => {
         </ul>
       </section>
 
+      <section id="coach-reviews" className="mb-8">
+        <h2 className="text-2xl font-display font-bold text-ink">6. Paid Coach Reviews</h2>
+        <p className="text-subtle">
+          Coaches on SneakySwing are independent golf instructors, not employees or agents of
+          Perflection.AI, Inc. A coach may review your videos for free or set a price per review.
+        </p>
+        <ul className="list-disc space-y-2 pl-6 text-subtle">
+          <li>
+            When you pay for a review, you are buying it from that coach, and the coach is
+            responsible for the instruction they provide.
+          </li>
+          <li>
+            Payments for coach reviews are processed by Stripe and go to the coach&apos;s own Stripe
+            account. Perflection.AI, Inc. keeps a platform fee from each paid review. The fee comes
+            out of the coach&apos;s earnings and does not change the price you pay.
+          </li>
+          <li>
+            Paying a coach does not buy or unlock App memberships, credits, or other digital products
+            sold through Apple In-App Purchase.
+          </li>
+          <li>
+            Coaches who accept payments must complete Stripe&apos;s identity verification, agree to
+            Stripe&apos;s Connected Account Agreement, and are responsible for any taxes on their
+            earnings.
+          </li>
+          <li>
+            If a paid review is not delivered, or you have a problem with one, contact{' '}
+            <a
+              href="mailto:operation@perflection.ai"
+              className="font-bold text-green hover:text-ink"
+            >
+              operation@perflection.ai
+            </a>
+            . We will look into it and may issue a refund where appropriate.
+          </li>
+        </ul>
+      </section>
+
       <section id="license" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">6. App License and Intellectual Property</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">7. App License and Intellectual Property</h2>
         <p className="text-subtle">
           Subject to these terms, we grant you a limited, revocable, non-exclusive,
           non-transferable license to use the App on Apple-branded devices that you own or control,
@@ -117,7 +156,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="termination" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">7. Suspension and Termination</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">8. Suspension and Termination</h2>
         <p className="text-subtle">
           We may suspend or terminate access to the App if we reasonably believe you have violated
           these terms, used the App in a harmful or unlawful way, or created risk for other users,
@@ -126,7 +165,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="disclaimer" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">8. Disclaimer of Warranties</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">9. Disclaimer of Warranties</h2>
         <p className="text-subtle">
           To the fullest extent permitted by law, the App is provided "as is" and "as available."
           We do not guarantee uninterrupted availability, error-free operation, or that the App&apos;s
@@ -135,7 +174,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="liability" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">9. Limitation of Liability</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">10. Limitation of Liability</h2>
         <p className="text-subtle">
           To the fullest extent permitted by law, Perflection.AI, Inc. and its affiliates,
           officers, employees, licensors, and service providers will not be liable for indirect,
@@ -147,7 +186,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="law" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">10. Governing Law</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">11. Governing Law</h2>
         <p className="text-subtle">
           These terms are governed by the laws of the State of Delaware, without regard to conflict
           of law principles, except where mandatory law in your jurisdiction requires otherwise.
@@ -155,7 +194,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="changes" className="mb-8">
-        <h2 className="text-2xl font-display font-bold text-ink">11. Changes to the App or Terms</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">12. Changes to the App or Terms</h2>
         <p className="text-subtle">
           We may update the App and these terms from time to time. If we make material changes, we
           will post the updated terms and revise the "Last updated" date above.
@@ -163,7 +202,7 @@ export const TermsAndConditionsContent: React.FC = () => {
       </section>
 
       <section id="contact">
-        <h2 className="text-2xl font-display font-bold text-ink">12. Contact</h2>
+        <h2 className="text-2xl font-display font-bold text-ink">13. Contact</h2>
         <p className="text-subtle">
           Questions about these terms can be sent to{' '}
           <a

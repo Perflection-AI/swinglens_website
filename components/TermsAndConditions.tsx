@@ -16,7 +16,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({ variant 
     <LegalDocumentLayout
       eyebrow="SneakySwing App Legal Page"
       title="Terms and Conditions"
-      lastUpdated="March 18, 2026"
+      lastUpdated="November 5, 2026"
       summary="These Terms and Conditions govern the SneakySwing iOS app offered by Perflection.AI, Inc. They are written for the app only and do not include unrelated website marketplace, community, advertising, or shipping terms."
       backLink={variant === 'website' ? { href: '/', label: 'Back to Home' } : undefined}
     >
