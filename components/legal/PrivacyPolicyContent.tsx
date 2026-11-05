@@ -9,7 +9,8 @@ export const PrivacyPolicyContent: React.FC = () => {
           Perflection.AI, Inc. ("we," "us," or "our") provides the SneakySwing mobile app (the
           "App"). This policy explains how we collect, use, disclose, and protect information when
           you create an account, record or upload golf swing videos, receive motion or AI analysis,
-          share reports with a coach, purchase digital entitlements in the App, or contact support.
+          share reports with a coach, pay a coach for a review or receive payouts as a coach, purchase
+          digital entitlements in the App, or contact support.
         </p>
         <p className="text-subtle">
           Questions or privacy requests can be sent to{' '}
@@ -62,8 +63,18 @@ export const PrivacyPolicyContent: React.FC = () => {
             restore status for digital purchases made through Apple In-App Purchase.
           </li>
           <li>
+            If you pay a coach for a review, Stripe collects your payment details directly. We receive
+            limited information from Stripe, such as the amount, currency, payment status, and order
+            identifiers.
+          </li>
+          <li>
+            If you are a coach and set up payouts, Stripe collects your identity and bank details on
+            its own pages. The App does not collect them. We receive your payout account status and
+            store the review price you set.
+          </li>
+          <li>
             We do not collect, receive, or store your full payment card number or security code.
-            Apple processes billing for in-app purchases.
+            Apple processes billing for in-app purchases, and Stripe processes payments to coaches.
           </li>
         </ul>
 
@@ -98,6 +109,7 @@ export const PrivacyPolicyContent: React.FC = () => {
           <li>To store, sync, and display your videos, reports, and coach-sharing activity.</li>
           <li>To generate motion metrics and AI-powered swing analysis.</li>
           <li>To process and restore Apple In-App Purchases and keep your entitlement status in sync.</li>
+          <li>To process payments to coaches, handle refunds, and keep payment records.</li>
           <li>To send service-related push notifications and respond to support requests.</li>
           <li>To detect fraud, protect the App, and troubleshoot crashes or performance issues.</li>
           <li>To understand product usage and improve App quality and user experience.</li>
@@ -129,18 +141,27 @@ export const PrivacyPolicyContent: React.FC = () => {
             generation, and delivery of App features.
           </li>
           <li>
+            <strong>Stripe:</strong> for payments to coaches, coach identity verification, and coach
+            payouts. Stripe handles this information under its own privacy policy.
+          </li>
+          <li>
             <strong>PostHog:</strong> for product analytics about App usage. We use PostHog to
             understand feature usage and quality, not for targeted advertising.
           </li>
           <li>
             <strong>Coaches you choose to work with:</strong> when you explicitly share reports or
-            related content inside the App.
+            related content inside the App, and payment details such as the amount and date when you
+            pay them for a review.
           </li>
           <li>
             <strong>Legal and safety reasons:</strong> if required by law, court order, or to
             protect users, the App, or our company.
           </li>
         </ul>
+        <p className="text-subtle">
+          Our service providers listed above must protect personal information with the same or
+          equal protection described in this policy.
+        </p>
         <p className="text-subtle">
           We do not sell personal information to data brokers. We do not share App data with data
           brokers. We do not link data collected from the App with third-party data for
@@ -182,9 +203,11 @@ export const PrivacyPolicyContent: React.FC = () => {
         <p className="text-subtle">
           We keep information for as long as your account is active or as needed to provide the
           App, maintain entitlement records, resolve disputes, enforce agreements, and comply with
-          legal obligations. If you request account deletion, we will delete or de-identify your
-          information within a reasonable period, except where retention is legally required or
-          necessary for security, fraud prevention, or financial recordkeeping.
+          legal obligations. You can delete your account in the App under Settings &gt; Delete
+          Account, or by contacting us. When you delete your account, we will delete or de-identify
+          your information within a reasonable period, except where retention is legally required or
+          necessary for security, fraud prevention, or financial recordkeeping, such as records of
+          payments to coaches.
         </p>
       </section>
 
@@ -197,6 +220,7 @@ export const PrivacyPolicyContent: React.FC = () => {
             You can manage or cancel subscriptions through the App Store and use the App&apos;s restore
             purchases flow when available.
           </li>
+          <li>You can delete your account at any time in the App under Settings &gt; Delete Account.</li>
           <li>
             You can request access, correction, or deletion by contacting{' '}
             <a
