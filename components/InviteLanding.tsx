@@ -18,7 +18,7 @@ import { StoreLink } from './StoreLink';
 //
 // See docs/Franklin_doc/0726_Invite_Sharing.html §C (Website track).
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20invite%20page&mt=8';
 
 // User-agent signatures of in-app / social webviews that swallow Universal Links.
 const IN_APP_BROWSER_RE =
