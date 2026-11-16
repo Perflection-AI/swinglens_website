@@ -1,4 +1,4 @@
-export const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+export const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20website&mt=8';
 export const MAX_FILE_SIZE = 18 * 1024 * 1024;
 export const ACCEPTED_TYPES = ['video/mp4', 'video/quicktime', 'video/webm'];
 
