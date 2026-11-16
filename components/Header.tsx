@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getBasePath, getPath } from '../utils/paths';
 import { StoreLink } from './StoreLink';
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20website&mt=8';
 
 export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
