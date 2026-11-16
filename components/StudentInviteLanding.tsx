@@ -87,7 +87,7 @@ export const StudentInviteLanding: React.FC = () => {
       </div>}
       {valid && <a className="block rounded-xl bg-emerald-700 p-4 text-white" href={appLink}>Review in the app</a>}
       <p>Signing in does not accept the invitation. You can also sign in normally or register with the invited email, then open Coach invitations.</p>
-      <a className="block underline" href="https://apps.apple.com/app/id6754829630" referrerPolicy="no-referrer">Download on the App Store</a>
+      <a className="block underline" href="https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20invite%20page&mt=8" referrerPolicy="no-referrer">Download on the App Store</a>
     </section>
   </main>;
 };

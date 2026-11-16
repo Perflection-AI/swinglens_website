@@ -21,7 +21,7 @@ import { fetchShared, linkEnv, PublicFeedback } from '../utils/shareApi';
 //
 // Local/dev override: append ?api=http://192.168.1.107:7891 to hit a local backend.
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20feedback%20page&mt=8';
 
 type LoadState =
   | { phase: 'loading' }
