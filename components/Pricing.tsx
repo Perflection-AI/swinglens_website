@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/sneakyswing-golf-copilot/id6754829630';
+const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6754829630?pt=127675982&ct=perflection.ai%20website&mt=8';
 
 export const Pricing: React.FC = () => {
   return (
